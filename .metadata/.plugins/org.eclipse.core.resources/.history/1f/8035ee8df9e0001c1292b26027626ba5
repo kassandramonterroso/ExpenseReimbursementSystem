@@ -2,7 +2,6 @@ package service;
 
 import dao.EmployeeDao;
 import dao.EmployeeDaoImpl;
-import exception.ApplicationException;
 import model.EmployeePojo;
 
 public class EmployeeServiceImpl implements EmployeeService{
@@ -35,17 +34,17 @@ public class EmployeeServiceImpl implements EmployeeService{
 	}
 
 	@Override
-	public EmployeePojo empViewInfo(EmployeePojo employeePojo) throws ApplicationException{
+	public EmployeePojo empViewInfo(EmployeePojo employeePojo) {
 		return employeeDao.empViewInfo(employeePojo);
 	}
 
 	@Override
-	public EmployeePojo empUpdateInfo(EmployeePojo employeePojo) throws ApplicationException{
+	public EmployeePojo empUpdateInfo(EmployeePojo employeePojo) {
 		return employeeDao.empUpdateInfo(employeePojo);
 	}
 
 	@Override
-	public EmployeePojo manViewAll(EmployeePojo employeePojo) throws ApplicationException{
+	public EmployeePojo manViewAll(EmployeePojo employeePojo) {
 		return employeeDao.manViewAll(employeePojo);
 	}
 

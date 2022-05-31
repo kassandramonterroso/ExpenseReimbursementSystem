@@ -1,5 +1,6 @@
 package service;
 
+import exception.ApplicationException;
 import model.ReimbursementPojo;
 
 public interface ReimbursementService {
@@ -11,19 +12,19 @@ public interface ReimbursementService {
 	ReimbursementPojo manUpdateRequest(ReimbursementPojo reimbursementPojo);
 	
 	//Method for employee to view their pending reimbursement requests
-	ReimbursementPojo empViewPending(ReimbursementPojo reimbursementPojo);
+	ReimbursementPojo empViewPending(ReimbursementPojo reimbursementPojo) throws ApplicationException;
 	
 	//Method for employee to view their resolved reimbursement requests
-	ReimbursementPojo empViewResolved(ReimbursementPojo reimbursementPojo);
+	ReimbursementPojo empViewResolved(ReimbursementPojo reimbursementPojo) throws ApplicationException;
 	
 	//Method for manager to view all pending request of all employees
-	ReimbursementPojo manViewAllPending(ReimbursementPojo reimbursementPojo);
+	ReimbursementPojo manViewAllPending(ReimbursementPojo reimbursementPojo) throws ApplicationException;
 	
 	//Method for manager to view all resolved request of all employees
-	ReimbursementPojo manViewAllResolved(ReimbursementPojo reimbursementPojo);
+	ReimbursementPojo manViewAllResolved(ReimbursementPojo reimbursementPojo) throws ApplicationException;
 	
 	//Method for manager to view reimbursement request of a specific employee
-	ReimbursementPojo manViewRequest(ReimbursementPojo reimbursementPojo);
+	ReimbursementPojo manViewRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException;
 	
 
 }

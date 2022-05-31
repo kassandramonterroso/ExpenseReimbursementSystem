@@ -2,7 +2,6 @@ package service;
 
 import dao.ReimbursementDao;
 import dao.ReimbursementDaoImpl;
-import exception.ApplicationException;
 import model.ReimbursementPojo;
 
 public class ReimbursementServiceImpl implements ReimbursementService{
@@ -25,27 +24,27 @@ public class ReimbursementServiceImpl implements ReimbursementService{
 	}
 
 	@Override
-	public ReimbursementPojo empViewPending(ReimbursementPojo reimbursementPojo) throws ApplicationException{
+	public ReimbursementPojo empViewPending(ReimbursementPojo reimbursementPojo) {
 		return reimbursementDao.empViewPending(reimbursementPojo);
 	}
 
 	@Override
-	public ReimbursementPojo empViewResolved(ReimbursementPojo reimbursementPojo) throws ApplicationException{
+	public ReimbursementPojo empViewResolved(ReimbursementPojo reimbursementPojo) {
 		return reimbursementDao.empViewResolved(reimbursementPojo);
 	}
 
 	@Override
-	public ReimbursementPojo manViewAllPending(ReimbursementPojo reimbursementPojo) throws ApplicationException{
+	public ReimbursementPojo manViewAllPending(ReimbursementPojo reimbursementPojo) {
 		return reimbursementDao.manViewAllPending(reimbursementPojo);
 	}
 
 	@Override
-	public ReimbursementPojo manViewAllResolved(ReimbursementPojo reimbursementPojo) throws ApplicationException{
+	public ReimbursementPojo manViewAllResolved(ReimbursementPojo reimbursementPojo) {
 		return reimbursementDao.manViewAllResolved(reimbursementPojo);
 	}
 
 	@Override
-	public ReimbursementPojo manViewRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException{
+	public ReimbursementPojo manViewRequest(ReimbursementPojo reimbursementPojo) {
 		return reimbursementDao.manViewRequest(reimbursementPojo);
 	}
 

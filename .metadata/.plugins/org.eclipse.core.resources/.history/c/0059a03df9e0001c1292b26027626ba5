@@ -35,7 +35,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	@Override
-	public EmployeePojo empViewInfo(EmployeePojo employeePojo) throws ApplicationException{
+	public EmployeePojo empViewInfo(EmployeePojo employeePojo) {
 		//LOG.info("Entered empViewInfo() in Dao...");
 				Connection connect = null;
 				//EmployeePojo employeePojo = new EmployeePojo();
@@ -48,14 +48,14 @@ public class EmployeeDaoImpl implements EmployeeDao {
 						employeePojo = new EmployeePojo(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getString(5), resultSet.getInt(6));
 					}
 				} catch (SQLException e) {
-					throw new ApplicationException(e.getMessage());
+					throw new ApplicationException();
 				}
 				//LOG.info("Exited empViewInfo() in Dao...");
 				return employeePojo;
 	}
 
 	@Override
-	public EmployeePojo empUpdateInfo(EmployeePojo employeePojo) throws ApplicationException{
+	public EmployeePojo empUpdateInfo(EmployeePojo employeePojo) {
 		//LOG.info("Entered empUpdateInfo() in Dao...");
 				Connection connect = null;
 				try {
@@ -72,14 +72,14 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
 				} catch (SQLException e) {
 					e.printStackTrace();
-					throw new ApplicationException(e.getMessage());
+					throw new ApplicationException();
 				}
 				//LOG.info("Exited empUpdateInfo() in Dao...");
 				return employeePojo;
 	}
 
 	@Override
-	public EmployeePojo manViewAll(EmployeePojo employeePojo) throws ApplicationException{
+	public EmployeePojo manViewAll(EmployeePojo employeePojo) {
 		//LOG.info("Entered manViewAll() in Dao...");
 				Connection connect = null;
 				//EmployeePojo employeePojo = new EmployeePojo();
@@ -92,7 +92,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 						employeePojo = new EmployeePojo(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getString(5), resultSet.getInt(6));
 					}
 				} catch (SQLException e) {
-					throw new ApplicationException(e.getMessage());
+					throw new ApplicationException();
 				}
 						//LOG.info("Exited manViewAll() in Dao...");
 				return employeePojo;
