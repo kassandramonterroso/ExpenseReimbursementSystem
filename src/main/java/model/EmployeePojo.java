@@ -10,7 +10,7 @@ public class EmployeePojo {
 	String empFirstName;
 	String empLastName;
 	String empUserName;
-	String empPassword;
+	String empHashedPassword;
 	int empRoleId;
 	public int getEmpId() {
 		return empId;
@@ -37,10 +37,10 @@ public class EmployeePojo {
 		this.empUserName = empUserName;
 	}
 	public String getEmpPassword() {
-		return empPassword;
+		return empHashedPassword;
 	}
 	public void setEmpPassword(String empPassword) {
-		this.empPassword = empPassword;
+		this.empHashedPassword = empPassword;
 	}
 	public int getEmpRoleId() {
 		return empRoleId;
@@ -55,13 +55,13 @@ public class EmployeePojo {
 		this.empFirstName = empFirstName;
 		this.empLastName = empLastName;
 		this.empUserName = empUserName;
-		this.empPassword = empPassword;
+		this.empHashedPassword = empPassword;
 		this.empRoleId = empRoleId;
 	}
 	@Override
 	public String toString() {
 		return "EmployeePojo [empId=" + empId + ", empFirstName=" + empFirstName + ", empLastName=" + empLastName
-				+ ", empUserName=" + empUserName + ", empPassword=" + empPassword + ", empRoleId=" + empRoleId + "]";
+				+ ", empUserName=" + empUserName + ", empPassword=" + empHashedPassword + ", empRoleId=" + empRoleId + "]";
 	}
 	@Override
 	public int hashCode() {
@@ -70,7 +70,7 @@ public class EmployeePojo {
 		result = prime * result + ((empFirstName == null) ? 0 : empFirstName.hashCode());
 		result = prime * result + empId;
 		result = prime * result + ((empLastName == null) ? 0 : empLastName.hashCode());
-		result = prime * result + ((empPassword == null) ? 0 : empPassword.hashCode());
+		result = prime * result + ((empHashedPassword == null) ? 0 : empHashedPassword.hashCode());
 		result = prime * result + empRoleId;
 		result = prime * result + ((empUserName == null) ? 0 : empUserName.hashCode());
 		return result;
@@ -96,10 +96,10 @@ public class EmployeePojo {
 				return false;
 		} else if (!empLastName.equals(other.empLastName))
 			return false;
-		if (empPassword == null) {
-			if (other.empPassword != null)
+		if (empHashedPassword == null) {
+			if (other.empHashedPassword != null)
 				return false;
-		} else if (!empPassword.equals(other.empPassword))
+		} else if (!empHashedPassword.equals(other.empHashedPassword))
 			return false;
 		if (empRoleId != other.empRoleId)
 			return false;
