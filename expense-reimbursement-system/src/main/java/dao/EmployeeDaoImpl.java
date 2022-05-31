@@ -48,7 +48,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 						employeePojo = new EmployeePojo(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getString(5), resultSet.getInt(6));
 					}
 				} catch (SQLException e) {
-					throw new SystemException();
+					throw new ApplicationException();
 				}
 				//LOG.info("Exited empViewInfo() in Dao...");
 				return employeePojo;
@@ -99,4 +99,4 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			}
 	}
 
-}
+

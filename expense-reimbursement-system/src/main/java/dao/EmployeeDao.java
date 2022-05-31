@@ -1,5 +1,6 @@
 package dao;
 
+import exception.ApplicationException;
 import model.EmployeePojo;
 
 public interface EmployeeDao {
@@ -17,12 +18,12 @@ public interface EmployeeDao {
 		EmployeePojo manLogout(EmployeePojo employeePojo);
 		
 		//Method for employee to view their information
-		EmployeePojo empViewInfo(EmployeePojo employeePojo);
+		EmployeePojo empViewInfo(EmployeePojo employeePojo) throws ApplicationException;
 		
 		//Method for employee to update their information
-		EmployeePojo empUpdateInfo(EmployeePojo employeePojo);
+		EmployeePojo empUpdateInfo(EmployeePojo employeePojo) throws ApplicationException;
 		
 		//Method for manager to view all employees
-		EmployeePojo manViewAll(EmployeePojo employeePojo);
+		EmployeePojo manViewAll(EmployeePojo employeePojo) throws ApplicationException;
 
 }
