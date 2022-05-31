@@ -5,17 +5,11 @@ import model.EmployeePojo;
 
 public interface EmployeeService {
 	
-	//Method for employee login
-	EmployeePojo empLogin(EmployeePojo employeePojo);
+	//Method for login
+	EmployeePojo login(String username, String password);
 	
-	//Method for manager login
-	EmployeePojo manLogin(EmployeePojo employeePojo);
-	
-	//Method for employee logout
-	EmployeePojo empLogout(EmployeePojo employeePojo);
-	
-	//Method for manager logout
-	EmployeePojo manLogout(EmployeePojo employeePojo);
+	//Method for logout
+	EmployeePojo logout(EmployeePojo employeePojo);
 	
 	//Method for employee to view their information
 	EmployeePojo empViewInfo(EmployeePojo employeePojo) throws ApplicationException;
