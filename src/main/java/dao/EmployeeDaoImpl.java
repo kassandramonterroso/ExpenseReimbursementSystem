@@ -119,7 +119,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 				try {
 					connect = DBUtil.dbConnection();
 					Statement stmt = connect.createStatement();
-					String query = "SELECT e.emp_id,  e.first_name, e.last_name, r.reimb_id , s.status FROM employees e JOIN reimbursements r ON e.emp_id = r.requester_id JOIN status s ON r.reimb_status_id = s.status_id";
+					String query = "SELECT e.emp_id,  e.first_name, e.last_name, r.reimb_id ,r.reimb_amt, s.status FROM employees e JOIN reimbursements r ON e.emp_id = r.requester_id JOIN status s ON r.reimb_status_id = s.status_id";
 					ResultSet resultSet = stmt.executeQuery(query);
 					if(resultSet.next()) {
 						employeePojo = new EmployeePojo(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getString(5), resultSet.getInt(6));
