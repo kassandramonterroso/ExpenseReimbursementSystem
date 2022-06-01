@@ -1,9 +1,15 @@
+
 import java.util.List;
 
 import io.javalin.Javalin;
 import service.EmployeeService;
 import model.EmployeePojo;
 import model.ReimbursementPojo;
+
+import exception.ApplicationException;
+import io.javalin.Javalin;
+import model.EmployeePojo;
+
 import service.EmployeeServiceImpl;
 import service.ReimbursementService;
 import service.ReimbursementServiceImpl;
@@ -16,7 +22,7 @@ public class ExpenseCrud {
 		//create service object to call
 		EmployeeServiceImpl service = new EmployeeServiceImpl(); 
 		Javalin app = Javalin.create((config) -> config.enableCorsForAllOrigins());
-		app.start(8080);
+		app.start(8082);
         app.get("/", (ctx) ->{
         	System.out.println("/ route hit");
         	ctx.result("Hello World");
@@ -28,17 +34,35 @@ public class ExpenseCrud {
         //lets create other endpoints
         
         //CRUD 
+
         // login
         app.post("/login", (ctx)->{
+
+        //read all books
+        // /books
+        app.post("/login/{username}/{password}", (ctx)->{
+
         	System.out.println("post rout");
-        	String username = ctx.formParam("username");
-        	String password = ctx.formParam("password");
-        	System.out.println(username + password);
-        	System.out.println(service.login(username, password));
-        	//here we contact service service contacts dao and returns all books
-        	//List<BookPojo> allBooks = service.getAllBooks();
-//        	ctx.json(allBooks);
-        	ctx.result("post Sucess");
+        	
+        	String username = ctx.pathParam("username");
+        	String password = ctx.pathParam("password");
+        	
+        	
+        	try {
+        		EmployeePojo info =service.login(username, password);
+            	//here we contact service service contacts dao and returns all books
+            	//List<BookPojo> allBooks = service.getAllBooks();
+//            	ctx.json(allBooks);
+        		if (info == null) {
+        			throw new ApplicationException("invalid username or password");
+        		}
+            	ctx.json(info);
+            	
+        	} catch(ApplicationException e) {
+        		
+        		ctx.json(e);
+        	}
+        	
         });
         
         //endpoint manager can view all employees
