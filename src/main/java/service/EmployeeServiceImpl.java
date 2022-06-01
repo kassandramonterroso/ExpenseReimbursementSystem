@@ -30,8 +30,6 @@ public class EmployeeServiceImpl implements EmployeeService{
 			throw new ApplicationException(e.getLocalizedMessage());
 		}
 
-		return null;
-
 		
 
 	}
@@ -45,11 +43,18 @@ public class EmployeeServiceImpl implements EmployeeService{
 	}
 
 	@Override
-	public EmployeePojo empUpdateInfo(EmployeePojo employeePojo) throws ApplicationException{
+	public EmployeePojo empUpdateInfo(EmployeePojo employeePojo, String currPassword) throws ApplicationException{
 		//logger.info("Entered empUpdateInfo() in service.");
-		EmployeePojo returnEmployeePojo = this.employeeDao.empUpdateInfo(employeePojo);
+		Boolean checkPassword = employeeDao.checkPass(currPassword, employeePojo.getEmpPassword());
+		if (checkPassword == true) {
+			EmployeePojo returnEmployeePojo = this.employeeDao.empUpdateInfo(employeePojo);
+			return returnEmployeePojo;
+		}else {
+			throw new ApplicationException("incorrect Password");
+		}
+		
 		//logger.info("Exited empUpdateInfo() in service.");
-		return returnEmployeePojo;
+		
 	}
 
 	@Override

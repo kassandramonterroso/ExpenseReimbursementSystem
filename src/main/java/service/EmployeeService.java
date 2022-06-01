@@ -11,8 +11,6 @@ public interface EmployeeService {
 
 	EmployeePojo login(String username, String password) throws ApplicationException;
 
-	EmployeePojo login(String username, String password)throws ApplicationException;
-
 	
 	//Method for logout
 	EmployeePojo logout(EmployeePojo employeePojo) throws ApplicationException;
@@ -21,7 +19,7 @@ public interface EmployeeService {
 	EmployeePojo empViewInfo(int empId) throws ApplicationException;
 	
 	//Method for employee to update their information
-	EmployeePojo empUpdateInfo(EmployeePojo employeePojo) throws ApplicationException;
+	EmployeePojo empUpdateInfo(EmployeePojo employeePojo,String currPassword) throws ApplicationException;
 	
 	//Method for manager to view all employees
 	List<EmployeePojo> manViewAll() throws ApplicationException;
