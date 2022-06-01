@@ -15,12 +15,12 @@ public class ReimbursementServiceImpl implements ReimbursementService{
 		}
 
 	@Override
-	public ReimbursementPojo submitRequest(ReimbursementPojo reimbursementPojo) {
+	public ReimbursementPojo submitRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException{
 		return reimbursementDao.submitRequest(reimbursementPojo);
 	}
 
 	@Override
-	public ReimbursementPojo manUpdateRequest(ReimbursementPojo reimbursementPojo) {
+	public ReimbursementPojo manUpdateRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException{
 		return reimbursementDao.manUpdateRequest(reimbursementPojo);
 	}
 
