@@ -119,14 +119,14 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 	}
 
 	@Override
-	public ReimbursementPojo manViewRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException{
+	public ReimbursementPojo manViewRequest(int requesterId) throws ApplicationException{
 		//LOG.info("Entered manViewAll() in Dao...");
 		Connection connect = null;
-		//ReimbursementPojo reimbursementPojo = null;
+		ReimbursementPojo reimbursementPojo = null;
 		try {
 			connect = DBUtil.dbConnection();
 			Statement stmt = connect.createStatement();
-			String query = "SELECT e.emp_id,  e.first_name, e.last_name, r.reimb_id , s.status FROM employees e JOIN reimbursements r ON e.emp_id = r.requester_id JOIN status s ON r.reimb_status_id = s.status_id WHERE e. emp_id ="+reimbursementPojo.getRequesterId();
+			String query = "SELECT e.emp_id,  e.first_name, e.last_name, r.reimb_id , s.status FROM employees e JOIN reimbursements r ON e.emp_id = r.requester_id JOIN status s ON r.reimb_status_id = s.status_id WHERE e. emp_id ="+requesterId;
 			ResultSet resultSet = stmt.executeQuery(query);
 			if(resultSet.next()) {
 				//reimbursementPojo = new ReimbursementPojo(resultSet.getInt(1), resultSet.getString(2), resultSet.getInt(3), resultSet.getString(4));

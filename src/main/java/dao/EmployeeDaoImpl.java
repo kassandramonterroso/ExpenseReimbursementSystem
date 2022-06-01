@@ -68,14 +68,14 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	@Override
-	public EmployeePojo empViewInfo(EmployeePojo employeePojo) throws ApplicationException{
+	public EmployeePojo empViewInfo(int empId) throws ApplicationException{
 		//LOG.info("Entered empViewInfo() in Dao...");
 				Connection connect = null;
-				//EmployeePojo employeePojo = new EmployeePojo();
+				EmployeePojo employeePojo = null;
 				try {
 					connect = DBUtil.dbConnection();
 					Statement stmt = connect.createStatement();
-					String query = "SELECT * FROM employees WHERE emp_id="+employeePojo.getEmpId();
+					String query = "SELECT * FROM employees WHERE emp_id="+empId;
 					ResultSet resultSet = stmt.executeQuery(query);
 					if(resultSet.next()) {
 						employeePojo = new EmployeePojo(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getString(5), resultSet.getInt(6));
@@ -112,10 +112,10 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	@Override
-	public EmployeePojo manViewAll(EmployeePojo employeePojo) throws ApplicationException{
+	public EmployeePojo manViewAll() throws ApplicationException{
 		//LOG.info("Entered manViewAll() in Dao...");
 				Connection connect = null;
-				//EmployeePojo employeePojo = new EmployeePojo();
+				EmployeePojo employeePojo = null;
 				try {
 					connect = DBUtil.dbConnection();
 					Statement stmt = connect.createStatement();
@@ -130,6 +130,24 @@ public class EmployeeDaoImpl implements EmployeeDao {
 						//LOG.info("Exited manViewAll() in Dao...");
 				return employeePojo;
 			}
+	@Override
+	public EmployeePojo changePassword(int empId) throws ApplicationException {
+		//LOG.info("Entered changePassword() in Dao...");
+		Connection connect = null;
+		EmployeePojo employeePojo = null;
+
+		try {
+			connect = DBUtil.dbConnection();
+			Statement stmt = connect.createStatement();
+			String query = "UPDATE employees SET hashed_password = '"+employeePojo.getEmpPassword()+ "' WHERE emp_id = " +employeePojo.getEmpId();
+			int rowsAffected = stmt.executeUpdate(query);
+		}catch (SQLException e) {
+			throw new ApplicationException(e.getMessage());
+		}
+		//LOG.info("Exited changePassword() in Dao...");
+		return employeePojo;
 	}
+
+}
 
 

@@ -3,6 +3,7 @@ package service;
 import dao.ReimbursementDao;
 import dao.ReimbursementDaoImpl;
 import exception.ApplicationException;
+import model.EmployeePojo;
 import model.ReimbursementPojo;
 
 public class ReimbursementServiceImpl implements ReimbursementService{
@@ -45,8 +46,11 @@ public class ReimbursementServiceImpl implements ReimbursementService{
 	}
 
 	@Override
-	public ReimbursementPojo manViewRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException{
-		return reimbursementDao.manViewRequest(reimbursementPojo);
+	public ReimbursementPojo manViewRequest(int requesterId) throws ApplicationException{
+		//logger.info("Entered manViewRequest() in service.");
+		ReimbursementPojo returnReimbursementPojo = this.reimbursementDao.manViewRequest(requesterId);
+		//logger.info("Exited manViewRequest() in service.");
+		return returnReimbursementPojo;
 	}
 
 }

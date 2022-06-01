@@ -1,12 +1,18 @@
+import java.util.List;
+
 import io.javalin.Javalin;
+import service.EmployeeService;
+import model.EmployeePojo;
+import model.ReimbursementPojo;
 import service.EmployeeServiceImpl;
+import service.ReimbursementService;
+import service.ReimbursementServiceImpl;
 
 public class ExpenseCrud {
-
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		// TODO Auto-generated method stub
-		
+		EmployeeService employeeService = new EmployeeServiceImpl();
+		ReimbursementService reimbursementService = new ReimbursementServiceImpl();
+
 		//create service object to call
 		EmployeeServiceImpl service = new EmployeeServiceImpl(); 
 		Javalin app = Javalin.create((config) -> config.enableCorsForAllOrigins());
@@ -22,8 +28,7 @@ public class ExpenseCrud {
         //lets create other endpoints
         
         //CRUD 
-        //read all books
-        // /books
+        // login
         app.post("/login", (ctx)->{
         	System.out.println("post rout");
         	String username = ctx.formParam("username");
@@ -36,10 +41,50 @@ public class ExpenseCrud {
         	ctx.result("post Sucess");
         });
         
-        //endpoint read a book
+        //endpoint manager can view all employees
         
-        //endpoint delete a book
-        //endpoint post a book
+        app.get("/employees",(ctx)->{
+        	System.out.println("All Employees details");
+        	List<EmployeePojo> allEmployees = employeeService.manViewAll(); 
+        	ctx.json(allEmployees);
+        });  
+        
+        //endpoint manager can view specific employee manViewRequest
+        app.get("/employees",(ctx)->{
+        	System.out.println("Specific Employees details");
+        	// here we retrieve the eId from the path/url
+        	String empId = ctx.pathParam("eId");
+        	// convert String to int
+        	int empIdInteger = Integer.parseInt(empId);
+        	ReimbursementPojo specificEmployee = reimbursementService.manViewRequest(empIdInteger); 
+        	ctx.json(specificEmployee);
+        });   
+        
+        //endpoint employee can view his details empViewInfo
+        app.get("/employees",(ctx)->{
+        	System.out.println("Employee own details");
+        	// here we retrieve the eId from the path/url
+        	String empId = ctx.pathParam("eId");
+        				
+        	// convert String to int
+        	int empIdInteger = Integer.parseInt(empId);
+        	EmployeePojo employeeInfo = employeeService.empViewInfo(empIdInteger); 
+        	ctx.json(employeeInfo);
+        });   
+        
+
+        //endpoint put employee can update his details
+        app.put("/employees",(ctx)->{
+        	System.out.println("Employee update details");
+        	// here we retrieve the eId from the path/url
+        	String empId = ctx.pathParam("eId");
+        				
+        	// convert String to int
+        	int empIdInteger = Integer.parseInt(empId);
+        	EmployeePojo employeeInfo = employeeService.empViewInfo(empIdInteger); 
+        	ctx.json(employeeInfo);
+        });   
+        
         //enpoint put update a book
         
         
