@@ -49,7 +49,29 @@ public class ExpenseCrud {
         	}
         	
         });
-        
+        app.post("/changePass/{newPassword}", (ctx)->{
+        	System.out.println("post rout");
+        	
+        	String newPassword = ctx.pathParam("newPassword");
+        	
+        	
+        	
+        	try {
+        		EmployeePojo info =service.empUpdateInfo();
+            	//here we contact service service contacts dao and returns all books
+            	//List<BookPojo> allBooks = service.getAllBooks();
+//            	ctx.json(allBooks);
+        		if (info == null) {
+        			throw new ApplicationException("invalid username or password");
+        		}
+            	ctx.json(info);
+            	
+        	} catch(ApplicationException e) {
+        		
+        		ctx.json(e);
+        	}
+        	
+        });
         //endpoint read a book
         
         //endpoint delete a book
