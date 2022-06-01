@@ -1,9 +1,10 @@
+
 function getAllEmployees(){ //manViewAll method
     // document.write("Data printed on the document");
     document.getElementById("content").innerHTML = "Data printed on the document";
      console.log("Data written on console");
      //use fetch api to consume end points java
-     fetch("http://localhost:9494/requests")
+     fetch("http://localhost:8082/requests")
      .then(response => response.json())
      .then(responseJson => {
          console.log(responseJson)
@@ -87,7 +88,7 @@ function submitRequest(){
         reimbId: 0,
         reimbAmt: document.getElementById("eId").value,
     }
-    fetch("http://localhost:9494/requests", {
+    fetch("http://localhost:8082/requests", {
         method: 'post',
         body: JSON.stringify(newRequest) // converts JS object to JSON 
     })
@@ -95,7 +96,7 @@ function submitRequest(){
 }
 
 function viewSpecificEmployeeRequest(){ //manViewRequest method
-    fetch("http://localhost:9494/employees")
+    fetch("http://localhost:8082/employees")
     .then(response => response.json())
     .then(responseJson => {
         console.log(responseJson)
@@ -127,7 +128,7 @@ function viewSpecificEmployeeRequest(){ //manViewRequest method
 
 function empViewPending(empId){ //call empViewPending method
     console.log(status);
-    fetch("http://localhost:9494/employees"+empId)
+    fetch("http://localhost:8082/employees"+empId)
     .then(response => response.json())
     .then(responseJson => {
         console.log(responseJson);
@@ -164,7 +165,7 @@ function empViewPending(empId){ //call empViewPending method
 
 function empViewResolved(empId){ //call empViewResolved method
     console.log(status);
-    fetch("http://localhost:9494/employees"+empId)
+    fetch("http://localhost:8082/employees"+empId)
     .then(response => response.json())
     .then(responseJson => {
         console.log(responseJson);

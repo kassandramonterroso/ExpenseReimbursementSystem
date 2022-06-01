@@ -1,3 +1,10 @@
+DROP TABLE IF EXISTS employees;
+DROP TABLE IF EXISTS reimbursements;
+DROP TABLE IF EXISTS status;
+DROP TABLE IF EXISTS roles;
+
+
+
 CREATE TABLE employees(
    emp_id serial,
    first_name VARCHAR(255) NOT NULL,
@@ -13,7 +20,11 @@ role_id serial,
 role VARCHAR(50) NOT NULL,
 PRIMARY KEY(role_id)
 );
-
+CREATE TABLE status(
+status_id serial,
+status VARCHAR(255) NOT NULL,
+PRIMARY KEY(status_id)
+);
 CREATE TABLE reimbursements(
   reimb_id serial,
   reimb_amt double precision,
@@ -30,8 +41,15 @@ FOREIGN KEY(approver_id)
 );
 
 
-CREATE TABLE status(
-status_id serial,
-status VARCHAR(255) NOT NULL,
-PRIMARY KEY(status_id)
-);
+
+INSERT INTO roles(role) VALUES ('Manager');
+INSERT INTO roles(role) VALUES ('Employee');
+INSERT INTO status(status) VALUES ('Pending');
+INSERT INTO employees(first_name, last_name, user_name, hashed_password, emp_role_id) VALUES ('logan', 'lastName', 'cat', '$2a$10$HwO.e2gax/jJuW49MfLbvujyUQu8Wr6yppRHXFkLp11./Hnaj74Nu', 1);
+
+
+
+
+
+
+;

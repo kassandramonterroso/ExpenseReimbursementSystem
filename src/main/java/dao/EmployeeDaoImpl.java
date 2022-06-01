@@ -12,12 +12,15 @@ import exception.ApplicationException;
 import model.EmployeePojo;
 
 public class EmployeeDaoImpl implements EmployeeDao {
+	@Override
 	public String hashPassword(String password) {
 		// takes your password and returns an encrypted version of it
 		String hashedPass = BCrypt.hashpw(password, BCrypt.gensalt(10));
 
 		return hashedPass;
 	}
+	@Override
+	
 	public boolean checkPass(String password, String hashedPass) {
 		// takes your password and an encrypted password and compares it to see if its
 		// the same values

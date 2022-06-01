@@ -23,4 +23,8 @@ public interface EmployeeDao {
 	//Method to changePassword only
 	EmployeePojo changePassword(int empId) throws ApplicationException;
 
+	boolean checkPass(String password, String hashedPass);
+
+	String hashPassword(String password);
+
 }

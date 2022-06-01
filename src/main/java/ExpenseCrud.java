@@ -36,10 +36,8 @@ public class ExpenseCrud {
         //CRUD 
 
         // login
-        app.post("/login", (ctx)->{
 
-        //read all books
-        // /books
+      
         app.post("/login/{username}/{password}", (ctx)->{
 
         	System.out.println("post rout");
@@ -64,7 +62,7 @@ public class ExpenseCrud {
         	}
         	
         });
-<
+
         app.post("/changePass/{newPassword}", (ctx)->{
         	System.out.println("post rout");
         	
@@ -73,12 +71,13 @@ public class ExpenseCrud {
         	
         	
         	try {
-        		EmployeePojo info =service.empUpdateInfo();
+        		EmployeePojo updatedUser = ctx.bodyAsClass(EmployeePojo.class);
+        		EmployeePojo info =service.empUpdateInfo(updatedUser,newPassword);
             	//here we contact service service contacts dao and returns all books
             	//List<BookPojo> allBooks = service.getAllBooks();
 //            	ctx.json(allBooks);
         		if (info == null) {
-        			throw new ApplicationException("invalid username or password");
+        			throw new ApplicationException("invalid password");
         		}
             	ctx.json(info);
             	
@@ -86,7 +85,6 @@ public class ExpenseCrud {
         		
         		ctx.json(e);
         	}
-        	
         });
         //endpoint read a book
 
@@ -141,5 +139,5 @@ public class ExpenseCrud {
         
         
 	}
-
+	
 }
