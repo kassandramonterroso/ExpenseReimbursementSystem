@@ -124,24 +124,78 @@ function viewSpecificEmployeeRequest(){ //manViewRequest method
     }).catch(error => console.log(error));
 }
 
-function empViewPending(status){
+function empViewPending(empId){ //call empViewPending method
     console.log(status);
-    fetch("http://localhost:9494/employees"+status)
+    fetch("http://localhost:9494/employees"+empId)
     .then(response => response.json())
     .then(responseJson => {
-        console.log(responseJson)
+        console.log(responseJson);
+         let employeePending = `<table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Employee ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Reimbursement Request Id</th>
+                                <th>Reimbursement Request Amount</th>
+                                <th>Reimbursement Request Status</th>
+                            </tr>
+                            </thead>
+                            <tbody>`;
+            for(let emp of responseJson){
+                employeePending += `<tr>
+                                        <td>${emp.empId}</td>
+                                        <td>${emp.empFirstName}</td>
+                                        <td>${emp.empastName}</td>
+                                        <td>${emp.reimbId}</td>
+                                        <td>${emp.reimbAmt}</td>
+                                        <td>${emp.status}</td>
+                                    </tr>`;
+            }
+            employeeTableData += `</tbody></table>`;
+            document.getElementById("content").innerHTML = employeePending;
+        })
+     .catch(error => console.log(error));
+ }
        
         
-}
 
-function empViewResolved(status){
+
+function empViewResolved(empId){ //call empViewResolved method
     console.log(status);
-    fetch("http://localhost:9494/employees"+status)
+    fetch("http://localhost:9494/employees"+empId)
     .then(response => response.json())
     .then(responseJson => {
-        console.log(responseJson)
+        console.log(responseJson);
+         let employeeResolved = `<table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Employee ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Reimbursement Request Id</th>
+                                <th>Reimbursement Request Amount</th>
+                                <th>Reimbursement Request Status</th>
+                            </tr>
+                            </thead>
+                            <tbody>`;
+            for(let emp of responseJson){
+                employeeResolved += `<tr>
+                                        <td>${emp.empId}</td>
+                                        <td>${emp.empFirstName}</td>
+                                        <td>${emp.empastName}</td>
+                                        <td>${emp.reimbId}</td>
+                                        <td>${emp.reimbAmt}</td>
+                                        <td>${emp.status}</td>
+                                    </tr>`;
+            }
+            employeeTableData += `</tbody></table>`;
+            document.getElementById("content").innerHTML = employeeResolved;
+        })
+     .catch(error => console.log(error));
+ }
 
          
       
-}
+
 
