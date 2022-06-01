@@ -36,8 +36,7 @@ public class ExpenseCrud {
         //CRUD 
 
         // login
-
-      
+        app.post("/login", (ctx)->{
         app.post("/login/{username}/{password}", (ctx)->{
 
         	System.out.println("post rout");
@@ -48,9 +47,6 @@ public class ExpenseCrud {
         	
         	try {
         		EmployeePojo info =service.login(username, password);
-            	//here we contact service service contacts dao and returns all books
-            	//List<BookPojo> allBooks = service.getAllBooks();
-//            	ctx.json(allBooks);
         		if (info == null) {
         			throw new ApplicationException("invalid username or password");
         		}
@@ -71,13 +67,9 @@ public class ExpenseCrud {
         	
         	
         	try {
-        		EmployeePojo updatedUser = ctx.bodyAsClass(EmployeePojo.class);
-        		EmployeePojo info =service.empUpdateInfo(updatedUser,newPassword);
-            	//here we contact service service contacts dao and returns all books
-            	//List<BookPojo> allBooks = service.getAllBooks();
-//            	ctx.json(allBooks);
+        		EmployeePojo info =service.empUpdateInfo();
         		if (info == null) {
-        			throw new ApplicationException("invalid password");
+        			throw new ApplicationException("invalid username or password");
         		}
             	ctx.json(info);
             	
@@ -85,12 +77,10 @@ public class ExpenseCrud {
         		
         		ctx.json(e);
         	}
+        	
         });
-        //endpoint read a book
-
-        
-        //endpoint manager can view all employees
-        
+    
+        //endpoint manager can view all employees    
         app.get("/employees",(ctx)->{
         	System.out.println("All Employees details");
         	List<EmployeePojo> allEmployees = employeeService.manViewAll(); 
@@ -131,13 +121,42 @@ public class ExpenseCrud {
         	int empIdInteger = Integer.parseInt(empId);
         	EmployeePojo employeeInfo = employeeService.empViewInfo(empIdInteger); 
         	ctx.json(employeeInfo);
+        });  
+        
+	//endpoint manager can view all resolved requests ---start
+	app.get("/employees",(ctx)->{
+        	System.out.println("View all resolved requests");
+        	List<ReimbursementPojo> allResolvedRequests = reimbursementService.manViewAllResolved(); 
+        	ctx.json(allResolvedRequests);
         });   
-
+		
+	//endpoint manager can view all pending requests
+	app.get("/employees",(ctx)->{
+        	System.out.println("View all pending requests");
+        	List<ReimbursementPojo> allPendingRequests = reimbursementService.manViewAllPending(); 
+        	ctx.json(allPendingRequests);
+        });   	
+		
+	//endpoint employee can view all resolved requests
+	app.get("/employees",(ctx)->{
+        	System.out.println("View all resolved request");
+        	String empId = ctx.pathParam("eId");
+        	int empIdInteger = Integer.parseInt(empId);
+        	ReimbursementPojo employeeResolved = reimbursementService.empViewResolved(empIdInteger); 
+        	ctx.json(employeeResolved);
+        });   	
+		
+	//endpoint employee can view all pending requests
+	app.get("/employees",(ctx)->{
+        	System.out.println("View all pending requests");
+        	String empId = ctx.pathParam("eId");
+        	int empIdInteger = Integer.parseInt(empId);
+        	ReimbursementPojo employeePending = reimbursementService.empViewPending(empIdInteger); 
+        	ctx.json(employeePending);
+        });   	
+		
         
-        //enpoint put update a book
         
-        
-        
+		
 	}
-	
 }
