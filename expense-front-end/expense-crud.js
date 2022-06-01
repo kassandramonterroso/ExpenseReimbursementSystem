@@ -124,78 +124,24 @@ function viewSpecificEmployeeRequest(){ //manViewRequest method
     }).catch(error => console.log(error));
 }
 
-function empViewPending(){
-    fetch("http://localhost:9494/employees"+status, {method: 'empViewPending'})
+function empViewPending(status){
+    console.log(status);
+    fetch("http://localhost:9494/employees"+status)
     .then(response => response.json())
     .then(responseJson => {
         console.log(responseJson)
-         <td>
-            <button 
-                type="button" 
-                class="btn btn-primary"
-                onclick="PendingRequests(${emp.reimbId})"> Pending 
-            </button>
-         </td>
-        let employeeRequests = `<table class="table table-striped">
-                                <thead>
-                                <tr>
-                                    <th>Employee ID</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Reimbursement Request Id</th>
-                                    <th>Reimbursement Request Amount</th>
-                                    <th>Reimbursement Request Status</th>
-                                </tr>
-                                </thead>
-                                <tbody>`; 
-                                employeeTableData += `<tr>
-                                        <td>${emp.empId}</td>
-                                        <td>${emp.firstName}</td>
-                                        <td>${emp.lastName}</td>
-                                        <td>${emp.reimbId}</td>
-                                        <td>${emp.reimbAmt}</td>
-                                        <td>${emp.status}</td>
-                                        </tr>`;
-            employeeData += `</tbody></table>`;
-            document.getElementById("content").innerHTML = employeeData;
-    }).catch(error => console.log(error));
+       
+        
 }
 
-
-  function empViewResolved(){ 
-    fetch("http://localhost:9494/employees"+status, {method: 'empViewResolved'})
+function empViewResolved(status){
+    console.log(status);
+    fetch("http://localhost:9494/employees"+status)
     .then(response => response.json())
     .then(responseJson => {
         console.log(responseJson)
-         <td>
-            <button 
-                type="button" 
-                class="btn btn-primary"
-                onclick="ResolvedRequests(${emp.reimbId})"> Resolved 
-            </button>
-         </td>
-        let employeeRequests = `<table class="table table-striped">
-                                <thead>
-                                <tr>
-                                    <th>Employee ID</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Reimbursement Request Id</th>
-                                    <th>Reimbursement Request Amount</th>
-                                    <th>Reimbursement Request Status</th>
-                                </tr>
-                                </thead>
-                                <tbody>`;  
-                                employeeTableData += `<tr>
-                                        <td>${emp.empId}</td>
-                                        <td>${emp.firstName}</td>
-                                        <td>${emp.lastName}</td>
-                                        <td>${emp.reimbId}</td>
-                                        <td>${emp.reimbAmt}</td>
-                                        <td>${emp.status}</td>
-                                        </tr>`;
-            employeeData += `</tbody></table>`;
-            document.getElementById("content").innerHTML = employeeData;
-    }).catch(error => console.log(error));
+
+         
+      
 }
 
