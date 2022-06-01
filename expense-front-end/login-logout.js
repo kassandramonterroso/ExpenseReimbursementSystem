@@ -34,11 +34,20 @@ function loginEmp(){
 }
 
 function logoutEmp(){
+session["currUser"] = null;
+
+//todo make this content pretty or change it to what it needs to be
+let content = `<div><p>logged out</p></div>`
+document.getElementById("content").innerHTML = content;
 
 }
 
 function changePassword(){
-    
+    let newPassword=  document.getElementById("pass").value;
+    fetch(`http://localhost:8082/changePass/${newPassword}`, {method:"post", body: JSON.stringify(session["currUser"])}).then( response=>response.json()).then(responseJson=>{
+
+
+    }).catch(error => console.log(error));; 
 }
 
 function register(){
@@ -50,11 +59,13 @@ function register(){
 function login(){
     let username= document.getElementById("user").value;
     let password=  document.getElementById("pass").value;
-    let employeeStatus= document.getElementById("empStatus").value;
  fetch(`http://localhost:8082/login/${username}/${password}`, {method:"post"}).then( response=>response.json()).then(responseJson=>{
     
  console.log(responseJson.localizedMessage);
+ session["currUser"] = responseJson;
+
+ //todo make this content pretty or change it to what it needs to be
  let content = `<div><p>Welcome ${responseJson.empUserName}</p></div>`
     document.getElementById("content").innerHTML = content;
- }).catch(error => console.log(error));; 
+ }).catch(error => console.log(error)); 
 }
