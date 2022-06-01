@@ -1,4 +1,4 @@
-function getAllEmployees(){
+function getAllEmployees(){ //manViewAll method
     // document.write("Data printed on the document");
     document.getElementById("content").innerHTML = "Data printed on the document";
      console.log("Data written on console");
@@ -93,7 +93,7 @@ function submitRequest(){
     .then(response => getAllEmployees());
 }
 
-function viewSpecificEmployeeRequest(){
+function viewSpecificEmployeeRequest(){ //manViewRequest method
     fetch("http://localhost:9494/employees")
     .then(response => response.json())
     .then(responseJson => {
@@ -122,4 +122,40 @@ function viewSpecificEmployeeRequest(){
             employeeData += `</tbody></table>`;
             document.getElementById("content").innerHTML = employeeData;
     }).catch(error => console.log(error));
+}
+
+function empViewRequests(){ // empViewPending & empViewResolved
+    fetch("http://localhost:9494/employees")
+    .then(response => response.json())
+    .then(responseJson => {
+        console.log(responseJson)
+         <td>
+            <button 
+                type="button" 
+                class="btn btn-primary"
+                onclick="PendingRequests(${emp.reimbId})"> Pending 
+            </button>
+            <button 
+                type="button" 
+                class="btn btn-danger"
+                onclick="ApprovedRequests(${emp.reimbId})"> Approved 
+            </button>
+         </td>
+        document.getElementById(
+        
+        let employeeRequests = `<table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Employee ID</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Reimbursement Request Id</th>
+                                    <th>Reimbursement Request Amount</th>
+                                    <th>Reimbursement Request Status</th>
+                                </tr>
+                                </thead>
+                                <tbody>`;
+                                    
+    
+    }
 }
