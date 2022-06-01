@@ -94,14 +94,32 @@ function submitRequest(){
 }
 
 function viewSpecificEmployeeRequest(){
-
-    let empS = {
-        reimbId: 0,
-        reimbAmt: document.getElementById("eId").value,
-    }
-    fetch("http://localhost:9494/requests", {
-        method: 'post',
-        body: JSON.stringify(newRequest) // converts JS object to JSON 
-    })
-    .then(response => getAllEmployees());
+    fetch("http://localhost:9494/employees")
+    .then(response => response.json())
+    .then(responseJson => {
+        console.log(responseJson)
+        let employeeData = `<table class="table table-striped">
+                           <thead>
+                           <tr>
+                               <th>Employee ID</th>
+                               <th>First Name</th>
+                               <th>Last Name</th>
+                               <th>Reimbursement Request Id</th>
+                               <th>Reimbursement Request Amount</th>
+                               <th>Reimbursement Request Status</th>
+                               <th>Approve/Reject</th>
+                           </tr>
+                           </thead>
+                           <tbody>`;
+                           employeeTableData += `<tr>
+                                        <td>${emp.empId}</td>
+                                        <td>${emp.firstName}</td>
+                                        <td>${emp.lastName}</td>
+                                        <td>${emp.reimbId}</td>
+                                        <td>${emp.reimbAmt}</td>
+                                        <td>${emp.status}</td>
+                                        </tr>`;
+            employeeData += `</tbody></table>`;
+            document.getElementById("content").innerHTML = employeeData;
+    }).catch(error => console.log(error));
 }
