@@ -196,6 +196,73 @@ function empViewResolved(empId){ //call empViewResolved method
      .catch(error => console.log(error));
  }
 
+function manViewAllResolved(){ 
+    fetch("http://localhost:9494/employees")
+    .then(response => response.json())
+    .then(responseJson => {
+        console.log(responseJson);
+         let employeeResolved = `<table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Employee ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Reimbursement Request Id</th>
+                                <th>Reimbursement Request Amount</th>
+                                <th>Reimbursement Request Status</th>
+                            </tr>
+                            </thead>
+                            <tbody>`;
+            for(let emp of responseJson){
+                employeeResolved += `<tr>
+                                        <td>${emp.empId}</td>
+                                        <td>${emp.empFirstName}</td>
+                                        <td>${emp.empastName}</td>
+                                        <td>${emp.reimbId}</td>
+                                        <td>${emp.reimbAmt}</td>
+                                        <td>${emp.status}</td>
+                                    </tr>`;
+            }
+            employeeTableData += `</tbody></table>`;
+            document.getElementById("content").innerHTML = employeeResolved;
+        })
+     .catch(error => console.log(error));
+ }
+
+ function manViewAllPending(){ 
+    fetch("http://localhost:9494/employees")
+    .then(response => response.json())
+    .then(responseJson => {
+        console.log(responseJson);
+         let employeeResolved = `<table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Employee ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Reimbursement Request Id</th>
+                                <th>Reimbursement Request Amount</th>
+                                <th>Reimbursement Request Status</th>
+                            </tr>
+                            </thead>
+                            <tbody>`;
+            for(let emp of responseJson){
+                employeeResolved += `<tr>
+                                        <td>${emp.empId}</td>
+                                        <td>${emp.empFirstName}</td>
+                                        <td>${emp.empastName}</td>
+                                        <td>${emp.reimbId}</td>
+                                        <td>${emp.reimbAmt}</td>
+                                        <td>${emp.status}</td>
+                                    </tr>`;
+            }
+            employeeTableData += `</tbody></table>`;
+            document.getElementById("content").innerHTML = employeeResolved;
+        })
+     .catch(error => console.log(error));
+ }
+
+
          
       
 
