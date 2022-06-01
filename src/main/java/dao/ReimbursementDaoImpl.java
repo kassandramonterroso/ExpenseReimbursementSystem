@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import exception.ApplicationException;
-import model.EmployeePojo;
 import model.ReimbursementPojo;
 import model.StatusPojo;
 
@@ -14,15 +13,35 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 	StatusPojo statusPojo = new StatusPojo();
 
 	@Override
-	public ReimbursementPojo submitRequest(ReimbursementPojo reimbursementPojo) {
-		// TODO Auto-generated method stub
-		return null;
+	public ReimbursementPojo submitRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException {
+		try {
+			Connection conn = DBUtil.dbConnection();
+			Statement stmt = conn.createStatement();
+			String query = "insert into reimbursements(reimb_amt, requester_id)" 
+					+ "values('"+reimbursementPojo.getReimbAmt()+"','"+reimbursementPojo.getRequesterId()+"') returning reimb_id";
+			ResultSet rs = stmt.executeQuery(query);
+			rs.next();
+			reimbursementPojo.setReimbId(rs.getInt(1));
+		} catch (SQLException e) {
+			throw new ApplicationException(e.getMessage());
+		}
+		
+		return reimbursementPojo;
 	}
 
 	@Override
-	public ReimbursementPojo manUpdateRequest(ReimbursementPojo reimbursementPojo) {
-		// TODO Auto-generated method stub
-		return null;
+	public ReimbursementPojo manUpdateRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException {
+
+		try {
+			Connection conn = DBUtil.dbConnection();
+			Statement stmt = conn.createStatement();
+			String query = "update reimbursement set reimb_status_id='"+reimbursementPojo.getReimbStatusId()+"' where reimbId='"+reimbursementPojo.getReimbId()+"'";
+			int rowsAffected = stmt.executeUpdate(query);
+		} catch (SQLException e) {
+			throw new ApplicationException(e.getMessage());
+		}
+
+		return reimbursementPojo;
 	}
 
 	@Override
