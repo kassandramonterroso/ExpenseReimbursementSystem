@@ -6,10 +6,10 @@ import model.ReimbursementPojo;
 public interface ReimbursementService {
 		
 	//Method for employee to submit a reimbursement request
-	ReimbursementPojo submitRequest(ReimbursementPojo reimbursementPojo);
+	ReimbursementPojo submitRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException;
 	
 	//Method for manager to approve/deny pending reimbursement requests
-	ReimbursementPojo manUpdateRequest(ReimbursementPojo reimbursementPojo);
+	ReimbursementPojo manUpdateRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException;
 	
 	//Method for employee to view their pending reimbursement requests
 	ReimbursementPojo empViewPending(ReimbursementPojo reimbursementPojo) throws ApplicationException;
