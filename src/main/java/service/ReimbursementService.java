@@ -24,7 +24,7 @@ public interface ReimbursementService {
 	ReimbursementPojo manViewAllResolved(ReimbursementPojo reimbursementPojo) throws ApplicationException;
 	
 	//Method for manager to view reimbursement request of a specific employee
-	ReimbursementPojo manViewRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException;
+	ReimbursementPojo manViewRequest(int requesterId) throws ApplicationException;
 	
 
 }
