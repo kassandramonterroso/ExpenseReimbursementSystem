@@ -6,7 +6,7 @@ import model.EmployeePojo;
 public interface EmployeeService {
 	
 	//Method for login
-	EmployeePojo login(String username, String password);
+	EmployeePojo login(String username, String password)throws ApplicationException;
 	
 	//Method for logout
 	EmployeePojo logout(EmployeePojo employeePojo);
