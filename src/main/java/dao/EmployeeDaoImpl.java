@@ -29,7 +29,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		}
 	}
 	@Override
-	public EmployeePojo login(String username, String password) {
+	public EmployeePojo login(String username, String password) throws ApplicationException {
 		Connection conn;
 		ResultSet result = null;
 		EmployeePojo employeePojo = null;
@@ -45,20 +45,26 @@ public class EmployeeDaoImpl implements EmployeeDao {
 					// if correct password returns the user and their information
 					employeePojo = new EmployeePojo(result.getInt(1), result.getString(2), result.getString(3),
 							result.getString(4), result.getString(5), result.getInt(6));
-					return employeePojo;
+					
+				
 				} else {
-					throw new SQLException();
+					throw new ApplicationException("invalid username or password");
 				}
 			}
-			
+			return employeePojo;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			
+			throw new ApplicationException(e.getLocalizedMessage());
+		}
+		catch(ApplicationException e){
+			throw new ApplicationException(e.getLocalizedMessage());
 		}
 		
 		
 		
-		return null;
+		
+		
 	}
 
 	@Override
