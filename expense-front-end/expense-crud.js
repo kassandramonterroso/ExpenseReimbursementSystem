@@ -35,9 +35,10 @@ function getAllEmployees(){ //manViewAll method
                                         <td>${emp.lastName}</td>
                                         <td>${emp.reimbId}</td>
                                         <td>${emp.reimbAmt}</td>
-                                        <td>${emp.status}</td>
-                                        if(${emp.empRoleId} == 2){
-                                            <td>
+                                        <td>${emp.status}</td>`
+                                        if(emp.empRoleId == 2){
+                                            employeeTableData += `
+                                           <td>
                                             <button 
                                                 type="button" 
                                                 class="btn btn-primary"
@@ -48,9 +49,9 @@ function getAllEmployees(){ //manViewAll method
                                                 class="btn btn-danger"
                                                 onclick="RejectRequest(${emp.reimbId})"> Reject 
                                             </button>
-                                            </td>
+                                            </td>`
                                         }
-                                    </tr>`;
+                                        employeeTableData += `</tr>`;
             }
             employeeTableData += `</tbody></table>`;
             document.getElementById("content").innerHTML = employeeTableData;

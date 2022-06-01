@@ -9,15 +9,18 @@ public interface EmployeeDao {
 	EmployeePojo login(String username, String password) throws ApplicationException;
 	
 	//Method for logout
-	EmployeePojo logout(EmployeePojo employeePojo);
+	EmployeePojo logout(EmployeePojo employeePojo) throws ApplicationException;
 	
 	//Method for employee to view their information
-	EmployeePojo empViewInfo(EmployeePojo employeePojo);
+	EmployeePojo empViewInfo(int empId) throws ApplicationException;
 	
 	//Method for employee to update their information
-	EmployeePojo empUpdateInfo(EmployeePojo employeePojo);
+	EmployeePojo empUpdateInfo(EmployeePojo employeePojo) throws ApplicationException;
 	
 	//Method for manager to view all employees
-	EmployeePojo manViewAll(EmployeePojo employeePojo);
+	EmployeePojo manViewAll() throws ApplicationException;
+	
+	//Method to changePassword only
+	EmployeePojo changePassword(int empId) throws ApplicationException;
 
 }

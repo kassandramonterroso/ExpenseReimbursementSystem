@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -28,27 +29,47 @@ public class EmployeeServiceImpl implements EmployeeService{
 		}catch(ApplicationException e) {
 			throw new ApplicationException(e.getLocalizedMessage());
 		}
+
+		return null;
+
 		
+
 	}
 
 	@Override
-	public EmployeePojo empViewInfo(EmployeePojo employeePojo) throws ApplicationException{
-		return employeeDao.empViewInfo(employeePojo);
+	public EmployeePojo empViewInfo(int empId) throws ApplicationException{
+		//logger.info("Entered empViewInfo() in service.");
+		EmployeePojo returnEmployeePojo = this.employeeDao.empViewInfo(empId);
+		//logger.info("Exited empViewInfo() in service.");
+		return returnEmployeePojo;
 	}
 
 	@Override
 	public EmployeePojo empUpdateInfo(EmployeePojo employeePojo) throws ApplicationException{
-		return employeeDao.empUpdateInfo(employeePojo);
+		//logger.info("Entered empUpdateInfo() in service.");
+		EmployeePojo returnEmployeePojo = this.employeeDao.empUpdateInfo(employeePojo);
+		//logger.info("Exited empUpdateInfo() in service.");
+		return returnEmployeePojo;
 	}
 
 	@Override
-	public EmployeePojo manViewAll(EmployeePojo employeePojo) throws ApplicationException{
-		return employeeDao.manViewAll(employeePojo);
+	public List<EmployeePojo> manViewAll() throws ApplicationException{
+		//logger.info("Entered manViewAll() in service.");
+		EmployeePojo allEmployees = this.employeeDao.manViewAll();
+		//logger.info("Exited manViewAll() in service.");
+		return (List<EmployeePojo>) allEmployees;
 	}
 	@Override
 	public EmployeePojo logout(EmployeePojo employeePojo) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	@Override
+	public EmployeePojo changePassword(int empId) throws ApplicationException {
+		//logger.info("Entered changePassword() in service.");
+		EmployeePojo returnEmployeePojo = this.employeeDao.changePassword(empId);
+		//logger.info("Exited changePassword() in service.");
+		return returnEmployeePojo;
 	}
 
 }
