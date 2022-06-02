@@ -5,16 +5,22 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import exception.ApplicationException;
 import model.ReimbursementPojo;
 import model.StatusPojo;
 
 public class ReimbursementDaoImpl implements ReimbursementDao {
+	final Logger LOG = LogManager.getLogger(ReimbursementDaoImpl.class);
+	
 	StatusPojo statusPojo = new StatusPojo();
 	ReimbursementPojo reimbursementPojo = new ReimbursementPojo();
 
 	@Override
 	public ReimbursementPojo submitRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException {
+		LOG.info("hit submitRequest");
 		try {
 			Connection conn = DBUtil.dbConnection();
 			Statement stmt = conn.createStatement();
@@ -26,13 +32,13 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 		} catch (SQLException e) {
 			throw new ApplicationException(e.getMessage());
 		}
-		
+		LOG.info("returning submitRequest");
 		return reimbursementPojo;
 	}
 
 	@Override
 	public ReimbursementPojo manUpdateRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException {
-
+		LOG.info("hit manUpdateRequest");
 		try {
 			Connection conn = DBUtil.dbConnection();
 			Statement stmt = conn.createStatement();
@@ -41,12 +47,13 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 		} catch (SQLException e) {
 			throw new ApplicationException(e.getMessage());
 		}
-
+		LOG.info("returning manUpdateRequest");
 		return reimbursementPojo;
 	}
 
 	@Override
 	public ReimbursementPojo empViewPending(int empId) throws ApplicationException{
+		LOG.info("hit empViewPending");
 		Connection connect;
 		try {
 			connect = DBUtil.dbConnection();
@@ -60,11 +67,13 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 		} catch (SQLException e) {
 			throw new ApplicationException(e.getMessage());
 		}
+		LOG.info("returning empViewPending");
 		return reimbursementPojo;
 	}
 
 	@Override
 	public ReimbursementPojo empViewResolved(int empId) throws ApplicationException{
+		LOG.info("hit empViewResolved");
 		Connection connect;
 		try {
 			connect = DBUtil.dbConnection();
@@ -78,11 +87,13 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 		} catch (SQLException e) {
 			throw new ApplicationException(e.getMessage());
 		}
+		LOG.info("returning empViewResolved");
 		return reimbursementPojo;
 	}
 
 	@Override
 	public ReimbursementPojo manViewAllPending() throws ApplicationException{
+		LOG.info("hit manViewAllPending");
 		Connection connect;
 		try {
 			connect = DBUtil.dbConnection();
@@ -95,13 +106,17 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 				statusPojo.setStatus_Id(resultSet.getInt(1));
 			}
 		} catch (SQLException e) {
+			
 			throw new ApplicationException(e.getMessage());
 		}
+		LOG.info("returning manViewAllPending");
 		return reimbursementPojo;
 	}
 
 	@Override
 	public ReimbursementPojo manViewAllResolved() throws ApplicationException{
+		
+		LOG.info("hit manViewAllResolved");
 		Connection connect;
 		try {
 			connect = DBUtil.dbConnection();
@@ -116,11 +131,13 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 		} catch (SQLException e) {
 			throw new ApplicationException(e.getMessage());
 		}
+		LOG.info("returning manViewAllResolved");
 		return reimbursementPojo;
 	}
 
 	@Override
 	public ReimbursementPojo manViewRequest(int requesterId) throws ApplicationException{
+		LOG.info("hit manViewRequest");
 		//LOG.info("Entered manViewAll() in Dao...");
 		Connection connect = null;
 		ReimbursementPojo reimbursementPojo = null;
@@ -136,7 +153,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 		} catch (SQLException e) {
 			throw new ApplicationException(e.getMessage());
 		}
-		//LOG.info("Exited manViewAll() in Dao...");
+		LOG.info("returning manViewRequest");
 			return reimbursementPojo;
 	}
 
