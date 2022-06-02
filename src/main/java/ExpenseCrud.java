@@ -36,7 +36,7 @@ public class ExpenseCrud {
         //CRUD 
 
         // login
-        app.post("/login", (ctx)->{
+        
         app.post("/login/{username}/{password}", (ctx)->{
 
         	System.out.println("post rout");
@@ -67,7 +67,7 @@ public class ExpenseCrud {
         	
         	
         	try {
-        		EmployeePojo info =service.empUpdateInfo(info, newPassword);
+        		EmployeePojo info =service.empUpdateInfo();
         		if (info == null) {
         			throw new ApplicationException("invalid username or password");
         		}
@@ -158,6 +158,6 @@ public class ExpenseCrud {
         
         
 		
-	});
+	
 }
 }
