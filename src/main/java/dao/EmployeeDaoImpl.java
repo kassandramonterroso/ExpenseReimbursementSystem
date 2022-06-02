@@ -6,33 +6,42 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.mindrot.jbcrypt.BCrypt;
 
 import exception.ApplicationException;
 import model.EmployeePojo;
 
 public class EmployeeDaoImpl implements EmployeeDao {
+	final Logger LOG = LogManager.getLogger(EmployeeDaoImpl.class);
 	@Override
 	public String hashPassword(String password) {
+		LOG.info("hit hashPassword() in EmployeeDaoImpl");
 		// takes your password and returns an encrypted version of it
 		String hashedPass = BCrypt.hashpw(password, BCrypt.gensalt(10));
-
+		LOG.info("returning hashPassword() in EmployeeDaoImpl");
 		return hashedPass;
 	}
 	@Override
 	
 	public boolean checkPass(String password, String hashedPass) {
+		LOG.info("hit checkPass() in EmployeeDaoImpl");
 		// takes your password and an encrypted password and compares it to see if its
 		// the same values
 		// as the password, if so it returns true
+		LOG.info("returning checkPass() in EmployeeDaoImpl");
 		if (BCrypt.checkpw(password, hashedPass)) {
+			
 			return true;
 		} else {
+			
 			return false;
 		}
 	}
 	@Override
 	public EmployeePojo login(String username, String password) throws ApplicationException {
+		LOG.info("hit login() in EmployeeDaoImpl");
 		Connection conn;
 		ResultSet result = null;
 		EmployeePojo employeePojo = null;
@@ -49,18 +58,19 @@ public class EmployeeDaoImpl implements EmployeeDao {
 					employeePojo = new EmployeePojo(result.getInt(1), result.getString(2), result.getString(3),
 							result.getString(4), result.getString(5), result.getInt(6));
 					
-				
+					
 				} else {
 					throw new ApplicationException("invalid username or password");
 				}
 			}
+			LOG.info("returning login() in EmployeeDaoImpl");
 			return employeePojo;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			
 			throw new ApplicationException(e.getLocalizedMessage());
 		}
 		catch(ApplicationException e){
+			LOG.info("returning login ApplicationException");
 			throw new ApplicationException(e.getLocalizedMessage());
 		}
 		
@@ -72,6 +82,8 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
 	@Override
 	public EmployeePojo logout(EmployeePojo employeePojo) {
+		LOG.info("hit logout() in EmployeeDaoImpl");
+		LOG.info("returning logout() in EmployeeDaoImpl");
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -79,7 +91,8 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	@Override
 	public EmployeePojo empViewInfo(int empId) throws ApplicationException{
 		//LOG.info("Entered empViewInfo() in Dao...");
-				Connection connect = null;
+		LOG.info("hit empViewInfo() in EmployeeDaoImpl");		
+		Connection connect = null;
 				EmployeePojo employeePojo = null;
 				try {
 					connect = DBUtil.dbConnection();
@@ -92,6 +105,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 				} catch (SQLException e) {
 					throw new ApplicationException(e.getMessage());
 				}
+				LOG.info("returning empViewInfo() in EmployeeDaoImpl");
 				//LOG.info("Exited empViewInfo() in Dao...");
 				return employeePojo;
 	}
@@ -99,6 +113,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	@Override
 	public EmployeePojo empUpdateInfo(EmployeePojo employeePojo) throws ApplicationException{
 		//LOG.info("Entered empUpdateInfo() in Dao...");
+		LOG.info("hit empUpdateInfo() in EmployeeDaoImpl");
 				Connection connect = null;
 				try {
 					connect = DBUtil.dbConnection();
@@ -116,6 +131,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 					e.printStackTrace();
 					throw new ApplicationException(e.getMessage());
 				}
+				LOG.info("returning empUpdateInfo() in EmployeeDaoImpl");
 				//LOG.info("Exited empUpdateInfo() in Dao...");
 				return employeePojo;
 	}
@@ -123,6 +139,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	@Override
 	public EmployeePojo manViewAll() throws ApplicationException{
 		//LOG.info("Entered manViewAll() in Dao...");
+		LOG.info("hit manViewAll() in EmployeeDaoImpl");
 				Connection connect = null;
 				EmployeePojo employeePojo = null;
 				try {
@@ -137,11 +154,13 @@ public class EmployeeDaoImpl implements EmployeeDao {
 					throw new ApplicationException(e.getMessage());
 				}
 						//LOG.info("Exited manViewAll() in Dao...");
+				LOG.info("returning manViewAll() in EmployeeDaoImpl");
 				return employeePojo;
 			}
 	@Override
 	public EmployeePojo changePassword(int empId) throws ApplicationException {
 		//LOG.info("Entered changePassword() in Dao...");
+		LOG.info("hit changePassword() in EmployeeDaoImpl");
 		Connection connect = null;
 		EmployeePojo employeePojo = null;
 
@@ -154,6 +173,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			throw new ApplicationException(e.getMessage());
 		}
 		//LOG.info("Exited changePassword() in Dao...");
+		LOG.info("returning changePassword() in EmployeeDaoImpl");
 		return employeePojo;
 	}
 

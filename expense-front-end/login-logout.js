@@ -40,9 +40,6 @@ function changePassword(){
     }).catch(error => console.log(error));; 
 }
 
-function register(){
-    
-}
 
 //json data here to send document.getElementById().value
      //JSON.stringify(jsontexthere);
