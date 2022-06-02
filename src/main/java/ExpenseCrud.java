@@ -60,14 +60,11 @@ public class ExpenseCrud {
         });
 
         app.post("/changePass/{newPassword}", (ctx)->{
-        	System.out.println("post rout");
-        	
+        	System.out.println("post rout");	
         	String newPassword = ctx.pathParam("newPassword");
-        	
-        	
-        	
+        	int newPass = Integer.parseInt(newPassword);
         	try {
-        		EmployeePojo info =service.empUpdateInfo();
+        		EmployeePojo info =service.changePassword(newPass);
         		if (info == null) {
         			throw new ApplicationException("invalid username or password");
         		}
