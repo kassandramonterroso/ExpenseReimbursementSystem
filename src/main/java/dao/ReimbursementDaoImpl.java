@@ -11,6 +11,7 @@ import model.StatusPojo;
 
 public class ReimbursementDaoImpl implements ReimbursementDao {
 	StatusPojo statusPojo = new StatusPojo();
+	ReimbursementPojo reimbursementPojo = new ReimbursementPojo();
 
 	@Override
 	public ReimbursementPojo submitRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException {
@@ -45,7 +46,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 	}
 
 	@Override
-	public ReimbursementPojo empViewPending(ReimbursementPojo reimbursementPojo) throws ApplicationException{
+	public ReimbursementPojo empViewPending(int empId) throws ApplicationException{
 		Connection connect;
 		try {
 			connect = DBUtil.dbConnection();
@@ -63,7 +64,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 	}
 
 	@Override
-	public ReimbursementPojo empViewResolved(ReimbursementPojo reimbursementPojo) throws ApplicationException{
+	public ReimbursementPojo empViewResolved(int empId) throws ApplicationException{
 		Connection connect;
 		try {
 			connect = DBUtil.dbConnection();
@@ -81,7 +82,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 	}
 
 	@Override
-	public ReimbursementPojo manViewAllPending(ReimbursementPojo reimbursementPojo) throws ApplicationException{
+	public ReimbursementPojo manViewAllPending() throws ApplicationException{
 		Connection connect;
 		try {
 			connect = DBUtil.dbConnection();
@@ -100,7 +101,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 	}
 
 	@Override
-	public ReimbursementPojo manViewAllResolved(ReimbursementPojo reimbursementPojo) throws ApplicationException{
+	public ReimbursementPojo manViewAllResolved() throws ApplicationException{
 		Connection connect;
 		try {
 			connect = DBUtil.dbConnection();

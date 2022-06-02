@@ -67,7 +67,7 @@ public class ExpenseCrud {
         	
         	
         	try {
-        		EmployeePojo info =service.empUpdateInfo();
+        		EmployeePojo info =service.empUpdateInfo(info, newPassword);
         		if (info == null) {
         			throw new ApplicationException("invalid username or password");
         		}
@@ -158,5 +158,6 @@ public class ExpenseCrud {
         
         
 		
-	}
+	});
+}
 }

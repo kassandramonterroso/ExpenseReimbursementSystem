@@ -1,5 +1,7 @@
 package service;
 
+import java.util.List;
+
 import dao.ReimbursementDao;
 import dao.ReimbursementDaoImpl;
 import exception.ApplicationException;
@@ -26,23 +28,29 @@ public class ReimbursementServiceImpl implements ReimbursementService{
 	}
 
 	@Override
-	public ReimbursementPojo empViewPending(ReimbursementPojo reimbursementPojo) throws ApplicationException{
-		return reimbursementDao.empViewPending(reimbursementPojo);
+	public ReimbursementPojo empViewPending(int empId) throws ApplicationException{
+		ReimbursementPojo reimbursementPojo = this.reimbursementDao.empViewPending(empId);
+		return reimbursementPojo;
 	}
 
 	@Override
-	public ReimbursementPojo empViewResolved(ReimbursementPojo reimbursementPojo) throws ApplicationException{
-		return reimbursementDao.empViewResolved(reimbursementPojo);
+	public ReimbursementPojo empViewResolved(int empId) throws ApplicationException{
+		ReimbursementPojo reimbursementPojo = this.reimbursementDao.empViewResolved(empId);
+		return reimbursementPojo;
 	}
 
 	@Override
-	public ReimbursementPojo manViewAllPending(ReimbursementPojo reimbursementPojo) throws ApplicationException{
-		return reimbursementDao.manViewAllPending(reimbursementPojo);
+	public
+	List<ReimbursementPojo> manViewAllPending() throws ApplicationException{
+		ReimbursementPojo allPending = this.reimbursementDao.manViewAllPending();
+		return (List<ReimbursementPojo>) allPending;
 	}
 
 	@Override
-	public ReimbursementPojo manViewAllResolved(ReimbursementPojo reimbursementPojo) throws ApplicationException{
-		return reimbursementDao.manViewAllResolved(reimbursementPojo);
+	public
+	List<ReimbursementPojo> manViewAllResolved() throws ApplicationException{
+		ReimbursementPojo allResolved = this.reimbursementDao.manViewAllResolved();
+		return (List<ReimbursementPojo>) allResolved;
 	}
 
 	@Override

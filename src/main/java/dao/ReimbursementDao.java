@@ -12,16 +12,16 @@ public interface ReimbursementDao {
 	ReimbursementPojo manUpdateRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException;
 	
 	//Method for employee to view their pending reimbursement requests
-	ReimbursementPojo empViewPending(ReimbursementPojo reimbursementPojo) throws ApplicationException;
+	ReimbursementPojo empViewPending(int empId) throws ApplicationException;
 	
 	//Method for employee to view their resolved reimbursement requests
-	ReimbursementPojo empViewResolved(ReimbursementPojo reimbursementPojo) throws ApplicationException;
+	ReimbursementPojo empViewResolved(int empId) throws ApplicationException;
 	
 	//Method for manager to view all pending request of all employees
-	ReimbursementPojo manViewAllPending(ReimbursementPojo reimbursementPojo) throws ApplicationException;
+	ReimbursementPojo manViewAllPending() throws ApplicationException;
 	
 	//Method for manager to view all resolved request of all employees
-	ReimbursementPojo manViewAllResolved(ReimbursementPojo reimbursementPojo) throws ApplicationException;
+	ReimbursementPojo manViewAllResolved() throws ApplicationException;
 	
 	//Method for manager to view reimbursement request of a specific employee
 	ReimbursementPojo manViewRequest(int requesterId) throws ApplicationException;
