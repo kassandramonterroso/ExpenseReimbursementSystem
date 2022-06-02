@@ -261,6 +261,35 @@ function manViewAllResolved(){
             document.getElementById("content").innerHTML = employeeResolved;
         })
      .catch(error => console.log(error));
+
+function empViewInfo() {
+    fetch("http://localhost:9494/employees")
+    .then(response => response.json())
+    .then(responseJson => {
+        console.log(responseJson);
+        let employeeInfo = `<table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Employee ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Username</th>
+                            </tr>
+                            </thead>
+                            <tbody>`;
+                 for (let emp of responseJson) {
+                     employeeInfo += `<tr>
+                                            <td>${emp.empId}</td>
+                                            <td>${emp.empFirstName}</td>
+                                            <td>${emp.empLastName}</td>
+                                            <td>${emp.empUsername}</td>
+                                        </tr>`;
+            }
+            employeeTableData += `</tbody></table>`;
+            document.getElementById("content").innerHTML = employeeInfo;
+         })
+     .catch(error => console.log(error));
+     }
  }
 
 
