@@ -159,7 +159,35 @@ function empViewPending(empId){ //call empViewPending method
         })
      .catch(error => console.log(error));
  }
-       
+function viewInfo(){
+    let user = JSON.parse(sessionStorage.getItem('currUser'));
+    console.log(user);
+    let content = "";
+    if (user === undefined){
+        content = `<h1>login first</h1>`
+        document.getElementById("content").innerHTML = content;
+    } else {
+        fetch("http://localhost:8082/empRoleId/"+user.empId)
+    .then(response => response.json())
+    .then(responseJson => {
+        content = `<div class="card" style="width: 18rem;">
+        <div class="card-header">
+          ${user.empUserName}'s information
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">First name: ${user.empFirstName}</li>
+          <li class="list-group-item">Last name: ${user.empLastName}</li>
+          <li class="list-group-item">Employee Id: ${user.empId}</li>
+          <li class="list-group-item">Employee Role: ${responseJson.role}</li>
+        </ul>
+      </div>`
+      document.getElementById("content").innerHTML = content;
+
+    }).catch(error => console.log(error));
+    
+    
+    }
+}
         
 
 
@@ -297,3 +325,66 @@ function empViewInfo() {
       
 
 
+ function loginEmp(){
+    let loginForm = `<div class="container">
+                        <form id = "form">
+                             <div class="mb-3 mt-3">
+                                <label for="user" class="form-label">Username : </label>
+                                <input type="text" class="form-control" id="user" placeholder="Enter Username" name="empUserName">
+                            </div>
+                            <div class="mb-3 mt-3">
+                                <label for="pass" class="form-label"> Password : </label>
+                                <input type="text" class="form-control" id="pass" placeholder="Enter password" name="empHashedPassword">
+                            </div>
+                            
+                            <div class="mb-3 mt-3">
+                                <button type="button" class="btn btn-primary" onclick="login()">Login</button>
+                                <button type="button" class="btn btn-primary" onclick="CancelLogin()">Cancel</button>
+                            </div>
+                            <div class="mb-3 mt-3">
+                                <a href="https://www.w3schools.com">Forgot Password</a>
+                            </div>
+                        </form>
+                    </div>
+                    `;
+    document.getElementById("content").innerHTML = loginForm;
+}
+
+function logoutEmp(){
+    sessionStorage.setItem("currUSer", null);
+
+//todo make this content pretty or change it to what it needs to be
+let content = `<div><p>logged out</p></div>`
+document.getElementById("content").innerHTML = content;
+
+}
+
+function changePassword(){
+    let newPassword=  document.getElementById("pass").value;
+    fetch(`http://localhost:8082/changePass/${newPassword}`, {method:"post", body: JSON.stringify(session["currUser"])})
+    .then( response=>response.json()).then(responseJson=>{
+
+
+    }).catch(error => console.log(error));; 
+}
+
+
+//json data here to send document.getElementById().value
+     //JSON.stringify(jsontexthere);
+function login(){
+    let username= document.getElementById("user").value;
+    let password=  document.getElementById("pass").value;
+    let content = '';
+ fetch(`http://localhost:8082/login/${username}/${password}`, {method:"post"}).then( response=>response.json()).then(responseJson=>{
+     console.log(responseJson.localizedMessage);
+if(responseJson.localizedMessage === "invalid username or password"){
+    content = `<div><p>${responseJson.localizedMessage}</p></div>`
+}else{
+    sessionStorage.setItem("currUser", JSON.stringify(responseJson));
+    //todo make this content pretty or change it to what it needs to be
+    content = `<div><p>Welcome ${responseJson.empUserName}</p></div>`
+}
+ 
+    document.getElementById("content").innerHTML = content;
+ }).catch(error => console.log(error)); 
+}

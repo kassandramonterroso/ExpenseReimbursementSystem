@@ -53,7 +53,7 @@ function login(){
 if(responseJson.localizedMessage === "invalid username or password"){
     content = `<div><p>${responseJson.localizedMessage}</p></div>`
 }else{
-    sessionStorage.setItem("currUSer", responseJson)
+    sessionStorage.setItem("currUser", JSON.stringify(responseJson));
     //todo make this content pretty or change it to what it needs to be
     content = `<div><p>Welcome ${responseJson.empUserName}</p></div>`
 }
