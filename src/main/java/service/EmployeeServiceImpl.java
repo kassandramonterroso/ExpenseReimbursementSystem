@@ -69,7 +69,8 @@ public class EmployeeServiceImpl implements EmployeeService{
 		LOG.info("Entered manViewAll() in service.");
 		EmployeePojo allEmployees = this.employeeDao.manViewAll();
 		LOG.info("Exited manViewAll() in service.");
-		return (List<EmployeePojo>) allEmployees;
+		List<EmployeePojo> allEmployees2 = (List<EmployeePojo>) allEmployees;
+		return allEmployees2;
 	}
 	@Override
 	public EmployeePojo logout(EmployeePojo employeePojo) {

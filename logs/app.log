@@ -3,3 +3,57 @@
 2022-06-02 11:41:42,770 INFO s.EmployeeServiceImpl [JettyServerThreadPool-24] hit login() in service.
 2022-06-02 11:41:42,770 INFO d.EmployeeDaoImpl [JettyServerThreadPool-24] hit login() in EmployeeDaoImpl
 2022-06-02 11:41:42,797 INFO ExpenseCrud [JettyServerThreadPool-24] returning from /login/{username}/{password} with error
+2022-06-02 18:58:13,167 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-02 18:59:05,065 INFO ExpenseCrud [JettyServerThreadPool-20] starting get route /employees
+2022-06-02 18:59:05,089 INFO s.EmployeeServiceImpl [JettyServerThreadPool-20] Entered manViewAll() in service.
+2022-06-02 18:59:05,091 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] hit manViewAll() in EmployeeDaoImpl
+2022-06-02 19:12:54,812 INFO ExpenseCrud [JettyServerThreadPool-15] starting get route /employees
+2022-06-02 19:12:55,013 INFO s.EmployeeServiceImpl [JettyServerThreadPool-15] Entered manViewAll() in service.
+2022-06-02 19:12:55,014 INFO d.EmployeeDaoImpl [JettyServerThreadPool-15] hit manViewAll() in EmployeeDaoImpl
+2022-06-02 19:41:19,895 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-02 19:41:36,986 INFO ExpenseCrud [JettyServerThreadPool-20] starting get route /employees
+2022-06-02 19:41:36,987 INFO s.EmployeeServiceImpl [JettyServerThreadPool-20] Entered manViewAll() in service.
+2022-06-02 19:41:36,987 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] hit manViewAll() in EmployeeDaoImpl
+2022-06-02 19:43:20,932 INFO ExpenseCrud [JettyServerThreadPool-15] starting get route /employees
+2022-06-02 19:43:20,953 INFO s.EmployeeServiceImpl [JettyServerThreadPool-15] Entered manViewAll() in service.
+2022-06-02 19:43:20,953 INFO d.EmployeeDaoImpl [JettyServerThreadPool-15] hit manViewAll() in EmployeeDaoImpl
+2022-06-02 19:50:32,615 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-02 19:50:48,171 INFO ExpenseCrud [JettyServerThreadPool-21] starting get route /employees
+2022-06-02 19:50:48,175 INFO s.EmployeeServiceImpl [JettyServerThreadPool-21] Entered manViewAll() in service.
+2022-06-02 19:50:48,175 INFO d.EmployeeDaoImpl [JettyServerThreadPool-21] hit manViewAll() in EmployeeDaoImpl
+2022-06-02 19:53:03,338 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-02 19:53:40,108 INFO ExpenseCrud [JettyServerThreadPool-19] starting get route /employees
+2022-06-02 19:53:40,124 INFO s.EmployeeServiceImpl [JettyServerThreadPool-19] Entered manViewAll() in service.
+2022-06-02 19:53:40,125 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] hit manViewAll() in EmployeeDaoImpl
+2022-06-02 19:58:08,595 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-02 19:58:22,532 INFO ExpenseCrud [JettyServerThreadPool-15] starting get route /employees
+2022-06-02 19:58:22,533 INFO s.EmployeeServiceImpl [JettyServerThreadPool-15] Entered manViewAll() in service.
+2022-06-02 19:58:22,534 INFO d.EmployeeDaoImpl [JettyServerThreadPool-15] hit manViewAll() in EmployeeDaoImpl
+2022-06-02 20:01:13,954 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-02 20:04:29,027 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-02 20:05:56,661 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-02 20:06:05,913 INFO ExpenseCrud [JettyServerThreadPool-19] starting get route /employees
+2022-06-02 20:06:05,914 INFO s.EmployeeServiceImpl [JettyServerThreadPool-19] Entered manViewAll() in service.
+2022-06-02 20:06:05,914 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] hit manViewAll() in EmployeeDaoImpl
+2022-06-02 20:07:13,667 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-02 20:07:20,422 INFO ExpenseCrud [JettyServerThreadPool-22] starting get route /employees
+2022-06-02 20:07:20,423 INFO s.EmployeeServiceImpl [JettyServerThreadPool-22] Entered manViewAll() in service.
+2022-06-02 20:07:20,423 INFO d.EmployeeDaoImpl [JettyServerThreadPool-22] hit manViewAll() in EmployeeDaoImpl
+2022-06-02 20:08:31,680 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-02 20:08:58,655 INFO ExpenseCrud [JettyServerThreadPool-19] starting get route /employees
+2022-06-02 20:08:58,657 INFO s.EmployeeServiceImpl [JettyServerThreadPool-19] Entered manViewAll() in service.
+2022-06-02 20:08:58,657 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] hit manViewAll() in EmployeeDaoImpl
+2022-06-02 20:16:56,373 INFO ExpenseCrud [JettyServerThreadPool-19] starting get route /employees
+2022-06-02 20:16:56,392 INFO s.EmployeeServiceImpl [JettyServerThreadPool-19] Entered manViewAll() in service.
+2022-06-02 20:16:56,394 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] hit manViewAll() in EmployeeDaoImpl
+2022-06-02 20:16:59,225 INFO ExpenseCrud [JettyServerThreadPool-17] starting get route /employees
+2022-06-02 20:16:59,231 INFO s.EmployeeServiceImpl [JettyServerThreadPool-17] Entered manViewAll() in service.
+2022-06-02 20:16:59,231 INFO d.EmployeeDaoImpl [JettyServerThreadPool-17] hit manViewAll() in EmployeeDaoImpl
+2022-06-02 20:32:12,274 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-02 20:32:56,841 INFO ExpenseCrud [JettyServerThreadPool-19] starting get route /employees
+2022-06-02 20:32:56,844 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-19] Hit manViewAllResolved() in RiembursementServiceImpl
+2022-06-02 20:32:56,844 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-19] hit manViewAllResolved
+2022-06-02 20:37:19,816 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-02 20:37:31,605 INFO ExpenseCrud [JettyServerThreadPool-19] starting get route /employees
+2022-06-02 20:37:31,606 INFO s.EmployeeServiceImpl [JettyServerThreadPool-19] Entered manViewAll() in service.
+2022-06-02 20:37:31,606 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] hit manViewAll() in EmployeeDaoImpl

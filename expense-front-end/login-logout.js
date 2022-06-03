@@ -34,7 +34,8 @@ document.getElementById("content").innerHTML = content;
 
 function changePassword(){
     let newPassword=  document.getElementById("pass").value;
-    fetch(`http://localhost:8082/changePass/${newPassword}`, {method:"post", body: JSON.stringify(session["currUser"])}).then( response=>response.json()).then(responseJson=>{
+    fetch(`http://localhost:8082/changePass/${newPassword}`, {method:"post", body: JSON.stringify(session["currUser"])})
+    .then( response=>response.json()).then(responseJson=>{
 
 
     }).catch(error => console.log(error));; 
