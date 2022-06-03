@@ -4,6 +4,7 @@ import java.util.List;
 
 import exception.ApplicationException;
 import model.EmployeePojo;
+import model.RolesPojo;
 
 public interface EmployeeService {
 	
@@ -26,5 +27,6 @@ public interface EmployeeService {
 	
 	//Method to changePassword only
 	EmployeePojo changePassword(int empId) throws ApplicationException;
-
+	//method to get role information
+	RolesPojo getRole(int id) throws ApplicationException;
 }

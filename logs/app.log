@@ -57,3 +57,291 @@
 2022-06-02 20:37:31,605 INFO ExpenseCrud [JettyServerThreadPool-19] starting get route /employees
 2022-06-02 20:37:31,606 INFO s.EmployeeServiceImpl [JettyServerThreadPool-19] Entered manViewAll() in service.
 2022-06-02 20:37:31,606 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] hit manViewAll() in EmployeeDaoImpl
+2022-06-02 23:48:37,459 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-02 23:49:34,532 INFO ExpenseCrud [JettyServerThreadPool-17] starting post rout /login/{username}/{password}
+2022-06-02 23:49:34,532 INFO s.EmployeeServiceImpl [JettyServerThreadPool-17] hit login() in service.
+2022-06-02 23:49:34,532 INFO d.EmployeeDaoImpl [JettyServerThreadPool-17] hit login() in EmployeeDaoImpl
+2022-06-02 23:49:34,709 INFO d.EmployeeDaoImpl [JettyServerThreadPool-17] hit checkPass() in EmployeeDaoImpl
+2022-06-02 23:49:34,709 INFO d.EmployeeDaoImpl [JettyServerThreadPool-17] returning checkPass() in EmployeeDaoImpl
+2022-06-02 23:49:34,780 INFO d.EmployeeDaoImpl [JettyServerThreadPool-17] returning login() in EmployeeDaoImpl
+2022-06-02 23:49:34,780 INFO s.EmployeeServiceImpl [JettyServerThreadPool-17] returning login() in service.
+2022-06-02 23:49:34,780 INFO ExpenseCrud [JettyServerThreadPool-17] returning from /login/{username}/{password}
+2022-06-02 23:49:51,469 INFO ExpenseCrud [JettyServerThreadPool-29] starting get route /employees
+2022-06-02 23:49:51,470 INFO s.EmployeeServiceImpl [JettyServerThreadPool-29] Entered manViewAll() in service.
+2022-06-02 23:49:51,470 INFO d.EmployeeDaoImpl [JettyServerThreadPool-29] hit manViewAll() in EmployeeDaoImpl
+2022-06-02 23:49:51,478 INFO d.EmployeeDaoImpl [JettyServerThreadPool-29] returning manViewAll() in EmployeeDaoImpl
+2022-06-02 23:49:51,479 INFO s.EmployeeServiceImpl [JettyServerThreadPool-29] Exited manViewAll() in service.
+2022-06-02 23:49:51,479 INFO ExpenseCrud [JettyServerThreadPool-29] returning from /employees
+2022-06-02 23:56:26,824 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-02 23:56:30,621 INFO ExpenseCrud [JettyServerThreadPool-19] starting get route /employees
+2022-06-02 23:56:30,621 INFO s.EmployeeServiceImpl [JettyServerThreadPool-19] Entered manViewAll() in service.
+2022-06-02 23:56:30,621 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] hit manViewAll() in EmployeeDaoImpl
+2022-06-02 23:56:30,788 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] returning manViewAll() in EmployeeDaoImpl
+2022-06-02 23:56:30,788 INFO s.EmployeeServiceImpl [JettyServerThreadPool-19] Exited manViewAll() in service.
+2022-06-02 23:56:30,788 INFO ExpenseCrud [JettyServerThreadPool-19] returning from /employees
+2022-06-02 23:59:32,962 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-02 23:59:36,544 INFO ExpenseCrud [JettyServerThreadPool-29] starting get route /employees
+2022-06-02 23:59:36,544 INFO s.EmployeeServiceImpl [JettyServerThreadPool-29] Entered manViewAll() in service.
+2022-06-02 23:59:36,544 INFO d.EmployeeDaoImpl [JettyServerThreadPool-29] hit manViewAll() in EmployeeDaoImpl
+2022-06-02 23:59:36,725 INFO d.EmployeeDaoImpl [JettyServerThreadPool-29] returning manViewAll() in EmployeeDaoImpl
+2022-06-02 23:59:36,725 INFO s.EmployeeServiceImpl [JettyServerThreadPool-29] Exited manViewAll() in service.
+2022-06-02 23:59:36,726 INFO ExpenseCrud [JettyServerThreadPool-29] returning from /employees
+2022-06-03 00:02:43,964 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-03 00:02:45,785 INFO ExpenseCrud [JettyServerThreadPool-20] starting get route /employees
+2022-06-03 00:02:45,786 INFO s.EmployeeServiceImpl [JettyServerThreadPool-20] Entered manViewAll() in service.
+2022-06-03 00:02:45,786 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] hit manViewAll() in EmployeeDaoImpl
+2022-06-03 00:03:30,466 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-03 00:03:34,870 INFO ExpenseCrud [JettyServerThreadPool-23] starting get route /employees
+2022-06-03 00:03:34,870 INFO s.EmployeeServiceImpl [JettyServerThreadPool-23] Entered manViewAll() in service.
+2022-06-03 00:03:34,870 INFO d.EmployeeDaoImpl [JettyServerThreadPool-23] hit manViewAll() in EmployeeDaoImpl
+2022-06-03 00:03:35,043 INFO d.EmployeeDaoImpl [JettyServerThreadPool-23] returning manViewAll() in EmployeeDaoImpl
+2022-06-03 00:03:35,043 INFO s.EmployeeServiceImpl [JettyServerThreadPool-23] Exited manViewAll() in service.
+2022-06-03 00:03:35,043 INFO ExpenseCrud [JettyServerThreadPool-23] returning from /employees
+2022-06-03 00:04:15,849 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-03 00:04:18,412 INFO ExpenseCrud [JettyServerThreadPool-19] starting get route /employees
+2022-06-03 00:04:18,412 INFO s.EmployeeServiceImpl [JettyServerThreadPool-19] Entered manViewAll() in service.
+2022-06-03 00:04:18,412 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] hit manViewAll() in EmployeeDaoImpl
+2022-06-03 00:04:18,674 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] returning manViewAll() in EmployeeDaoImpl
+2022-06-03 00:04:18,675 INFO s.EmployeeServiceImpl [JettyServerThreadPool-19] Exited manViewAll() in service.
+2022-06-03 00:04:18,675 INFO ExpenseCrud [JettyServerThreadPool-19] returning from /employees
+2022-06-03 00:04:51,170 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-03 00:04:53,381 INFO ExpenseCrud [JettyServerThreadPool-29] starting get route /employees
+2022-06-03 00:04:53,382 INFO s.EmployeeServiceImpl [JettyServerThreadPool-29] Entered manViewAll() in service.
+2022-06-03 00:04:53,382 INFO d.EmployeeDaoImpl [JettyServerThreadPool-29] hit manViewAll() in EmployeeDaoImpl
+2022-06-03 00:04:53,548 INFO d.EmployeeDaoImpl [JettyServerThreadPool-29] returning manViewAll() in EmployeeDaoImpl
+2022-06-03 00:04:53,548 INFO s.EmployeeServiceImpl [JettyServerThreadPool-29] Exited manViewAll() in service.
+2022-06-03 00:04:53,548 INFO ExpenseCrud [JettyServerThreadPool-29] returning from /employees
+2022-06-03 00:05:26,318 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-03 00:05:30,054 INFO ExpenseCrud [JettyServerThreadPool-29] starting get route /employees
+2022-06-03 00:05:30,054 INFO s.EmployeeServiceImpl [JettyServerThreadPool-29] Entered manViewAll() in service.
+2022-06-03 00:05:30,054 INFO d.EmployeeDaoImpl [JettyServerThreadPool-29] hit manViewAll() in EmployeeDaoImpl
+2022-06-03 00:05:30,211 INFO d.EmployeeDaoImpl [JettyServerThreadPool-29] returning manViewAll() in EmployeeDaoImpl
+2022-06-03 00:05:30,211 INFO s.EmployeeServiceImpl [JettyServerThreadPool-29] Exited manViewAll() in service.
+2022-06-03 00:05:30,211 INFO ExpenseCrud [JettyServerThreadPool-29] returning from /employees
+2022-06-03 00:07:09,072 INFO ExpenseCrud [JettyServerThreadPool-17] starting get route /employees
+2022-06-03 00:07:09,072 INFO s.EmployeeServiceImpl [JettyServerThreadPool-17] Entered manViewAll() in service.
+2022-06-03 00:07:09,072 INFO d.EmployeeDaoImpl [JettyServerThreadPool-17] hit manViewAll() in EmployeeDaoImpl
+2022-06-03 00:07:09,073 INFO d.EmployeeDaoImpl [JettyServerThreadPool-17] returning manViewAll() in EmployeeDaoImpl
+2022-06-03 00:07:09,073 INFO s.EmployeeServiceImpl [JettyServerThreadPool-17] Exited manViewAll() in service.
+2022-06-03 00:07:09,073 INFO ExpenseCrud [JettyServerThreadPool-17] returning from /employees
+2022-06-03 00:07:22,395 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-03 00:07:24,477 INFO ExpenseCrud [JettyServerThreadPool-23] starting get route /employees
+2022-06-03 00:07:24,477 INFO s.EmployeeServiceImpl [JettyServerThreadPool-23] Entered manViewAll() in service.
+2022-06-03 00:07:24,477 INFO d.EmployeeDaoImpl [JettyServerThreadPool-23] hit manViewAll() in EmployeeDaoImpl
+2022-06-03 00:07:24,747 INFO d.EmployeeDaoImpl [JettyServerThreadPool-23] returning manViewAll() in EmployeeDaoImpl
+2022-06-03 00:07:24,747 INFO s.EmployeeServiceImpl [JettyServerThreadPool-23] Exited manViewAll() in service.
+2022-06-03 00:07:24,747 INFO ExpenseCrud [JettyServerThreadPool-23] returning from /employees
+2022-06-03 00:08:21,730 INFO ExpenseCrud [JettyServerThreadPool-19] starting post rout /login/{username}/{password}
+2022-06-03 00:08:21,730 INFO s.EmployeeServiceImpl [JettyServerThreadPool-19] hit login() in service.
+2022-06-03 00:08:21,730 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] hit login() in EmployeeDaoImpl
+2022-06-03 00:08:21,733 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] hit checkPass() in EmployeeDaoImpl
+2022-06-03 00:08:21,734 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] returning checkPass() in EmployeeDaoImpl
+2022-06-03 00:08:21,805 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] returning login() in EmployeeDaoImpl
+2022-06-03 00:08:21,805 INFO s.EmployeeServiceImpl [JettyServerThreadPool-19] returning login() in service.
+2022-06-03 00:08:21,806 INFO ExpenseCrud [JettyServerThreadPool-19] returning from /login/{username}/{password}
+2022-06-03 00:33:05,262 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-03 00:33:15,458 INFO ExpenseCrud [JettyServerThreadPool-29] starting get route /empRoleId/{id}
+2022-06-03 00:33:15,571 INFO ExpenseCrud [JettyServerThreadPool-29] returning get route /empRoleId/{id}
+2022-06-03 00:35:41,595 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-03 00:35:46,404 INFO ExpenseCrud [JettyServerThreadPool-22] starting get route /empRoleId/{id}
+2022-06-03 00:35:46,404 INFO s.EmployeeServiceImpl [JettyServerThreadPool-22] Entered getRole() in service.
+2022-06-03 00:35:46,404 INFO d.EmployeeDaoImpl [JettyServerThreadPool-22] hit getRole() in EmployeeDaoImpl
+2022-06-03 00:35:46,575 INFO d.EmployeeDaoImpl [JettyServerThreadPool-22] returning getRole() in EmployeeDaoImpl
+2022-06-03 00:35:46,575 INFO s.EmployeeServiceImpl [JettyServerThreadPool-22] Exited getRole() in service.
+2022-06-03 00:35:46,732 INFO ExpenseCrud [JettyServerThreadPool-22] returning get route /empRoleId/{id}
+2022-06-03 00:38:40,279 INFO ExpenseCrud [JettyServerThreadPool-19] starting post rout /login/{username}/{password}
+2022-06-03 00:38:40,280 INFO s.EmployeeServiceImpl [JettyServerThreadPool-19] hit login() in service.
+2022-06-03 00:38:40,280 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] hit login() in EmployeeDaoImpl
+2022-06-03 00:38:40,284 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] hit checkPass() in EmployeeDaoImpl
+2022-06-03 00:38:40,284 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] returning checkPass() in EmployeeDaoImpl
+2022-06-03 00:38:40,354 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] returning login() in EmployeeDaoImpl
+2022-06-03 00:38:40,354 INFO s.EmployeeServiceImpl [JettyServerThreadPool-19] returning login() in service.
+2022-06-03 00:38:40,354 INFO ExpenseCrud [JettyServerThreadPool-19] returning from /login/{username}/{password}
+2022-06-03 00:40:13,601 INFO ExpenseCrud [JettyServerThreadPool-23] starting post rout /login/{username}/{password}
+2022-06-03 00:40:13,601 INFO s.EmployeeServiceImpl [JettyServerThreadPool-23] hit login() in service.
+2022-06-03 00:40:13,601 INFO d.EmployeeDaoImpl [JettyServerThreadPool-23] hit login() in EmployeeDaoImpl
+2022-06-03 00:40:13,601 INFO d.EmployeeDaoImpl [JettyServerThreadPool-23] hit checkPass() in EmployeeDaoImpl
+2022-06-03 00:40:13,601 INFO d.EmployeeDaoImpl [JettyServerThreadPool-23] returning checkPass() in EmployeeDaoImpl
+2022-06-03 00:40:13,662 INFO d.EmployeeDaoImpl [JettyServerThreadPool-23] returning login() in EmployeeDaoImpl
+2022-06-03 00:40:13,662 INFO s.EmployeeServiceImpl [JettyServerThreadPool-23] returning login() in service.
+2022-06-03 00:40:13,662 INFO ExpenseCrud [JettyServerThreadPool-23] returning from /login/{username}/{password}
+2022-06-03 00:42:23,239 INFO ExpenseCrud [JettyServerThreadPool-30] starting post rout /login/{username}/{password}
+2022-06-03 00:42:23,240 INFO s.EmployeeServiceImpl [JettyServerThreadPool-30] hit login() in service.
+2022-06-03 00:42:23,240 INFO d.EmployeeDaoImpl [JettyServerThreadPool-30] hit login() in EmployeeDaoImpl
+2022-06-03 00:42:23,240 INFO d.EmployeeDaoImpl [JettyServerThreadPool-30] hit checkPass() in EmployeeDaoImpl
+2022-06-03 00:42:23,240 INFO d.EmployeeDaoImpl [JettyServerThreadPool-30] returning checkPass() in EmployeeDaoImpl
+2022-06-03 00:42:23,301 INFO d.EmployeeDaoImpl [JettyServerThreadPool-30] returning login() in EmployeeDaoImpl
+2022-06-03 00:42:23,302 INFO s.EmployeeServiceImpl [JettyServerThreadPool-30] returning login() in service.
+2022-06-03 00:42:23,302 INFO ExpenseCrud [JettyServerThreadPool-30] returning from /login/{username}/{password}
+2022-06-03 00:44:10,313 INFO ExpenseCrud [JettyServerThreadPool-20] starting post rout /login/{username}/{password}
+2022-06-03 00:44:10,313 INFO s.EmployeeServiceImpl [JettyServerThreadPool-20] hit login() in service.
+2022-06-03 00:44:10,313 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] hit login() in EmployeeDaoImpl
+2022-06-03 00:44:10,314 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] hit checkPass() in EmployeeDaoImpl
+2022-06-03 00:44:10,314 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] returning checkPass() in EmployeeDaoImpl
+2022-06-03 00:44:10,377 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] returning login() in EmployeeDaoImpl
+2022-06-03 00:44:10,377 INFO s.EmployeeServiceImpl [JettyServerThreadPool-20] returning login() in service.
+2022-06-03 00:44:10,377 INFO ExpenseCrud [JettyServerThreadPool-20] returning from /login/{username}/{password}
+2022-06-03 00:44:22,869 INFO ExpenseCrud [JettyServerThreadPool-17] starting post rout /login/{username}/{password}
+2022-06-03 00:44:22,870 INFO s.EmployeeServiceImpl [JettyServerThreadPool-17] hit login() in service.
+2022-06-03 00:44:22,870 INFO d.EmployeeDaoImpl [JettyServerThreadPool-17] hit login() in EmployeeDaoImpl
+2022-06-03 00:44:22,870 INFO d.EmployeeDaoImpl [JettyServerThreadPool-17] hit checkPass() in EmployeeDaoImpl
+2022-06-03 00:44:22,870 INFO d.EmployeeDaoImpl [JettyServerThreadPool-17] returning checkPass() in EmployeeDaoImpl
+2022-06-03 00:44:22,931 INFO d.EmployeeDaoImpl [JettyServerThreadPool-17] returning login() in EmployeeDaoImpl
+2022-06-03 00:44:22,931 INFO s.EmployeeServiceImpl [JettyServerThreadPool-17] returning login() in service.
+2022-06-03 00:44:22,931 INFO ExpenseCrud [JettyServerThreadPool-17] returning from /login/{username}/{password}
+2022-06-03 00:45:58,315 INFO ExpenseCrud [JettyServerThreadPool-17] starting post rout /login/{username}/{password}
+2022-06-03 00:45:58,315 INFO s.EmployeeServiceImpl [JettyServerThreadPool-17] hit login() in service.
+2022-06-03 00:45:58,315 INFO d.EmployeeDaoImpl [JettyServerThreadPool-17] hit login() in EmployeeDaoImpl
+2022-06-03 00:45:58,316 INFO d.EmployeeDaoImpl [JettyServerThreadPool-17] hit checkPass() in EmployeeDaoImpl
+2022-06-03 00:45:58,316 INFO d.EmployeeDaoImpl [JettyServerThreadPool-17] returning checkPass() in EmployeeDaoImpl
+2022-06-03 00:45:58,378 INFO d.EmployeeDaoImpl [JettyServerThreadPool-17] returning login() in EmployeeDaoImpl
+2022-06-03 00:45:58,378 INFO s.EmployeeServiceImpl [JettyServerThreadPool-17] returning login() in service.
+2022-06-03 00:45:58,378 INFO ExpenseCrud [JettyServerThreadPool-17] returning from /login/{username}/{password}
+2022-06-03 00:45:59,348 INFO ExpenseCrud [JettyServerThreadPool-23] starting post rout /login/{username}/{password}
+2022-06-03 00:45:59,349 INFO s.EmployeeServiceImpl [JettyServerThreadPool-23] hit login() in service.
+2022-06-03 00:45:59,349 INFO d.EmployeeDaoImpl [JettyServerThreadPool-23] hit login() in EmployeeDaoImpl
+2022-06-03 00:45:59,349 INFO d.EmployeeDaoImpl [JettyServerThreadPool-23] hit checkPass() in EmployeeDaoImpl
+2022-06-03 00:45:59,349 INFO d.EmployeeDaoImpl [JettyServerThreadPool-23] returning checkPass() in EmployeeDaoImpl
+2022-06-03 00:45:59,410 INFO d.EmployeeDaoImpl [JettyServerThreadPool-23] returning login() in EmployeeDaoImpl
+2022-06-03 00:45:59,410 INFO s.EmployeeServiceImpl [JettyServerThreadPool-23] returning login() in service.
+2022-06-03 00:45:59,410 INFO ExpenseCrud [JettyServerThreadPool-23] returning from /login/{username}/{password}
+2022-06-03 00:47:53,657 INFO ExpenseCrud [JettyServerThreadPool-17] starting post rout /login/{username}/{password}
+2022-06-03 00:47:53,658 INFO s.EmployeeServiceImpl [JettyServerThreadPool-17] hit login() in service.
+2022-06-03 00:47:53,658 INFO d.EmployeeDaoImpl [JettyServerThreadPool-17] hit login() in EmployeeDaoImpl
+2022-06-03 00:47:53,658 INFO d.EmployeeDaoImpl [JettyServerThreadPool-17] hit checkPass() in EmployeeDaoImpl
+2022-06-03 00:47:53,658 INFO d.EmployeeDaoImpl [JettyServerThreadPool-17] returning checkPass() in EmployeeDaoImpl
+2022-06-03 00:47:53,722 INFO d.EmployeeDaoImpl [JettyServerThreadPool-17] returning login() in EmployeeDaoImpl
+2022-06-03 00:47:53,723 INFO s.EmployeeServiceImpl [JettyServerThreadPool-17] returning login() in service.
+2022-06-03 00:47:53,723 INFO ExpenseCrud [JettyServerThreadPool-17] returning from /login/{username}/{password}
+2022-06-03 00:48:56,296 INFO ExpenseCrud [JettyServerThreadPool-24] starting post rout /login/{username}/{password}
+2022-06-03 00:48:56,296 INFO s.EmployeeServiceImpl [JettyServerThreadPool-24] hit login() in service.
+2022-06-03 00:48:56,296 INFO d.EmployeeDaoImpl [JettyServerThreadPool-24] hit login() in EmployeeDaoImpl
+2022-06-03 00:48:56,297 INFO d.EmployeeDaoImpl [JettyServerThreadPool-24] hit checkPass() in EmployeeDaoImpl
+2022-06-03 00:48:56,297 INFO d.EmployeeDaoImpl [JettyServerThreadPool-24] returning checkPass() in EmployeeDaoImpl
+2022-06-03 00:48:56,358 INFO d.EmployeeDaoImpl [JettyServerThreadPool-24] returning login() in EmployeeDaoImpl
+2022-06-03 00:48:56,358 INFO s.EmployeeServiceImpl [JettyServerThreadPool-24] returning login() in service.
+2022-06-03 00:48:56,358 INFO ExpenseCrud [JettyServerThreadPool-24] returning from /login/{username}/{password}
+2022-06-03 00:50:23,734 INFO ExpenseCrud [JettyServerThreadPool-18] starting post rout /login/{username}/{password}
+2022-06-03 00:50:23,734 INFO s.EmployeeServiceImpl [JettyServerThreadPool-18] hit login() in service.
+2022-06-03 00:50:23,734 INFO d.EmployeeDaoImpl [JettyServerThreadPool-18] hit login() in EmployeeDaoImpl
+2022-06-03 00:50:23,735 INFO d.EmployeeDaoImpl [JettyServerThreadPool-18] hit checkPass() in EmployeeDaoImpl
+2022-06-03 00:50:23,735 INFO d.EmployeeDaoImpl [JettyServerThreadPool-18] returning checkPass() in EmployeeDaoImpl
+2022-06-03 00:50:23,795 INFO d.EmployeeDaoImpl [JettyServerThreadPool-18] returning login() in EmployeeDaoImpl
+2022-06-03 00:50:23,795 INFO s.EmployeeServiceImpl [JettyServerThreadPool-18] returning login() in service.
+2022-06-03 00:50:23,795 INFO ExpenseCrud [JettyServerThreadPool-18] returning from /login/{username}/{password}
+2022-06-03 00:52:50,017 INFO ExpenseCrud [JettyServerThreadPool-20] starting post rout /login/{username}/{password}
+2022-06-03 00:52:50,017 INFO s.EmployeeServiceImpl [JettyServerThreadPool-20] hit login() in service.
+2022-06-03 00:52:50,018 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] hit login() in EmployeeDaoImpl
+2022-06-03 00:52:50,018 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] hit checkPass() in EmployeeDaoImpl
+2022-06-03 00:52:50,018 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] returning checkPass() in EmployeeDaoImpl
+2022-06-03 00:52:50,079 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] returning login() in EmployeeDaoImpl
+2022-06-03 00:52:50,079 INFO s.EmployeeServiceImpl [JettyServerThreadPool-20] returning login() in service.
+2022-06-03 00:52:50,079 INFO ExpenseCrud [JettyServerThreadPool-20] returning from /login/{username}/{password}
+2022-06-03 00:53:59,156 INFO ExpenseCrud [JettyServerThreadPool-23] starting post rout /login/{username}/{password}
+2022-06-03 00:53:59,157 INFO s.EmployeeServiceImpl [JettyServerThreadPool-23] hit login() in service.
+2022-06-03 00:53:59,157 INFO d.EmployeeDaoImpl [JettyServerThreadPool-23] hit login() in EmployeeDaoImpl
+2022-06-03 00:53:59,157 INFO d.EmployeeDaoImpl [JettyServerThreadPool-23] hit checkPass() in EmployeeDaoImpl
+2022-06-03 00:53:59,157 INFO d.EmployeeDaoImpl [JettyServerThreadPool-23] returning checkPass() in EmployeeDaoImpl
+2022-06-03 00:53:59,219 INFO d.EmployeeDaoImpl [JettyServerThreadPool-23] returning login() in EmployeeDaoImpl
+2022-06-03 00:53:59,219 INFO s.EmployeeServiceImpl [JettyServerThreadPool-23] returning login() in service.
+2022-06-03 00:53:59,219 INFO ExpenseCrud [JettyServerThreadPool-23] returning from /login/{username}/{password}
+2022-06-03 00:55:19,076 INFO ExpenseCrud [JettyServerThreadPool-17] starting post rout /login/{username}/{password}
+2022-06-03 00:55:19,076 INFO s.EmployeeServiceImpl [JettyServerThreadPool-17] hit login() in service.
+2022-06-03 00:55:19,077 INFO d.EmployeeDaoImpl [JettyServerThreadPool-17] hit login() in EmployeeDaoImpl
+2022-06-03 00:55:19,077 INFO d.EmployeeDaoImpl [JettyServerThreadPool-17] hit checkPass() in EmployeeDaoImpl
+2022-06-03 00:55:19,077 INFO d.EmployeeDaoImpl [JettyServerThreadPool-17] returning checkPass() in EmployeeDaoImpl
+2022-06-03 00:55:19,140 INFO d.EmployeeDaoImpl [JettyServerThreadPool-17] returning login() in EmployeeDaoImpl
+2022-06-03 00:55:19,140 INFO s.EmployeeServiceImpl [JettyServerThreadPool-17] returning login() in service.
+2022-06-03 00:55:19,141 INFO ExpenseCrud [JettyServerThreadPool-17] returning from /login/{username}/{password}
+2022-06-03 00:56:40,658 INFO ExpenseCrud [JettyServerThreadPool-19] starting post rout /login/{username}/{password}
+2022-06-03 00:56:40,658 INFO s.EmployeeServiceImpl [JettyServerThreadPool-19] hit login() in service.
+2022-06-03 00:56:40,659 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] hit login() in EmployeeDaoImpl
+2022-06-03 00:56:40,659 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] hit checkPass() in EmployeeDaoImpl
+2022-06-03 00:56:40,659 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] returning checkPass() in EmployeeDaoImpl
+2022-06-03 00:56:40,721 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] returning login() in EmployeeDaoImpl
+2022-06-03 00:56:40,721 INFO s.EmployeeServiceImpl [JettyServerThreadPool-19] returning login() in service.
+2022-06-03 00:56:40,721 INFO ExpenseCrud [JettyServerThreadPool-19] returning from /login/{username}/{password}
+2022-06-03 00:58:00,963 INFO ExpenseCrud [JettyServerThreadPool-18] starting post rout /login/{username}/{password}
+2022-06-03 00:58:00,963 INFO s.EmployeeServiceImpl [JettyServerThreadPool-18] hit login() in service.
+2022-06-03 00:58:00,963 INFO d.EmployeeDaoImpl [JettyServerThreadPool-18] hit login() in EmployeeDaoImpl
+2022-06-03 00:58:00,963 INFO d.EmployeeDaoImpl [JettyServerThreadPool-18] hit checkPass() in EmployeeDaoImpl
+2022-06-03 00:58:00,964 INFO d.EmployeeDaoImpl [JettyServerThreadPool-18] returning checkPass() in EmployeeDaoImpl
+2022-06-03 00:58:01,027 INFO d.EmployeeDaoImpl [JettyServerThreadPool-18] returning login() in EmployeeDaoImpl
+2022-06-03 00:58:01,027 INFO s.EmployeeServiceImpl [JettyServerThreadPool-18] returning login() in service.
+2022-06-03 00:58:01,027 INFO ExpenseCrud [JettyServerThreadPool-18] returning from /login/{username}/{password}
+2022-06-03 00:58:36,327 INFO ExpenseCrud [JettyServerThreadPool-30] starting post rout /login/{username}/{password}
+2022-06-03 00:58:36,327 INFO s.EmployeeServiceImpl [JettyServerThreadPool-30] hit login() in service.
+2022-06-03 00:58:36,327 INFO d.EmployeeDaoImpl [JettyServerThreadPool-30] hit login() in EmployeeDaoImpl
+2022-06-03 00:58:36,327 INFO d.EmployeeDaoImpl [JettyServerThreadPool-30] hit checkPass() in EmployeeDaoImpl
+2022-06-03 00:58:36,328 INFO d.EmployeeDaoImpl [JettyServerThreadPool-30] returning checkPass() in EmployeeDaoImpl
+2022-06-03 00:58:36,390 INFO d.EmployeeDaoImpl [JettyServerThreadPool-30] returning login() in EmployeeDaoImpl
+2022-06-03 00:58:36,390 INFO s.EmployeeServiceImpl [JettyServerThreadPool-30] returning login() in service.
+2022-06-03 00:58:36,390 INFO ExpenseCrud [JettyServerThreadPool-30] returning from /login/{username}/{password}
+2022-06-03 00:58:56,363 INFO ExpenseCrud [JettyServerThreadPool-24] starting post rout /login/{username}/{password}
+2022-06-03 00:58:56,363 INFO s.EmployeeServiceImpl [JettyServerThreadPool-24] hit login() in service.
+2022-06-03 00:58:56,363 INFO d.EmployeeDaoImpl [JettyServerThreadPool-24] hit login() in EmployeeDaoImpl
+2022-06-03 00:58:56,364 INFO d.EmployeeDaoImpl [JettyServerThreadPool-24] hit checkPass() in EmployeeDaoImpl
+2022-06-03 00:58:56,364 INFO d.EmployeeDaoImpl [JettyServerThreadPool-24] returning checkPass() in EmployeeDaoImpl
+2022-06-03 00:58:56,427 INFO d.EmployeeDaoImpl [JettyServerThreadPool-24] returning login() in EmployeeDaoImpl
+2022-06-03 00:58:56,428 INFO s.EmployeeServiceImpl [JettyServerThreadPool-24] returning login() in service.
+2022-06-03 00:58:56,428 INFO ExpenseCrud [JettyServerThreadPool-24] returning from /login/{username}/{password}
+2022-06-03 01:01:36,513 INFO ExpenseCrud [JettyServerThreadPool-20] starting post rout /login/{username}/{password}
+2022-06-03 01:01:36,513 INFO s.EmployeeServiceImpl [JettyServerThreadPool-20] hit login() in service.
+2022-06-03 01:01:36,513 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] hit login() in EmployeeDaoImpl
+2022-06-03 01:01:36,514 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] hit checkPass() in EmployeeDaoImpl
+2022-06-03 01:01:36,514 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] returning checkPass() in EmployeeDaoImpl
+2022-06-03 01:01:36,576 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] returning login() in EmployeeDaoImpl
+2022-06-03 01:01:36,576 INFO s.EmployeeServiceImpl [JettyServerThreadPool-20] returning login() in service.
+2022-06-03 01:01:36,576 INFO ExpenseCrud [JettyServerThreadPool-20] returning from /login/{username}/{password}
+2022-06-03 01:02:42,355 INFO ExpenseCrud [JettyServerThreadPool-19] starting post rout /login/{username}/{password}
+2022-06-03 01:02:42,355 INFO s.EmployeeServiceImpl [JettyServerThreadPool-19] hit login() in service.
+2022-06-03 01:02:42,355 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] hit login() in EmployeeDaoImpl
+2022-06-03 01:02:42,355 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] hit checkPass() in EmployeeDaoImpl
+2022-06-03 01:02:42,356 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] returning checkPass() in EmployeeDaoImpl
+2022-06-03 01:02:42,420 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] returning login() in EmployeeDaoImpl
+2022-06-03 01:02:42,420 INFO s.EmployeeServiceImpl [JettyServerThreadPool-19] returning login() in service.
+2022-06-03 01:02:42,420 INFO ExpenseCrud [JettyServerThreadPool-19] returning from /login/{username}/{password}
+2022-06-03 01:05:11,092 INFO ExpenseCrud [JettyServerThreadPool-17] starting post rout /login/{username}/{password}
+2022-06-03 01:05:11,092 INFO s.EmployeeServiceImpl [JettyServerThreadPool-17] hit login() in service.
+2022-06-03 01:05:11,092 INFO d.EmployeeDaoImpl [JettyServerThreadPool-17] hit login() in EmployeeDaoImpl
+2022-06-03 01:05:11,093 INFO d.EmployeeDaoImpl [JettyServerThreadPool-17] hit checkPass() in EmployeeDaoImpl
+2022-06-03 01:05:11,093 INFO d.EmployeeDaoImpl [JettyServerThreadPool-17] returning checkPass() in EmployeeDaoImpl
+2022-06-03 01:05:11,154 INFO d.EmployeeDaoImpl [JettyServerThreadPool-17] returning login() in EmployeeDaoImpl
+2022-06-03 01:05:11,154 INFO s.EmployeeServiceImpl [JettyServerThreadPool-17] returning login() in service.
+2022-06-03 01:05:11,154 INFO ExpenseCrud [JettyServerThreadPool-17] returning from /login/{username}/{password}
+2022-06-03 01:06:47,900 INFO ExpenseCrud [JettyServerThreadPool-20] starting post rout /login/{username}/{password}
+2022-06-03 01:06:47,900 INFO s.EmployeeServiceImpl [JettyServerThreadPool-20] hit login() in service.
+2022-06-03 01:06:47,900 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] hit login() in EmployeeDaoImpl
+2022-06-03 01:06:47,901 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] hit checkPass() in EmployeeDaoImpl
+2022-06-03 01:06:47,901 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] returning checkPass() in EmployeeDaoImpl
+2022-06-03 01:06:47,961 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] returning login() in EmployeeDaoImpl
+2022-06-03 01:06:47,962 INFO s.EmployeeServiceImpl [JettyServerThreadPool-20] returning login() in service.
+2022-06-03 01:06:47,962 INFO ExpenseCrud [JettyServerThreadPool-20] returning from /login/{username}/{password}
+2022-06-03 01:07:22,736 INFO ExpenseCrud [JettyServerThreadPool-23] starting post rout /login/{username}/{password}
+2022-06-03 01:07:22,736 INFO s.EmployeeServiceImpl [JettyServerThreadPool-23] hit login() in service.
+2022-06-03 01:07:22,736 INFO d.EmployeeDaoImpl [JettyServerThreadPool-23] hit login() in EmployeeDaoImpl
+2022-06-03 01:07:22,737 INFO d.EmployeeDaoImpl [JettyServerThreadPool-23] hit checkPass() in EmployeeDaoImpl
+2022-06-03 01:07:22,737 INFO d.EmployeeDaoImpl [JettyServerThreadPool-23] returning checkPass() in EmployeeDaoImpl
+2022-06-03 01:07:22,798 INFO d.EmployeeDaoImpl [JettyServerThreadPool-23] returning login() in EmployeeDaoImpl
+2022-06-03 01:07:22,798 INFO s.EmployeeServiceImpl [JettyServerThreadPool-23] returning login() in service.
+2022-06-03 01:07:22,798 INFO ExpenseCrud [JettyServerThreadPool-23] returning from /login/{username}/{password}
+2022-06-03 01:07:24,204 INFO ExpenseCrud [JettyServerThreadPool-24] starting get route /empRoleId/{id}
+2022-06-03 01:07:24,204 INFO s.EmployeeServiceImpl [JettyServerThreadPool-24] Entered getRole() in service.
+2022-06-03 01:07:24,204 INFO d.EmployeeDaoImpl [JettyServerThreadPool-24] hit getRole() in EmployeeDaoImpl
+2022-06-03 01:07:24,205 INFO d.EmployeeDaoImpl [JettyServerThreadPool-24] returning getRole() in EmployeeDaoImpl
+2022-06-03 01:07:24,205 INFO s.EmployeeServiceImpl [JettyServerThreadPool-24] Exited getRole() in service.
+2022-06-03 01:07:24,205 INFO ExpenseCrud [JettyServerThreadPool-24] returning get route /empRoleId/{id}
+2022-06-03 01:08:26,805 INFO ExpenseCrud [JettyServerThreadPool-30] starting post rout /login/{username}/{password}
+2022-06-03 01:08:26,805 INFO s.EmployeeServiceImpl [JettyServerThreadPool-30] hit login() in service.
+2022-06-03 01:08:26,805 INFO d.EmployeeDaoImpl [JettyServerThreadPool-30] hit login() in EmployeeDaoImpl
+2022-06-03 01:08:26,806 INFO d.EmployeeDaoImpl [JettyServerThreadPool-30] hit checkPass() in EmployeeDaoImpl
+2022-06-03 01:08:26,806 INFO d.EmployeeDaoImpl [JettyServerThreadPool-30] returning checkPass() in EmployeeDaoImpl
+2022-06-03 01:08:26,870 INFO d.EmployeeDaoImpl [JettyServerThreadPool-30] returning login() in EmployeeDaoImpl
+2022-06-03 01:08:26,870 INFO s.EmployeeServiceImpl [JettyServerThreadPool-30] returning login() in service.
+2022-06-03 01:08:26,870 INFO ExpenseCrud [JettyServerThreadPool-30] returning from /login/{username}/{password}
+2022-06-03 01:08:28,206 INFO ExpenseCrud [JettyServerThreadPool-23] starting get route /empRoleId/{id}
+2022-06-03 01:08:28,206 INFO s.EmployeeServiceImpl [JettyServerThreadPool-23] Entered getRole() in service.
+2022-06-03 01:08:28,207 INFO d.EmployeeDaoImpl [JettyServerThreadPool-23] hit getRole() in EmployeeDaoImpl
+2022-06-03 01:08:28,207 INFO d.EmployeeDaoImpl [JettyServerThreadPool-23] returning getRole() in EmployeeDaoImpl
+2022-06-03 01:08:28,208 INFO s.EmployeeServiceImpl [JettyServerThreadPool-23] Exited getRole() in service.
+2022-06-03 01:08:28,208 INFO ExpenseCrud [JettyServerThreadPool-23] returning get route /empRoleId/{id}

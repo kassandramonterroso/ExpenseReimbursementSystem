@@ -1,7 +1,10 @@
 package dao;
 
+import java.util.List;
+
 import exception.ApplicationException;
 import model.EmployeePojo;
+import model.RolesPojo;
 
 public interface EmployeeDao {
 	
@@ -18,7 +21,7 @@ public interface EmployeeDao {
 	EmployeePojo empUpdateInfo(EmployeePojo employeePojo) throws ApplicationException;
 	
 	//Method for manager to view all employees
-	EmployeePojo manViewAll() throws ApplicationException;
+	List<EmployeePojo> manViewAll() throws ApplicationException;
 	
 	//Method to changePassword only
 	EmployeePojo changePassword(int empId) throws ApplicationException;
@@ -26,5 +29,6 @@ public interface EmployeeDao {
 	boolean checkPass(String password, String hashedPass);
 
 	String hashPassword(String password);
-
+	//method to get role information
+	RolesPojo getRole(int id) throws ApplicationException;
 }

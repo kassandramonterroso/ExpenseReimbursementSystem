@@ -46,6 +46,8 @@ INSERT INTO roles(role) VALUES ('Manager');
 INSERT INTO roles(role) VALUES ('Employee');
 INSERT INTO status(status) VALUES ('Pending');
 INSERT INTO employees(first_name, last_name, user_name, hashed_password, emp_role_id) VALUES ('logan', 'lastName', 'cat', '$2a$10$HwO.e2gax/jJuW49MfLbvujyUQu8Wr6yppRHXFkLp11./Hnaj74Nu', 1);
+INSERT INTO employees(first_name, last_name, user_name, hashed_password, emp_role_id) VALUES ('doggy', 'lastName', 'dog', '$2a$10$HwO.e2gax/jJuW49MfLbvujyUQu8Wr6yppRHXFkLp11./Hnaj74Nu', 2);
+
 
 
 
