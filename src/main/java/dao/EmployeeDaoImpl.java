@@ -98,10 +98,10 @@ public class EmployeeDaoImpl implements EmployeeDao {
 					connect = DBUtil.dbConnection();
 					Statement stmt = connect.createStatement();
 					String query = "SELECT * FROM employees WHERE emp_id="+empId;
-					ResultSet resultSet = stmt.executeQuery(query);
-					if(resultSet.next()) {
-						employeePojo = new EmployeePojo(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getString(5), resultSet.getInt(6));
-					}
+					ResultSet result = stmt.executeQuery(query);
+					if(result.next()) {
+						employeePojo = new EmployeePojo(result.getInt(1), result.getString(2), result.getString(3),
+								result.getString(4), result.getString(5), result.getInt(6));					}
 				} catch (SQLException e) {
 					throw new ApplicationException(e.getMessage());
 				}
@@ -118,14 +118,26 @@ public class EmployeeDaoImpl implements EmployeeDao {
 				try {
 					connect = DBUtil.dbConnection();
 					Statement stmt = connect.createStatement();
-					String query1 = "UPDATE employees SET first_name = '"+employeePojo.getEmpFirstName()+ "' WHERE emp_id = " +employeePojo.getEmpId();
+					String query1 = "UPDATE employees SET first_name = '"+employeePojo.getEmpFirstName()+ 
+							"' WHERE emp_id = " +employeePojo.getEmpId();
 					int rowsAffected1 = stmt.executeUpdate(query1);
-					String query2 = "UPDATE employees SET last_name = '"+employeePojo.getEmpLastName()+ "' WHERE emp_id = " +employeePojo.getEmpId();
+					String query2 = "UPDATE employees SET last_name = '"+employeePojo.getEmpLastName()+
+							"' WHERE emp_id = " +employeePojo.getEmpId();
 					int rowsAffected2 = stmt.executeUpdate(query2);
-					String query3 = "UPDATE employees SET user_name = '"+employeePojo.getEmpUserName()+ "' WHERE emp_id = " +employeePojo.getEmpId();
+					String query3 = "UPDATE employees SET user_name = '"+employeePojo.getEmpUserName()+ 
+							"' WHERE emp_id = " +employeePojo.getEmpId();
 					int rowsAffected3 = stmt.executeUpdate(query3);
-					String query4 = "UPDATE employees SET hashed_password = '"+employeePojo.getEmpPassword()+ "' WHERE emp_id = " +employeePojo.getEmpId();
+					String query4 = "UPDATE employees SET hashed_password = '"+employeePojo.getEmpPassword()+ 
+							"' WHERE emp_id = " +employeePojo.getEmpId();
 					int rowsAffected4 = stmt.executeUpdate(query4);
+					
+					//update all employee details
+					String query = "UPDATE employees SET first_name = '"+employeePojo.getEmpFirstName()+ 
+							", last_name = '"+employeePojo.getEmpLastName()+
+							", user_name = '"+employeePojo.getEmpUserName()+
+							", hashed_password = '"+employeePojo.getEmpPassword()+
+							"' WHERE emp_id = " +employeePojo.getEmpId();
+					int rowsAffected = stmt.executeUpdate(query);
 
 				} catch (SQLException e) {
 					e.printStackTrace();
@@ -145,10 +157,13 @@ public class EmployeeDaoImpl implements EmployeeDao {
 				try {
 					connect = DBUtil.dbConnection();
 					Statement stmt = connect.createStatement();
-					String query = "SELECT e.emp_id,  e.first_name, e.last_name, r.reimb_id ,r.reimb_amt, s.status FROM employees e JOIN reimbursements r ON e.emp_id = r.requester_id JOIN status s ON r.reimb_status_id = s.status_id";
+					String query = "SELECT e.emp_id,  e.first_name, e.last_name, r.reimb_id ,r.reimb_amt, "
+							+ "s.status FROM employees e JOIN reimbursements r ON e.emp_id = r.requester_id JOIN status s "
+							+ "ON r.reimb_status_id = s.status_id";
 					ResultSet resultSet = stmt.executeQuery(query);
 					if(resultSet.next()) {
-						employeePojo = new EmployeePojo(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getString(5), resultSet.getInt(6));
+						employeePojo = new EmployeePojo(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), 
+								resultSet.getString(4), resultSet.getString(5), resultSet.getInt(6));
 					}
 				} catch (SQLException e) {
 					throw new ApplicationException(e.getMessage());
@@ -167,7 +182,8 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		try {
 			connect = DBUtil.dbConnection();
 			Statement stmt = connect.createStatement();
-			String query = "UPDATE employees SET hashed_password = '"+employeePojo.getEmpPassword()+ "' WHERE emp_id = " +employeePojo.getEmpId();
+			String query = "UPDATE employees SET hashed_password = '"+employeePojo.getEmpPassword()+ 
+					"' WHERE emp_id = " +employeePojo.getEmpId();
 			int rowsAffected = stmt.executeUpdate(query);
 		}catch (SQLException e) {
 			throw new ApplicationException(e.getMessage());

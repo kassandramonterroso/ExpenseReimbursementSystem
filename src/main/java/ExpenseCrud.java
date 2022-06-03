@@ -31,23 +31,14 @@ public class ExpenseCrud {
 		app.start(8082);
        
         //can access this endpoint through postman
-        
-        
-        
         //lets create other endpoints
-        
         //CRUD 
-
         // login
-        
         app.post("/login/{username}/{password}", (ctx)->{
         	LOG.info("starting post rout /login/{username}/{password}");
         	System.out.println("post rout");
-        	
         	String username = ctx.pathParam("username");
         	String password = ctx.pathParam("password");
-        	
-        	
         	try {
         		
         		EmployeePojo info =service.login(username, password);
@@ -56,12 +47,10 @@ public class ExpenseCrud {
         		}
         		LOG.info("returning from /login/{username}/{password}");
             	ctx.json(info);
-            	
         	} catch(ApplicationException e) {
         		LOG.info("returning from /login/{username}/{password} with error");
         		ctx.json(e);
         	}
-        	
         });
 
         app.post("/changePass/{newPassword}", (ctx)->{
@@ -87,7 +76,7 @@ public class ExpenseCrud {
         });
     
         //endpoint manager can view all employees    
-        app.get("/employees",(ctx)->{
+        app.get("/emps",(ctx)->{
         	LOG.info("starting get route /employees");
         	System.out.println("All Employees details");
         	
@@ -97,11 +86,11 @@ public class ExpenseCrud {
         });  
         
         //endpoint manager can view specific employee manViewRequest
-        app.get("/employees",(ctx)->{
-        	LOG.info("starting get route /employees");
+        app.get("/empSpecific/{eid}",(ctx)->{
+        	LOG.info("starting get route /emps");
         	System.out.println("Specific Employees details");
         	// here we retrieve the eId from the path/url
-        	String empId = ctx.pathParam("eId");
+        	String empId = ctx.pathParam("eid");
         	// convert String to int
         	int empIdInteger = Integer.parseInt(empId);
         	ReimbursementPojo specificEmployee = reimbursementService.manViewRequest(empIdInteger); 
@@ -110,11 +99,11 @@ public class ExpenseCrud {
         });   
         
         //endpoint employee can view his details empViewInfo
-        app.get("/employees",(ctx)->{
+        app.get("/empOwn/{eid}",(ctx)->{
         	LOG.info("starting get route /employees");
         	System.out.println("Employee own details");
         	// here we retrieve the eId from the path/url
-        	String empId = ctx.pathParam("eId");
+        	String empId = ctx.pathParam("eid");
         				
         	// convert String to int
         	int empIdInteger = Integer.parseInt(empId);
@@ -125,11 +114,11 @@ public class ExpenseCrud {
         
 
         //endpoint put employee can update his details
-        app.put("/employees",(ctx)->{
+        app.put("/empUpdate/{eid}",(ctx)->{
         	LOG.info("starting get route /employees");
         	System.out.println("Employee update details");
         	// here we retrieve the eId from the path/url
-        	String empId = ctx.pathParam("eId");
+        	String empId = ctx.pathParam("eid");
         				
         	// convert String to int
         	int empIdInteger = Integer.parseInt(empId);
@@ -139,7 +128,7 @@ public class ExpenseCrud {
         });  
         
 	//endpoint manager can view all resolved requests ---start
-	app.get("/employees",(ctx)->{
+	app.get("/empResolved",(ctx)->{
 		LOG.info("starting get route /employees");	
 		System.out.println("View all resolved requests");
         	List<ReimbursementPojo> allResolvedRequests = reimbursementService.manViewAllResolved(); 
@@ -148,7 +137,7 @@ public class ExpenseCrud {
         });   
 		
 	//endpoint manager can view all pending requests
-	app.get("/employees",(ctx)->{
+	app.get("/empPendings",(ctx)->{
 		LOG.info("starting get route /employees");	
         	System.out.println("View all pending requests");
         	List<ReimbursementPojo> allPendingRequests = reimbursementService.manViewAllPending(); 
@@ -157,19 +146,15 @@ public class ExpenseCrud {
         });   	
 		
 	//endpoint employee can view all resolved requests
-	app.get("/employees",(ctx)->{
+	app.get("/empAllRequests/{eid}",(ctx)->{
 		LOG.info("starting get route /employees");	
         	System.out.println("View all resolved request");
-        	String empId = ctx.pathParam("eId");
+        	String empId = ctx.pathParam("eid");
         	int empIdInteger = Integer.parseInt(empId);
         	ReimbursementPojo employeeResolved = reimbursementService.empViewResolved(empIdInteger); 
         	LOG.info("returning from /employees");
         	ctx.json(employeeResolved);
         });   	
-		
-        
-        
-		
-	
-}
+ 
+	}
 }
