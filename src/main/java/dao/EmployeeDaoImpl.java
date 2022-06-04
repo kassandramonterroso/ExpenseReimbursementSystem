@@ -135,11 +135,11 @@ public class EmployeeDaoImpl implements EmployeeDao {
 					int rowsAffected4 = stmt.executeUpdate(query4);
 					
 					//update all employee details
-					String query = "UPDATE employees SET first_name = '"+employeePojo.getEmpFirstName()+ 
-							", last_name = '"+employeePojo.getEmpLastName()+
-							", user_name = '"+employeePojo.getEmpUserName()+
-							", hashed_password = '"+employeePojo.getEmpPassword()+
-							"' WHERE emp_id = " +employeePojo.getEmpId();
+					String query = "UPDATE employees SET first_name = '"+employeePojo.getEmpFirstName()+"'"+ 
+							", last_name = '"+employeePojo.getEmpLastName()+"'"+
+							", user_name = '"+employeePojo.getEmpUserName()+"'"+
+							", hashed_password = '"+employeePojo.getEmpPassword()+"'"+
+							" WHERE emp_id = " +employeePojo.getEmpId();
 					int rowsAffected = stmt.executeUpdate(query);
 
 				} catch (SQLException e) {
