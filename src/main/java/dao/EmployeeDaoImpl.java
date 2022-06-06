@@ -189,27 +189,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	@Override
-	public EmployeePojo changePassword(int empId) throws ApplicationException {
-		// LOG.info("Entered changePassword() in Dao...");
-		LOG.info("hit changePassword() in EmployeeDaoImpl");
-		Connection connect = null;
-		EmployeePojo employeePojo = null;
-
-		try {
-			connect = DBUtil.dbConnection();
-			Statement stmt = connect.createStatement();
-			String query = "UPDATE employees SET hashed_password = '" + employeePojo.getEmpPassword()
-					+ "' WHERE emp_id = " + employeePojo.getEmpId();
-			int rowsAffected = stmt.executeUpdate(query);
-		} catch (SQLException e) {
-			throw new ApplicationException(e.getMessage());
-		}
-		// LOG.info("Exited changePassword() in Dao...");
-		LOG.info("returning changePassword() in EmployeeDaoImpl");
-		return employeePojo;
-	}
-
-	@Override
 	public RolesPojo getRole(int id) throws ApplicationException {
 		LOG.info("hit getRole() in EmployeeDaoImpl");
 		Connection connect = null;

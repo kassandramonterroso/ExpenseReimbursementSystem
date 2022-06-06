@@ -20,13 +20,10 @@ public interface EmployeeService {
 	EmployeePojo empViewInfo(int empId) throws ApplicationException;
 	
 	//Method for employee to update their information
-	EmployeePojo empUpdateInfo(EmployeePojo employeePojo,String currPassword) throws ApplicationException;
+	EmployeePojo empUpdateInfo(EmployeePojo employeePojo,String currPassword, String newPass) throws ApplicationException;
 	
 	//Method for manager to view all employees
 	List<EmployeePojo> manViewAll() throws ApplicationException;
-	
-	//Method to changePassword only
-	EmployeePojo changePassword(int empId) throws ApplicationException;
 	//method to get role information
 	RolesPojo getRole(int id) throws ApplicationException;
 }

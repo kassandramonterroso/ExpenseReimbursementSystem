@@ -53,27 +53,6 @@ public class ExpenseCrud {
         	}
         });
 
-        app.post("/changePass/{newPassword}", (ctx)->{
-        	LOG.info("Starting post route /changePass/{newPassword}");
-        	System.out.println("post rout");	
-        	String newPassword = ctx.pathParam("newPassword");
-        	int newPass = Integer.parseInt(newPassword);
-        	try {
-        		
-        		EmployeePojo info =service.changePassword(newPass);
-        		if (info == null) {
-        			LOG.info("returning from /changePass/{newPassword} with error");
-        			throw new ApplicationException("invalid username or password");
-        		}
-        		LOG.info("returning from /changePass/{newPassword}");
-            	ctx.json(info);
-            	
-        	} catch(ApplicationException e) {
-        		LOG.info("returning from /changePass/{newPassword} with error");
-        		ctx.json(e);
-        	}
-        	
-        });
     
         //endpoint manager can view all employees    
         app.get("/emps",(ctx)->{
@@ -115,11 +94,12 @@ public class ExpenseCrud {
         
 
         //endpoint put employee can update his details
-        app.put("/empUpdate/{currPass}",(ctx)->{
+        app.put("/empUpdate/{currPass}/{newPass}",(ctx)->{
         	LOG.info("starting put route /employees");
         	System.out.println(ctx.bodyAsClass(EmployeePojo.class));
         	String empPass = ctx.pathParam("currPass");
-        	EmployeePojo returnEmpPojo = employeeService.empUpdateInfo(ctx.bodyAsClass(EmployeePojo.class),empPass);
+        	String newPass = ctx.pathParam("newPass");
+        	EmployeePojo returnEmpPojo = employeeService.empUpdateInfo(ctx.bodyAsClass(EmployeePojo.class),empPass,newPass);
         	
         	
         	// convert String to int
