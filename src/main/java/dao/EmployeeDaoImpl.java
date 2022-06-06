@@ -10,7 +10,6 @@ import java.util.ArrayList;
 
 import java.util.Collection;
 
-
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -25,13 +24,14 @@ import model.StatusPojo;
 
 import model.RolesPojo;
 
-
 public class EmployeeDaoImpl implements EmployeeDao {
 	final Logger LOG = LogManager.getLogger(EmployeeDaoImpl.class);
 	List<EmployeePojo> allEmployees1;
+
 	public EmployeeDaoImpl() {
 		this.allEmployees1 = new ArrayList<EmployeePojo>();
 	}
+
 	@Override
 	public String hashPassword(String password) {
 		LOG.info("hit hashPassword() in EmployeeDaoImpl");
@@ -40,8 +40,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		LOG.info("returning hashPassword() in EmployeeDaoImpl");
 		return hashedPass;
 	}
+
 	@Override
-	
+
 	public boolean checkPass(String password, String hashedPass) {
 		LOG.info("hit checkPass() in EmployeeDaoImpl");
 		// takes your password and an encrypted password and compares it to see if its
@@ -49,13 +50,14 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		// as the password, if so it returns true
 		LOG.info("returning checkPass() in EmployeeDaoImpl");
 		if (BCrypt.checkpw(password, hashedPass)) {
-			
+
 			return true;
 		} else {
-			
+
 			return false;
 		}
 	}
+
 	@Override
 	public EmployeePojo login(String username, String password) throws ApplicationException {
 		LOG.info("hit login() in EmployeeDaoImpl");
@@ -68,7 +70,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			PreparedStatement stmt = conn.prepareStatement(query);
 			stmt.setString(1, username);
 			result = stmt.executeQuery();
-			if(result.next()) {
+			if (result.next()) {
 				boolean checkPassword = checkPass(password, result.getString("hashed_password"));
 				if (checkPassword == true) {
 					// if correct password returns the user and their information
@@ -83,8 +85,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			throw new ApplicationException(e.getLocalizedMessage());
-		}
-		catch(ApplicationException e){
+		} catch (ApplicationException e) {
 			LOG.info("returning login ApplicationException");
 			throw new ApplicationException(e.getLocalizedMessage());
 		}
@@ -99,151 +100,97 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	@Override
-	public EmployeePojo empViewInfo(int empId) throws ApplicationException{
-		//LOG.info("Entered empViewInfo() in Dao...");
-		LOG.info("hit empViewInfo() in EmployeeDaoImpl");		
+	public EmployeePojo empViewInfo(int empId) throws ApplicationException {
+		// LOG.info("Entered empViewInfo() in Dao...");
+		LOG.info("hit empViewInfo() in EmployeeDaoImpl");
 		Connection connect = null;
-				EmployeePojo employeePojo = null;
-				try {
-					connect = DBUtil.dbConnection();
-					Statement stmt = connect.createStatement();
-					String query = "SELECT * FROM employees WHERE emp_id="+empId;
-					ResultSet result = stmt.executeQuery(query);
-					if(result.next()) {
-						employeePojo = new EmployeePojo(result.getInt(1), result.getString(2), result.getString(3),
-								result.getString(4), result.getString(5), result.getInt(6));					}
-				} catch (SQLException e) {
-					throw new ApplicationException(e.getMessage());
-				}
-				LOG.info("returning empViewInfo() in EmployeeDaoImpl");
-				//LOG.info("Exited empViewInfo() in Dao...");
-				return employeePojo;
-	}
-
-	@Override
-	public EmployeePojo empUpdateInfo(EmployeePojo employeePojo) throws ApplicationException{
-		//LOG.info("Entered empUpdateInfo() in Dao...");
-		LOG.info("hit empUpdateInfo() in EmployeeDaoImpl");
-				Connection connect = null;
-				try {
-					connect = DBUtil.dbConnection();
-					Statement stmt = connect.createStatement();
-					String query1 = "UPDATE employees SET first_name = '"+employeePojo.getEmpFirstName()+ 
-							"' WHERE emp_id = " +employeePojo.getEmpId();
-					int rowsAffected1 = stmt.executeUpdate(query1);
-					String query2 = "UPDATE employees SET last_name = '"+employeePojo.getEmpLastName()+
-							"' WHERE emp_id = " +employeePojo.getEmpId();
-					int rowsAffected2 = stmt.executeUpdate(query2);
-					String query3 = "UPDATE employees SET user_name = '"+employeePojo.getEmpUserName()+ 
-							"' WHERE emp_id = " +employeePojo.getEmpId();
-					int rowsAffected3 = stmt.executeUpdate(query3);
-					String query4 = "UPDATE employees SET hashed_password = '"+employeePojo.getEmpPassword()+ 
-							"' WHERE emp_id = " +employeePojo.getEmpId();
-					int rowsAffected4 = stmt.executeUpdate(query4);
-					
-					//update all employee details
-					String query = "UPDATE employees SET first_name = '"+employeePojo.getEmpFirstName()+"'"+ 
-							", last_name = '"+employeePojo.getEmpLastName()+"'"+
-							", user_name = '"+employeePojo.getEmpUserName()+"'"+
-							", hashed_password = '"+employeePojo.getEmpPassword()+"'"+
-							" WHERE emp_id = " +employeePojo.getEmpId();
-					int rowsAffected = stmt.executeUpdate(query);
-
-				} catch (SQLException e) {
-					e.printStackTrace();
-					throw new ApplicationException(e.getMessage());
-				}
-				LOG.info("returning empUpdateInfo() in EmployeeDaoImpl");
-				//LOG.info("Exited empUpdateInfo() in Dao...");
-				return employeePojo;
-	}
-
-	@Override
-	public List<EmployeePojo> manViewAll() throws ApplicationException{
-		//LOG.info("Entered manViewAll() in Dao...");
-		LOG.info("hit manViewAll() in EmployeeDaoImpl");
-		//Collection<EmployeePojo> allEmployees1 = new ArrayList<EmployeePojo>();
-		//Collection<ReimbursementPojo> allRequests1 = new ArrayList<ReimbursementPojo>();
-		//Collection<StatusPojo> allStatus1 = new ArrayList<StatusPojo>();
-		List<EmployeePojo> allEmployees1 = new ArrayList<EmployeePojo>();
-
-				Connection connect = null;
-
-				EmployeePojo employeePojo = null;
-				ReimbursementPojo reimbursementPojo = null;
-				StatusPojo statusPojo = null;
-				// ArrayList<String[]> list = new ArrayList<String[]>();
-				 
-				try {
-					connect = DBUtil.dbConnection();
-					Statement stmt = connect.createStatement();
-				//	String query = "SELECT e.emp_id,  e.first_name, e.last_name, r.reimb_id ,r.reimb_amt, "
-				//			+ "s.status FROM employees e JOIN reimbursements r ON e.emp_id = r.requester_id JOIN status s "
-				//			+ "ON r.reimb_status_id = s.status_id";
-					String query = "SELECT * FROM employees WHERE emp_role_id = 1";
-					ResultSet resultSet = stmt.executeQuery(query);
-					while(resultSet.next()) {
-						
-						/*String emId = resultSet.getString("empId");
-						String emFirstName = resultSet.getString("empFirstName");
-						String emLastName = resultSet.getString("empLastName");
-						String emReimbAmt = resultSet.getString("reimbAmt");
-						String emReimbStatus = resultSet.getString("status");
-						*/
-						
-						
-						employeePojo = new EmployeePojo(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), 
-								resultSet.getString(4), resultSet.getString(5), resultSet.getInt(6));
-						//employeePojo = new EmployeePojo(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3),"","","");
-					//	int employeeTempId = resultSet.getInt(1);
-					//	String employeeTempFirstName = resultSet.getString(2);
-					//	String employeeTempLastName = resultSet.getString(3);
-					//	employeePojo = new EmployeePojo(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3),
-					//			resultSet.getString(4), resultSet.getString(5), resultSet.getInt(6));
-					//	reimbursementPojo = new ReimbursementPojo(resultSet.getInt(1), resultSet.getDouble(2), resultSet.getInt(3),
-					//			resultSet.getInt(4), resultSet.getInt(5));
-					//	statusPojo = new StatusPojo(resultSet.getInt(1),resultSet.getString(2));
-					//	System.out.println("EmployeePojo is "+employeePojo);
-					//	System.out.println("ReimbursementPojo  is "+reimbursementPojo);
-					//	System.out.println("StatusPojo  is "+statusPojo);
-					//	allRequests1.add(reimbursementPojo);
-					//	allStatus1.add(statusPojo);
-					//	list.addAll(allEmployees1);
-					//	list.addAll(allRequests1);
-					//	list.add(allStatus1);
-					//(employeePojo.getEmpId(),employeePojo.getEmpFirstName(),employeePojo.getEmpLastName(),reimbursementPojo.getReimbAmt(),statusPojo.getStatus());
-					//	System.out.println("Employees array list : " +allEmployees1);
-					allEmployees1.add(employeePojo);
-
-					}
-
-				List<EmployeePojo> employeePojo = new ArrayList<EmployeePojo>();
-				try {
-					connect = DBUtil.dbConnection();
-					Statement stmt = connect.createStatement();
-//					String query = "SELECT e.emp_id,  e.first_name, e.last_name, r.reimb_id ,r.reimb_amt, "
-//							+ "s.status FROM employees e JOIN reimbursements r ON e.emp_id = r.requester_id JOIN status s "
-//							+ "ON r.reimb_status_id = s.status_id";
-					String query = "SELECT * FROM employees where emp_role_id = 2;";
-					ResultSet resultSet = stmt.executeQuery(query);
-					
-						while(resultSet.next()) {
-							employeePojo.add(new EmployeePojo(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), 
-									resultSet.getString(4), resultSet.getString(5), resultSet.getInt(6)));
-						}
-						
-					
-
-				} catch (SQLException e) {
-					throw new ApplicationException(e.getMessage());
-				}
-						//LOG.info("Exited manViewAll() in Dao...");
-				LOG.info("returning manViewAll() in EmployeeDaoImpl");
-				return allEmployees1;
+		EmployeePojo employeePojo = null;
+		try {
+			connect = DBUtil.dbConnection();
+			Statement stmt = connect.createStatement();
+			String query = "SELECT * FROM employees WHERE emp_id=" + empId;
+			ResultSet result = stmt.executeQuery(query);
+			if (result.next()) {
+				employeePojo = new EmployeePojo(result.getInt(1), result.getString(2), result.getString(3),
+						result.getString(4), result.getString(5), result.getInt(6));
 			}
+		} catch (SQLException e) {
+			throw new ApplicationException(e.getMessage());
+		}
+		LOG.info("returning empViewInfo() in EmployeeDaoImpl");
+		// LOG.info("Exited empViewInfo() in Dao...");
+		return employeePojo;
+	}
+
+	@Override
+	public EmployeePojo empUpdateInfo(EmployeePojo employeePojo) throws ApplicationException {
+		// LOG.info("Entered empUpdateInfo() in Dao...");
+		LOG.info("hit empUpdateInfo() in EmployeeDaoImpl");
+		Connection connect = null;
+		try {
+			connect = DBUtil.dbConnection();
+			Statement stmt = connect.createStatement();
+			String query1 = "UPDATE employees SET first_name = '" + employeePojo.getEmpFirstName() + "' WHERE emp_id = "
+					+ employeePojo.getEmpId();
+			int rowsAffected1 = stmt.executeUpdate(query1);
+			String query2 = "UPDATE employees SET last_name = '" + employeePojo.getEmpLastName() + "' WHERE emp_id = "
+					+ employeePojo.getEmpId();
+			int rowsAffected2 = stmt.executeUpdate(query2);
+			String query3 = "UPDATE employees SET user_name = '" + employeePojo.getEmpUserName() + "' WHERE emp_id = "
+					+ employeePojo.getEmpId();
+			int rowsAffected3 = stmt.executeUpdate(query3);
+			String query4 = "UPDATE employees SET hashed_password = '" + employeePojo.getEmpPassword()
+					+ "' WHERE emp_id = " + employeePojo.getEmpId();
+			int rowsAffected4 = stmt.executeUpdate(query4);
+
+			// update all employee details
+			String query = "UPDATE employees SET first_name = '" + employeePojo.getEmpFirstName() + "'"
+					+ ", last_name = '" + employeePojo.getEmpLastName() + "'" + ", user_name = '"
+					+ employeePojo.getEmpUserName() + "'" + ", hashed_password = '" + employeePojo.getEmpPassword()
+					+ "'" + " WHERE emp_id = " + employeePojo.getEmpId();
+			int rowsAffected = stmt.executeUpdate(query);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new ApplicationException(e.getMessage());
+		}
+		LOG.info("returning empUpdateInfo() in EmployeeDaoImpl");
+		// LOG.info("Exited empUpdateInfo() in Dao...");
+		return employeePojo;
+	}
+
+	@Override
+	public List<EmployeePojo> manViewAll() throws ApplicationException {
+		// LOG.info("Entered manViewAll() in Dao...");
+		LOG.info("hit manViewAll() in EmployeeDaoImpl");
+
+		Connection connect = null;
+
+		List<EmployeePojo> employeePojo = new ArrayList<EmployeePojo>();
+		try {
+			connect = DBUtil.dbConnection();
+			Statement stmt = connect.createStatement();
+//			String query = "SELECT e.emp_id,  e.first_name, e.last_name, r.reimb_id ,r.reimb_amt, s.status FROM employees e JOIN reimbursements r ON e.emp_id = r.requester_id JOIN status s ON r.reimb_status_id = s.status_id";
+////					String query = "SELECT * FROM employees where emp_role_id = 2;";
+			String query = "SELECT * FROM employees";
+			ResultSet resultSet = stmt.executeQuery(query);
+
+			while (resultSet.next()) {
+				employeePojo.add(new EmployeePojo(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3),
+						resultSet.getString(4), resultSet.getString(5), resultSet.getInt(6)));
+			}
+
+		} catch (SQLException e) {
+			throw new ApplicationException(e.getMessage());
+		}
+		// LOG.info("Exited manViewAll() in Dao...");
+		LOG.info("returning manViewAll() in EmployeeDaoImpl");
+		return employeePojo;
+	}
+
 	@Override
 	public EmployeePojo changePassword(int empId) throws ApplicationException {
-		//LOG.info("Entered changePassword() in Dao...");
+		// LOG.info("Entered changePassword() in Dao...");
 		LOG.info("hit changePassword() in EmployeeDaoImpl");
 		Connection connect = null;
 		EmployeePojo employeePojo = null;
@@ -251,16 +198,17 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		try {
 			connect = DBUtil.dbConnection();
 			Statement stmt = connect.createStatement();
-			String query = "UPDATE employees SET hashed_password = '"+employeePojo.getEmpPassword()+ 
-					"' WHERE emp_id = " +employeePojo.getEmpId();
+			String query = "UPDATE employees SET hashed_password = '" + employeePojo.getEmpPassword()
+					+ "' WHERE emp_id = " + employeePojo.getEmpId();
 			int rowsAffected = stmt.executeUpdate(query);
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			throw new ApplicationException(e.getMessage());
 		}
-		//LOG.info("Exited changePassword() in Dao...");
+		// LOG.info("Exited changePassword() in Dao...");
 		LOG.info("returning changePassword() in EmployeeDaoImpl");
 		return employeePojo;
 	}
+
 	@Override
 	public RolesPojo getRole(int id) throws ApplicationException {
 		LOG.info("hit getRole() in EmployeeDaoImpl");
@@ -271,16 +219,15 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			Statement stmt = connect.createStatement();
 			String query = "SELECT * FROM roles where role_id = " + id + ";";
 			ResultSet result = stmt.executeQuery(query);
-			if(result.next()) {
-				rolesPojo = new RolesPojo(result.getInt(1), result.getString(2));					}
+			if (result.next()) {
+				rolesPojo = new RolesPojo(result.getInt(1), result.getString(2));
+			}
 		} catch (SQLException e) {
 			throw new ApplicationException(e.getMessage());
 		}
-		
-		//LOG.info("Exited changePassword() in Dao...");
+
+		// LOG.info("Exited changePassword() in Dao...");
 		LOG.info("returning getRole() in EmployeeDaoImpl");
 		return rolesPojo;
 	}
 }
-
-

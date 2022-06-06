@@ -69,7 +69,10 @@ public class EmployeeServiceImpl implements EmployeeService{
 	public List<EmployeePojo> manViewAll() throws ApplicationException{
 		LOG.info("Entered manViewAll() in service.");
 
+
+
 		//List<EmployeePojo> allEmployees = this.employeeDao.manViewAll();
+
 
 		List<EmployeePojo> allEmployees = employeeDao.manViewAll();
 

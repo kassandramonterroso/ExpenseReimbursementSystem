@@ -150,26 +150,26 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 		return reimbursementPojo;*/
 	
 	@Override
-	public List<ReimbursementPojo> manViewAllPending() throws ApplicationException{
+	public List<ReimbRequestPojo> manViewAllPending() throws ApplicationException{
 		LOG.info("hit manViewAllPending");
 		Connection connect;
-		List<ReimbursementPojo> reimbursementPojo = new ArrayList<ReimbursementPojo>();
+		List<ReimbRequestPojo> reimbRequestPojo = new ArrayList<ReimbRequestPojo>();
 		
 		try {
 			connect = DBUtil.dbConnection();
 			Statement stmt = connect.createStatement();
-			String query = "SELECT * FROM status JOIN reimbursements ON status.status_id = reimbursements.reimb_status_id WHERE status='pending';";                                                     
+			String query = "SELECT * FROM status JOIN reimbursements ON status.status_id = reimbursements.reimb_status_id WHERE status='pending'";                                                     
 			ResultSet resultSet = stmt.executeQuery(query);
 			while(resultSet.next()) {
 				
-				reimbursementPojo.add(new ReimbursementPojo(resultSet.getInt(1), resultSet.getInt(2),resultSet.getInt(3),resultSet.getInt(4),resultSet.getInt(5)));
+				reimbRequestPojo.add(new ReimbRequestPojo(resultSet.getInt(1), resultSet.getString(2),resultSet.getString(3),resultSet.getInt(4),resultSet.getString(5)));
 			}
 		} catch (SQLException e) {
 			
 			throw new ApplicationException(e.getMessage());
 		}
 		LOG.info("returning manViewAllPending");
-		return reimbursementPojo;
+		return reimbRequestPojo;
 	}
 
 	@Override
