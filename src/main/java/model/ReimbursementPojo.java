@@ -8,9 +8,7 @@ public class ReimbursementPojo {
 	private int requesterId;
 	private int approverId;
 
-	public ReimbursementPojo() {
-
-	}
+	
 
 	public ReimbursementPojo(int reimbId, double reimbAmt, int reimbStatusId, int requesterId, int approverId) {
 		super();
@@ -19,6 +17,10 @@ public class ReimbursementPojo {
 		this.reimbStatusId = reimbStatusId;
 		this.requesterId = requesterId;
 		this.approverId = approverId;
+	}
+
+	public ReimbursementPojo(int int1, String string, String string2, int int2, String string3) {
+		// TODO Auto-generated constructor stub
 	}
 
 	public int getReimbId() {

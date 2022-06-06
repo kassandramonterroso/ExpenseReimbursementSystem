@@ -44,8 +44,17 @@ FOREIGN KEY(approver_id)
 
 INSERT INTO roles(role) VALUES ('Manager');
 INSERT INTO roles(role) VALUES ('Employee');
-INSERT INTO status(status) VALUES ('Pending');
+INSERT INTO status(status) VALUES ('pending');
+INSERT INTO status(status) VALUES ('approved');
+INSERT INTO status(status) VALUES ('denied');
 INSERT INTO employees(first_name, last_name, user_name, hashed_password, emp_role_id) VALUES ('logan', 'lastName', 'cat', '$2a$10$HwO.e2gax/jJuW49MfLbvujyUQu8Wr6yppRHXFkLp11./Hnaj74Nu', 1);
+INSERT INTO employees(first_name, last_name, user_name, hashed_password, emp_role_id) VALUES ('doggy', 'lastName', 'dog', '$2a$10$HwO.e2gax/jJuW49MfLbvujyUQu8Wr6yppRHXFkLp11./Hnaj74Nu', 2);
+INSERT INTO reimbursements(reimb_amt, reimb_status_id, requester_id, approver_id) VALUES (200.00, 1, 2,1);
+INSERT INTO reimbursements(reimb_amt, reimb_status_id, requester_id, approver_id) VALUES (300.00, 1, 2,1);
+INSERT INTO reimbursements(reimb_amt, reimb_status_id, requester_id, approver_id) VALUES (40.00, 2, 2,1);
+INSERT INTO reimbursements(reimb_amt, reimb_status_id, requester_id, approver_id) VALUES (2.00, 3, 2,1);
+
+
 
 
 

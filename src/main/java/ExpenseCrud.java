@@ -1,13 +1,11 @@
 import java.util.List;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import io.javalin.Javalin;
 import service.EmployeeService;
 import model.EmployeePojo;
 import model.ReimbursementPojo;
-
+import model.RolesPojo;
 import exception.ApplicationException;
 import io.javalin.Javalin;
 import model.EmployeePojo;
@@ -114,17 +112,18 @@ public class ExpenseCrud {
         
 
         //endpoint put employee can update his details
-        app.put("/empUpdate/{eid}",(ctx)->{
-        	LOG.info("starting get route /employees");
-        	System.out.println("Employee update details");
-        	// here we retrieve the eId from the path/url
-        	String empId = ctx.pathParam("eid");
-        				
+        app.put("/empUpdate/{currPass}",(ctx)->{
+        	LOG.info("starting put route /employees");
+        	System.out.println(ctx.bodyAsClass(EmployeePojo.class));
+        	String empPass = ctx.pathParam("currPass");
+        	EmployeePojo returnEmpPojo = employeeService.empUpdateInfo(ctx.bodyAsClass(EmployeePojo.class),empPass);
+        	
+        	
         	// convert String to int
-        	int empIdInteger = Integer.parseInt(empId);
-        	EmployeePojo employeeInfo = employeeService.empViewInfo(empIdInteger); 
+        	
+        	
         	LOG.info("returning from /employees");
-        	ctx.json(employeeInfo);
+        	ctx.json(returnEmpPojo);
         });  
         
 	//endpoint manager can view all resolved requests ---start
@@ -146,15 +145,23 @@ public class ExpenseCrud {
         });   	
 		
 	//endpoint employee can view all resolved requests
-	app.get("/empAllRequests/{eid}",(ctx)->{
+/*	app.get("/empAllRequests/{eid}",(ctx)->{
 		LOG.info("starting get route /employees");	
         	System.out.println("View all resolved request");
         	String empId = ctx.pathParam("eid");
         	int empIdInteger = Integer.parseInt(empId);
-        	ReimbursementPojo employeeResolved = reimbursementService.empViewResolved(empIdInteger); 
+        //	List<ReimbursementPojo> employeeResolved = reimbursementService.empViewResolved(empIdInteger); 
         	LOG.info("returning from /employees");
         	ctx.json(employeeResolved);
-        });   	
- 
+        });   	*/
+	//gets employees information
+	app.get("/empRoleId/{id}", (ctx)->{
+		LOG.info("starting get route /empRoleId/{id}");	
+		
+		String roleEmpId = ctx.pathParam("id");
+		RolesPojo rolesPojo = service.getRole(Integer.parseInt(roleEmpId));
+		ctx.json(rolesPojo);
+		LOG.info("returning get route /empRoleId/{id}");	
+	});
 	}
 }
