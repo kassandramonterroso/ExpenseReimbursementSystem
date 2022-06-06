@@ -15,7 +15,7 @@ public class ReimbursementServiceImpl implements ReimbursementService{
 	final Logger LOG = LogManager.getLogger(ReimbursementServiceImpl.class);
 	
 	//Creating an ReimbursementDaoImpl to call dao layer from the service layer
-		ReimbursementDao reimbursementDao;
+		ReimbursementDaoImpl reimbursementDao;
 		
 		public ReimbursementServiceImpl() {
 			reimbursementDao = new ReimbursementDaoImpl();
@@ -29,14 +29,23 @@ public class ReimbursementServiceImpl implements ReimbursementService{
 	}
 
 	@Override
+
+	public ReimbursementPojo manUpdateRequest(ReimbursementPojo reimbursementPojo, int reimbId) throws ApplicationException{
+		LOG.info("Hit manUpdateRequest() in RiembursementServiceImpl");
+		LOG.info("returning manUpdateRequest() in RiembursementServiceImpl");
+		
+		return reimbursementDao.manUpdateRequest(reimbursementPojo, reimbId);
+
 	public ReimbursementPojo manApproveRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException{
 		LOG.info("Hit manUpdateRequest() in RiembursementServiceImpl");
 		LOG.info("returning manUpdateRequest() in RiembursementServiceImpl");
 		
 		return reimbursementDao.manApproveRequest(reimbursementPojo);
+
 	}
 
 	@Override
+
 	public ReimbursementPojo manDenyRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException{
 		LOG.info("Hit manUpdateRequest() in RiembursementServiceImpl");
 		LOG.info("returning manUpdateRequest() in RiembursementServiceImpl");
@@ -59,17 +68,21 @@ public class ReimbursementServiceImpl implements ReimbursementService{
 	public List<ReimbursementPojo> empViewResolved(int empId) throws ApplicationException{
 		LOG.info("Hit empViewResolved() in RiembursementServiceImpl");
 		
+
 		List<ReimbursementPojo> reimbRequestPojo = reimbursementDao.empViewResolved(empId);
+
+		List<ReimbursementPojo> reimbursementPojo = reimbursementDao.empViewResolved(empId);
+
 		LOG.info("returning empViewResolved() in RiembursementServiceImpl");
 		
-		return reimbRequestPojo;
+		return reimbursementPojo;
 	}
 
 	@Override
 	public
-	List<ReimbursementPojo> manViewAllPending() throws ApplicationException{
+	List<ReimbRequestPojo> manViewAllPending() throws ApplicationException{
 		LOG.info("Hit manViewAllPending() in RiembursementServiceImpl");
-		List<ReimbursementPojo> allPending = reimbursementDao.manViewAllPending();
+		List<ReimbRequestPojo> allPending = reimbursementDao.manViewAllPending();
 		LOG.info("returning manViewAllPending() in RiembursementServiceImpl");
 		
 		return allPending;

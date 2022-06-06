@@ -9,11 +9,16 @@ public interface ReimbursementDao {
 	//Method for employee to submit a reimbursement request
 	ReimbursementPojo submitRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException;
 	
+
+	//Method for manager to approve/deny pending reimbursement requests
+	ReimbursementPojo manUpdateRequest(ReimbursementPojo reimbursementPojo, int reimbId) throws ApplicationException;
+
 	//Method for manager to approve pending reimbursement requests
 	ReimbursementPojo manApproveRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException;
 	
 	//Method for manager to deny pending reimbursement requests
 	ReimbursementPojo manDenyRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException;
+
 	
 	//Method for employee to view their pending reimbursement requests
 	List<ReimbursementPojo> empViewPending(int empId) throws ApplicationException;
@@ -22,7 +27,7 @@ public interface ReimbursementDao {
 	List<ReimbursementPojo> empViewResolved(int empId) throws ApplicationException;
 	
 	//Method for manager to view all pending request of all employees
-	List<ReimbursementPojo> manViewAllPending() throws ApplicationException;
+	List<ReimbRequestPojo> manViewAllPending() throws ApplicationException;
 	
 	//Method for manager to view all resolved request of all employees
 	List<ReimbursementPojo> manViewAllResolved() throws ApplicationException;

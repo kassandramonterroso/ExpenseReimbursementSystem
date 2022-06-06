@@ -27,14 +27,38 @@ function getAllEmployees(){ //manViewAll method
                                                 ${e.empFirstName}
                                             </a>                                            
                                         </td>
+
+                                        <td>${emp.lastName}</td>
+                                        <td>${emp.reimbId}</td>
+                                        <td>${emp.reimbAmt}</td>
+                                        <td>${emp.status}</td>`
+                                        if(emp.empRoleId == 2){
+                                            employeeTableData += `
+                                           <td>
+                                            <button 
+                                                type="button" 
+                                                class="btn btn-primary"
+                                                onclick="approveRequest(${emp.reimbId})"> Approve 
+                                            </button>
+                                            <button 
+                                                type="button" 
+                                                class="btn btn-danger"
+                                                onclick="rejectRequest(${emp.reimbId})"> Reject 
+                                            </button>
+                                            </td>`
+                                        }
+                                        employeeTableData += `</tr>`;
+
                                         <td>${e.empLastName}</td>`
                 employeeTableData += `</tr>`;
+
             }
             employeeTableData += `</tbody></table></div>`;
             document.getElementById("content").innerHTML = employeeTableData;
         })
      .catch(error => console.log(error));
  }
+
 
  function viewSpecificEmployeeRequest(eid){ //manViewRequest method
     fetch("http://localhost:8082/emps/"+eid)
@@ -66,6 +90,41 @@ function getAllEmployees(){ //manViewAll method
         document.getElementById("content").innerHTML = employeeData;
     }).catch(error => console.log(error));
 }
+
+ function approveRequest(reimbId){
+    let newApproveRequest = {
+        reimbId: 0,
+        reimbAmt: 0,
+        reimbStatusId: 2,
+        requesterId: 0,
+        approverId: 0,
+    }
+
+    fetch("http://localhost:8082/reimbursements"+reimbId, {
+        method: 'put',
+        body: JSON.stringify(newApproveRequest)
+    })
+    .then(response => getAllEmployees())
+ }
+
+ function rejectRequest(reimbId){
+    let newRejectRequest = {
+        reimbId: 0,
+        reimbAmt: 0,
+        reimbStatusId: 3,
+        requesterId: 0,
+        approverId: 0,
+    }
+
+    fetch("http://localhost:8082/reimbursements"+reimbId, {
+        method: 'put',
+        body: JSON.stringify(newRejectRequest)
+    })
+    .then(response => getAllEmployees())
+ }
+
+ 
+
 
  function displayRequest(){
 
@@ -298,8 +357,14 @@ function empViewInfo() {
  }
 
  
+
+ function viewMyEmpDetails(empId,empRoleId){
+
+    fetch("http://localhost:8082/empOwn/"+empId)
+
  function viewMyEmpDetails(empId){
     fetch("http://localhost:8082/emps/"+empId)
+
     .then(response => response.json())
     .then(responseJson => {
         console.log(responseJson)
@@ -340,11 +405,11 @@ function empViewInfo() {
                         <form id = "form">
                              <div class="mb-3 mt-3">
                                 <label for="user" class="form-label">Username : </label>
-                                <input type="text" class="form-control" id="user" placeholder="Enter Username" name="empUserName">
+                                <input type="text" class="form-control" id="username" placeholder="Enter Username" name="empUserName">
                             </div>
                             <div class="mb-3 mt-3">
                                 <label for="pass" class="form-label"> Password : </label>
-                                <input type="text" class="form-control" id="pass" placeholder="Enter password" name="empHashedPassword">
+                                <input type="text" class="form-control" id="password" placeholder="Enter password" name="empHashedPassword">
                             </div>
                             
                             <div class="mb-3 mt-3">
@@ -386,7 +451,7 @@ function login(){
     let password=  document.getElementById("password").value;
     let content = '';
  fetch(`http://localhost:8082/login/${username}/${password}`, {method:"post"}).then( response=>response.json()).then(responseJson=>{
-     console.log(responseJson.localizedMessage);
+    
 if(responseJson.localizedMessage === "invalid username or password"){
     content = `<div><p>${responseJson.localizedMessage}</p></div>`
 }else{
@@ -395,10 +460,18 @@ if(responseJson.localizedMessage === "invalid username or password"){
     //todo make this content pretty or change it to what it needs to be
     content = `<div><p>Welcome ${responseJson.empUserName}</p></div>`
 }
- 
-    document.getElementById("content").innerHTML = content;
+let user = JSON.parse(sessionStorage.getItem('currUser'));
+console.log(user.role)
+if (user.empRoleId === 1){
+    window.location.replace("ManagerHome.html")
+}else{
+    window.location.replace("EmployeeHome.html")
+}
+
  }).catch(error => console.log(error)); 
 }
+
+
 function updateEmployeePage(){
     let user = JSON.parse(sessionStorage.getItem('currUser'));
     console.log(user);

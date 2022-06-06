@@ -32,6 +32,8 @@ public class ExpenseCrud {
         //lets create other endpoints
         //CRUD 
         // login
+		
+		
         app.post("/login/{username}/{password}", (ctx)->{
         	LOG.info("starting post rout /login/{username}/{password}");
         	System.out.println("post rout");
@@ -51,27 +53,6 @@ public class ExpenseCrud {
         	}
         });
 
-        app.post("/changePass/{newPassword}", (ctx)->{
-        	LOG.info("Starting post route /changePass/{newPassword}");
-        	System.out.println("post rout");	
-        	String newPassword = ctx.pathParam("newPassword");
-        	int newPass = Integer.parseInt(newPassword);
-        	try {
-        		
-        		EmployeePojo info =service.changePassword(newPass);
-        		if (info == null) {
-        			LOG.info("returning from /changePass/{newPassword} with error");
-        			throw new ApplicationException("invalid username or password");
-        		}
-        		LOG.info("returning from /changePass/{newPassword}");
-            	ctx.json(info);
-            	
-        	} catch(ApplicationException e) {
-        		LOG.info("returning from /changePass/{newPassword} with error");
-        		ctx.json(e);
-        	}
-        	
-        });
     
         //endpoint manager can view all employees    
         app.get("/emps",(ctx)->{
@@ -113,11 +94,12 @@ public class ExpenseCrud {
         
 
         //endpoint put employee can update his details
-        app.put("/empUpdate/{currPass}",(ctx)->{
+        app.put("/empUpdate/{currPass}/{newPass}",(ctx)->{
         	LOG.info("starting put route /employees");
         	System.out.println(ctx.bodyAsClass(EmployeePojo.class));
         	String empPass = ctx.pathParam("currPass");
-        	EmployeePojo returnEmpPojo = employeeService.empUpdateInfo(ctx.bodyAsClass(EmployeePojo.class),empPass);
+        	String newPass = ctx.pathParam("newPass");
+        	EmployeePojo returnEmpPojo = employeeService.empUpdateInfo(ctx.bodyAsClass(EmployeePojo.class),empPass,newPass);
         	
         	
         	// convert String to int
@@ -126,6 +108,15 @@ public class ExpenseCrud {
         	LOG.info("returning from /employees");
         	ctx.json(returnEmpPojo);
         });  
+        
+        // end point to approver/deny
+		app.put("/reimbursements/{reimbid}", (ctx) -> {
+			LOG.info("starting put route /reimbursements/{reimbid}");
+			int reimbIdInteger = Integer.parseInt(ctx.pathParam("reimbid"));
+			ReimbursementPojo newReimbursementPojo = ctx.bodyAsClass(ReimbursementPojo.class);
+			ReimbursementPojo returnReimbursementPojo = reimbursementService.manUpdateRequest(newReimbursementPojo, reimbIdInteger);
+			ctx.json(returnReimbursementPojo);
+		});
         
 	//endpoint manager can view all resolved requests ---start
 	app.get("/empResolved",(ctx)->{
@@ -140,7 +131,7 @@ public class ExpenseCrud {
 	app.get("/empPendings",(ctx)->{
 		LOG.info("starting get route /employees");	
         	System.out.println("View all pending requests");
-        	List<ReimbursementPojo> allPendingRequests = reimbursementService.manViewAllPending(); 
+        	List<ReimbRequestPojo> allPendingRequests = reimbursementService.manViewAllPending(); 
         	LOG.info("returning from /employees");
         	ctx.json(allPendingRequests);
         });   	
@@ -151,7 +142,11 @@ public class ExpenseCrud {
         	System.out.println("View all resolved request");
         	String empId = ctx.pathParam("eid");
         	int empIdInteger = Integer.parseInt(empId);
+
         //	List<ReimbursementPojo> employeeResolved = reimbursementService.empViewResolved(empIdInteger); 
+
+        	List<ReimbursementPojo> employeeResolved = reimbursementService.empViewResolved(empIdInteger); 
+
         	LOG.info("returning from /employees");
         	ctx.json(employeeResolved);
         });   	*/

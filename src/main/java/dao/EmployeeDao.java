@@ -23,12 +23,12 @@ public interface EmployeeDao {
 	//Method for manager to view all employees
 	List<EmployeePojo> manViewAll() throws ApplicationException;
 	
-	//Method to changePassword only
-	EmployeePojo changePassword(int empId) throws ApplicationException;
 
 	boolean checkPass(String password, String hashedPass);
 
 	String hashPassword(String password);
 	//method to get role information
 	RolesPojo getRole(int id) throws ApplicationException;
+
+	
 }

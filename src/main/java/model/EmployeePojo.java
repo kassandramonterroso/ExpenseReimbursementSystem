@@ -12,6 +12,7 @@ public class EmployeePojo {
 	String empUserName;
 	String empHashedPassword;
 	int empRoleId;
+	
 	public int getEmpId() {
 		return empId;
 	}
@@ -58,6 +59,7 @@ public class EmployeePojo {
 		this.empHashedPassword = empPassword;
 		this.empRoleId = empRoleId;
 	}
+	
 	@Override
 	public String toString() {
 		return "EmployeePojo [empId=" + empId + ", empFirstName=" + empFirstName + ", empLastName=" + empLastName
