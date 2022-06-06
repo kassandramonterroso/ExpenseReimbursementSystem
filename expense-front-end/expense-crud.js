@@ -382,8 +382,8 @@ function changePassword(){
 //json data here to send document.getElementById().value
      //JSON.stringify(jsontexthere);
 function login(){
-    let username= document.getElementById("user").value;
-    let password=  document.getElementById("pass").value;
+    let username= document.getElementById("username").value;
+    let password=  document.getElementById("password").value;
     let content = '';
  fetch(`http://localhost:8082/login/${username}/${password}`, {method:"post"}).then( response=>response.json()).then(responseJson=>{
      console.log(responseJson.localizedMessage);
@@ -391,6 +391,7 @@ if(responseJson.localizedMessage === "invalid username or password"){
     content = `<div><p>${responseJson.localizedMessage}</p></div>`
 }else{
     sessionStorage.setItem("currUser", JSON.stringify(responseJson));
+    window.location.replace("EmployeeHome.html/"+$responseJson.empRoleId+"/"+$responseJson.empId);
     //todo make this content pretty or change it to what it needs to be
     content = `<div><p>Welcome ${responseJson.empUserName}</p></div>`
 }
