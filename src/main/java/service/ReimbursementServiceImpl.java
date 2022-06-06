@@ -29,13 +29,21 @@ public class ReimbursementServiceImpl implements ReimbursementService{
 	}
 
 	@Override
-	public ReimbursementPojo manUpdateRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException{
+	public ReimbursementPojo manApproveRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException{
 		LOG.info("Hit manUpdateRequest() in RiembursementServiceImpl");
 		LOG.info("returning manUpdateRequest() in RiembursementServiceImpl");
 		
-		return reimbursementDao.manUpdateRequest(reimbursementPojo);
+		return reimbursementDao.manApproveRequest(reimbursementPojo);
 	}
 
+	@Override
+	public ReimbursementPojo manDenyRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException{
+		LOG.info("Hit manUpdateRequest() in RiembursementServiceImpl");
+		LOG.info("returning manUpdateRequest() in RiembursementServiceImpl");
+		
+		return reimbursementDao.manDenyRequest(reimbursementPojo);
+	}
+	
 	@Override
 	public ReimbursementPojo empViewPending(int empId) throws ApplicationException{
 		LOG.info("Hit empViewPending() in RiembursementServiceImpl");

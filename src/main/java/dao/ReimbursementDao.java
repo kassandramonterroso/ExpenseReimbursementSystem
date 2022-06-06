@@ -8,8 +8,11 @@ public interface ReimbursementDao {
 	//Method for employee to submit a reimbursement request
 	ReimbursementPojo submitRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException;
 	
-	//Method for manager to approve/deny pending reimbursement requests
-	ReimbursementPojo manUpdateRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException;
+	//Method for manager to approve pending reimbursement requests
+	ReimbursementPojo manApproveRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException;
+	
+	//Method for manager to deny pending reimbursement requests
+	ReimbursementPojo manDenyRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException;
 	
 	//Method for employee to view their pending reimbursement requests
 	ReimbursementPojo empViewPending(int empId) throws ApplicationException;
