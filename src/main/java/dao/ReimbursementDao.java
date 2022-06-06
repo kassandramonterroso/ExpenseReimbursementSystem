@@ -1,6 +1,7 @@
 package dao;
 import java.util.List;
 import exception.ApplicationException;
+import model.ReimbRequestPojo;
 import model.ReimbursementPojo;
 
 public interface ReimbursementDao {

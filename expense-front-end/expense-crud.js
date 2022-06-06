@@ -352,8 +352,14 @@ function empViewInfo() {
  }
 
  
+
+ function viewMyEmpDetails(empId,empRoleId){
+
+    fetch("http://localhost:8082/empOwn/"+empId)
+
  function viewMyEmpDetails(empId){
     fetch("http://localhost:8082/emps/"+empId)
+
     .then(response => response.json())
     .then(responseJson => {
         console.log(responseJson)
@@ -394,11 +400,11 @@ function empViewInfo() {
                         <form id = "form">
                              <div class="mb-3 mt-3">
                                 <label for="user" class="form-label">Username : </label>
-                                <input type="text" class="form-control" id="user" placeholder="Enter Username" name="empUserName">
+                                <input type="text" class="form-control" id="username" placeholder="Enter Username" name="empUserName">
                             </div>
                             <div class="mb-3 mt-3">
                                 <label for="pass" class="form-label"> Password : </label>
-                                <input type="text" class="form-control" id="pass" placeholder="Enter password" name="empHashedPassword">
+                                <input type="text" class="form-control" id="password" placeholder="Enter password" name="empHashedPassword">
                             </div>
                             
                             <div class="mb-3 mt-3">
