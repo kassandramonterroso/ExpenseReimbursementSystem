@@ -12,6 +12,7 @@ public class EmployeePojo {
 	String empUserName;
 	String empHashedPassword;
 	int empRoleId;
+	
 	public int getEmpId() {
 		return empId;
 	}

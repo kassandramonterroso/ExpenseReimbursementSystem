@@ -19,6 +19,10 @@ public class ReimbursementPojo {
 		this.approverId = approverId;
 	}
 
+	public ReimbursementPojo(int int1, String string, String string2, int int2, String string3) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getReimbId() {
 		return reimbId;
 	}

@@ -5,17 +5,19 @@ function getAllEmployees(){ //manViewAll method
      .then(response => response.json())
      .then(responseJson => {
          console.log(responseJson)
-         let employeeTableData = ` <div class="loginbox">
-                                    <img class="img-fluid" src="\ERS-Logo.jpg" alt="EXPENSES LOGO" width="50" height="50">
-                                    <table>
-                                    <thead>
-                                    <tr>
-                                        <th>Employee ID</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>`;
+         let employeeTableData = `<table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Employee ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Reimbursement Request Id</th>
+                                <th>Reimbursement Request Amount</th>
+                                <th>Reimbursement Request Status</th>
+                                <th>Approve/Reject</th>
+                            </tr>
+                            </thead>
+                            <tbody>`;
             for(let e of responseJson){
                 employeeTableData += `<tr>
                                         <td>
@@ -28,71 +30,32 @@ function getAllEmployees(){ //manViewAll method
                                                 ${e.empFirstName}
                                             </a>                                            
                                         </td>
-
-                                        <td>${emp.lastName}</td>
-                                        <td>${emp.reimbId}</td>
-                                        <td>${emp.reimbAmt}</td>
-                                        <td>${emp.status}</td>`
-                                        if(emp.empRoleId == 2){
+                                        <td>${e.empLastName}</td>
+                                        <td>${e.reimbId}</td>
+                                        <td>${e.reimbAmt}</td>
+                                        <td>${e.status}</td>`
+                                        if(e.empRoleId == 1){
                                             employeeTableData += `
                                            <td>
                                             <button 
                                                 type="button" 
                                                 class="btn btn-primary"
-                                                onclick="approveRequest(${emp.reimbId})"> Approve 
+                                                onclick="ApproveRequest(${e.reimbId})"> Approve 
                                             </button>
                                             <button 
                                                 type="button" 
                                                 class="btn btn-danger"
-                                                onclick="rejectRequest(${emp.reimbId})"> Reject 
+                                                onclick="RejectRequest(${e.reimbId})"> Reject 
                                             </button>
                                             </td>`
                                         }
                                         employeeTableData += `</tr>`;
-
-                                        <td>${e.empLastName}</td>`
-                employeeTableData += `</tr>`;
-
             }
-            employeeTableData += `</tbody></table></div>`;
+            employeeTableData += `</tbody></table>`;
             document.getElementById("content").innerHTML = employeeTableData;
         })
      .catch(error => console.log(error));
  }
-
- function approveRequest(reimbId){
-    let newApproveRequest = {
-        reimbId: 0,
-        reimbAmt: 0,
-        reimbStatusId: 2,
-        requesterId: 0,
-        approverId: 0,
-    }
-
-    fetch("http://localhost:8082/reimbursements"+reimbId, {
-        method: 'put',
-        body: JSON.stringify(newApproveRequest)
-    })
-    .then(response => getAllEmployees())
- }
-
- function rejectRequest(reimbId){
-    let newRejectRequest = {
-        reimbId: 0,
-        reimbAmt: 0,
-        reimbStatusId: 3,
-        requesterId: 0,
-        approverId: 0,
-    }
-
-    fetch("http://localhost:8082/reimbursements"+reimbId, {
-        method: 'put',
-        body: JSON.stringify(newRejectRequest)
-    })
-    .then(response => getAllEmployees())
- }
-
- 
 
  function displayRequest(){
 
@@ -129,31 +92,34 @@ function submitRequest(){
     .then(response => getAllEmployees());
 }
 
-function viewSpecificEmployeeRequest(eid){ //manViewRequest method
-    fetch("http://localhost:8082/emps/"+eid)
+function viewSpecificEmployeeRequest(){ //manViewRequest method
+    fetch("http://localhost:8082/employees")
     .then(response => response.json())
     .then(responseJson => {
         console.log(responseJson)
-        let employeeData = `<div class="loginbox">
-                                <img class="img-fluid" src="\ERS-Logo.jpg" alt="EXPENSES LOGO" width="50" height="50">
-                                <h4>Employee Details</h4>
-                                <p> Employee Id : ${empId} </p><br>
-                                <p>Employee First Name : ${empFirstName}</p>
-                                <br>
-                                <p>Employee Last Name : ${empLastName}</p>
-                                <br>
-                                <p>Employee Reimubursement Request Id : {reimbId}</p>
-                                <br>
-                                <p>Reimbursement Request Amount : ${reimbAmt}</p>
-                                <br>
-                                <p> Request Status : ${status}</p>
-                                <br>
-                                <div>
-                                    <button type="button" class="btn btn-primary" onclick="submitRequest()">Approve</button>
-                                    <button type="button" class="btn btn-danger" onclick="cancelRequest()">Reject</button>
-                                </div>
-                            </div>`
-        document.getElementById("content").innerHTML = employeeData;
+        let employeeData = `<table class="table table-striped">
+                           <thead>
+                           <tr>
+                               <th>Employee ID</th>
+                               <th>First Name</th>
+                               <th>Last Name</th>
+                               <th>Reimbursement Request Id</th>
+                               <th>Reimbursement Request Amount</th>
+                               <th>Reimbursement Request Status</th>
+                               <th>Approve/Reject</th>
+                           </tr>
+                           </thead>
+                           <tbody>`;
+                           employeeTableData += `<tr>
+                                        <td>${emp.empId}</td>
+                                        <td>${emp.firstName}</td>
+                                        <td>${emp.lastName}</td>
+                                        <td>${emp.reimbId}</td>
+                                        <td>${emp.reimbAmt}</td>
+                                        <td>${emp.status}</td>
+                                        </tr>`;
+            employeeData += `</tbody></table>`;
+            document.getElementById("content").innerHTML = employeeData;
     }).catch(error => console.log(error));
 }
 
@@ -190,35 +156,7 @@ function empViewPending(empId){ //call empViewPending method
         })
      .catch(error => console.log(error));
  }
-function viewInfo(){
-    let user = JSON.parse(sessionStorage.getItem('currUser'));
-    console.log(user);
-    let content = "";
-    if (user === undefined){
-        content = `<h1>login first</h1>`
-        document.getElementById("content").innerHTML = content;
-    } else {
-        fetch("http://localhost:8082/empRoleId/"+user.empId)
-    .then(response => response.json())
-    .then(responseJson => {
-        content = `<div class="card" style="width: 18rem;">
-        <div class="card-header">
-          ${user.empUserName}'s information
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">First name: ${user.empFirstName}</li>
-          <li class="list-group-item">Last name: ${user.empLastName}</li>
-          <li class="list-group-item">Employee Id: ${user.empId}</li>
-          <li class="list-group-item">Employee Role: ${responseJson.role}</li>
-        </ul>
-      </div>`
-      document.getElementById("content").innerHTML = content;
-
-    }).catch(error => console.log(error));
-    
-    
-    }
-}
+       
         
 
 
@@ -350,16 +288,9 @@ function empViewInfo() {
      .catch(error => console.log(error));
      }
  }
-
  
-
- function viewMyEmpDetails(empId,empRoleId){
-
-    fetch("http://localhost:8082/empOwn/"+empId)
-
  function viewMyEmpDetails(empId){
     fetch("http://localhost:8082/emps/"+empId)
-
     .then(response => response.json())
     .then(responseJson => {
         console.log(responseJson)
@@ -387,139 +318,5 @@ function empViewInfo() {
            document.getElementById("content").innerHTML = employeeData1;
        })
     .catch(error => console.log(error));
-}
-
-
-
-         
-      
-
-
- function loginEmp(){
-    let loginForm = `<div class="container">
-                        <form id = "form">
-                             <div class="mb-3 mt-3">
-                                <label for="user" class="form-label">Username : </label>
-                                <input type="text" class="form-control" id="username" placeholder="Enter Username" name="empUserName">
-                            </div>
-                            <div class="mb-3 mt-3">
-                                <label for="pass" class="form-label"> Password : </label>
-                                <input type="text" class="form-control" id="password" placeholder="Enter password" name="empHashedPassword">
-                            </div>
-                            
-                            <div class="mb-3 mt-3">
-                                <button type="button" class="btn btn-primary" onclick="login()">Login</button>
-                                <button type="button" class="btn btn-primary" onclick="CancelLogin()">Cancel</button>
-                            </div>
-                            <div class="mb-3 mt-3">
-                                <a href="https://www.w3schools.com">Forgot Password</a>
-                            </div>
-                        </form>
-                    </div>
-                    `;
-    document.getElementById("content").innerHTML = loginForm;
-}
-
-function logoutEmp(){
-    sessionStorage.setItem("currUser", null);
-
-//todo make this content pretty or change it to what it needs to be
-let content = `<div><p>logged out</p></div>`
-document.getElementById("content").innerHTML = content;
-
-}
-
-function changePassword(){
-    let newPassword=  document.getElementById("pass").value;
-    fetch(`http://localhost:8082/changePass/${newPassword}`, {method:"post", body: JSON.stringify(session["currUser"])})
-    .then( response=>response.json()).then(responseJson=>{
-
-
-    }).catch(error => console.log(error));; 
-}
-
-
-//json data here to send document.getElementById().value
-     //JSON.stringify(jsontexthere);
-function login(){
-    let username= document.getElementById("username").value;
-    let password=  document.getElementById("password").value;
-    let content = '';
- fetch(`http://localhost:8082/login/${username}/${password}`, {method:"post"}).then( response=>response.json()).then(responseJson=>{
-    
-if(responseJson.localizedMessage === "invalid username or password"){
-    content = `<div><p>${responseJson.localizedMessage}</p></div>`
-}else{
-    sessionStorage.setItem("currUser", JSON.stringify(responseJson));
-    //todo make this content pretty or change it to what it needs to be
-    content = `<div><p>Welcome ${responseJson.empUserName}</p></div>`
-}
- 
-    document.getElementById("content").innerHTML = content;
- }).catch(error => console.log(error)); 
-}
-
-
-function updateEmployeePage(){
-    let user = JSON.parse(sessionStorage.getItem('currUser'));
-    console.log(user);
-    let content = "";
-    if (user === undefined){
-        content = `<h1>login first</h1>`
-        document.getElementById("content").innerHTML = content;
-    } else {
-        fetch("http://localhost:8082/empRoleId/"+user.empId)
-    .then(response => response.json())
-    .then(responseJson => {
-        
-        content = `<div class="card" style="width: 18rem;">
-       
-        <form>
-        <ul class="list-group list-group-flush">
-        <li class="list-group-item">Username: ${user.empUserName}<input type = "text" name="empUserNameUpdate" id = "empUserNameUpdate"></li>
-          <li class="list-group-item">First name: ${user.empFirstName}<input type = "text" name="empFirstNameUpdate"id = "empFirstNameUpdate"></li>
-          <li class="list-group-item">Last name: ${user.empLastName}<input type = "text" name="empLastNameUpdate"id = "empLastNameUpdate"></li>
-          <li class="list-group-item"> Input current password<input type = "text" name="updatePass"id = "updatePass"></li>
-          <li class="list-group-item">Employee Id: ${user.empId}</li>
-          <li class="list-group-item">Employee Role: ${responseJson.role}</li>
-          <button name = "updateBtn" id = "updateBtn" onClick = "updateEmployee()">Update my info</button>
-        </ul>
-        </form>
-      </div>`
-      document.getElementById("content").innerHTML = content;
-      document.getElementById("empUserNameUpdate").setAttribute('value',user.empUserName);
-       document.getElementById("empFirstNameUpdate").setAttribute('value',user.empFirstName);
-       document.getElementById("empLastNameUpdate").setAttribute('value',user.empLastName);
-       
-
-    }).catch(error => console.log(error));
-    
-    
-    }
-
-}
-function updateEmployee(){
-    let user = JSON.parse(sessionStorage.getItem('currUser'));
-    let username= document.getElementById("empUserNameUpdate").value;
-    let first= document.getElementById("empFirstNameUpdate").value;
-    let last= document.getElementById("empLastNameUpdate").value;
-    let currPass= document.getElementById("updatePass").value;
-   
-    let empUpdate = {
-        empFirstName: first,
-        empId : user.empId,
-        empLastName: last,
-        empPassword: user.empPassword,
-        empRoleId: user.empRoleId,
-        empUserName: username
-    }
-    fetch(`http://localhost:8082/empUpdate/${currPass}`, {
-        method: 'put',
-        body: JSON.stringify(empUpdate) 
-    })
-    .then(response => response.json()).then(responseJson=>{
-        sessionStorage.setItem("currUser", JSON.stringify(responseJson));
-
-    }).catch(error => console.log(error));
 }
 

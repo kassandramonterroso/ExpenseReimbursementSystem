@@ -8,7 +8,6 @@ import org.apache.logging.log4j.Logger;
 import dao.ReimbursementDao;
 import dao.ReimbursementDaoImpl;
 import exception.ApplicationException;
-import model.ReimbRequestPojo;
 import model.ReimbursementPojo;
 
 public class ReimbursementServiceImpl implements ReimbursementService{
@@ -29,15 +28,22 @@ public class ReimbursementServiceImpl implements ReimbursementService{
 	}
 
 	@Override
+
+	public ReimbursementPojo manUpdateRequest(ReimbursementPojo reimbursementPojo, int reimbId) throws ApplicationException{
+		LOG.info("Hit manUpdateRequest() in RiembursementServiceImpl");
+		LOG.info("returning manUpdateRequest() in RiembursementServiceImpl");
+		
+		return reimbursementDao.manUpdateRequest(reimbursementPojo, reimbId);
+
 	public ReimbursementPojo manApproveRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException{
 		LOG.info("Hit manUpdateRequest() in RiembursementServiceImpl");
 		LOG.info("returning manUpdateRequest() in RiembursementServiceImpl");
 		
 		return reimbursementDao.manApproveRequest(reimbursementPojo);
+
 	}
 
 	@Override
-
 
 	public ReimbursementPojo manDenyRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException{
 		LOG.info("Hit manUpdateRequest() in RiembursementServiceImpl");
@@ -61,7 +67,11 @@ public class ReimbursementServiceImpl implements ReimbursementService{
 	public List<ReimbursementPojo> empViewResolved(int empId) throws ApplicationException{
 		LOG.info("Hit empViewResolved() in RiembursementServiceImpl");
 		
+
+		List<ReimbursementPojo> reimbRequestPojo = reimbursementDao.empViewResolved(empId);
+
 		List<ReimbursementPojo> reimbursementPojo = reimbursementDao.empViewResolved(empId);
+
 		LOG.info("returning empViewResolved() in RiembursementServiceImpl");
 		
 		return reimbursementPojo;
