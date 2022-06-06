@@ -13,6 +13,7 @@ import org.apache.logging.log4j.Logger;
 
 import exception.ApplicationException;
 import model.EmployeePojo;
+import model.ReimbRequestPojo;
 import model.ReimbursementPojo;
 import model.StatusPojo;
 
@@ -165,25 +166,23 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 	}
 
 	@Override
-	public ReimbursementPojo manViewRequest(int requesterId) throws ApplicationException{
+	public ReimbRequestPojo manViewRequest(int requesterId) throws ApplicationException{
 		LOG.info("hit manViewRequest");
-		//LOG.info("Entered manViewAll() in Dao...");
 		Connection connect = null;
-		ReimbursementPojo reimbursementPojo = null;
+		ReimbRequestPojo reimbRequestPojo = null;
 		try {
 			connect = DBUtil.dbConnection();
 			Statement stmt = connect.createStatement();
-			String query = "SELECT e.emp_id,  e.first_name, e.last_name, r.reimb_id , s.status FROM employees e JOIN reimbursements r ON e.emp_id = r.requester_id JOIN status s ON r.reimb_status_id = s.status_id WHERE e. emp_id ="+requesterId;
+			String query = "SELECT e.emp_id,  e.first_name, e.last_name, r.reimb_id , s.status FROM employees e JOIN reimbursements r ON e.emp_id = r.requester_id JOIN status s ON r.reimb_status_id = s.status_id WHERE e. emp_id ="+reimbRequestPojo.getEmpId();
 			ResultSet resultSet = stmt.executeQuery(query);
 			if(resultSet.next()) {
-				//reimbursementPojo = new ReimbursementPojo(resultSet.getInt(1), resultSet.getString(2), resultSet.getInt(3), resultSet.getString(4));
-				reimbursementPojo = new ReimbursementPojo(resultSet.getInt(1), resultSet.getInt(2), resultSet.getInt(3), resultSet.getInt(4), resultSet.getInt(5));
+				reimbRequestPojo = new ReimbRequestPojo(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getInt(4), resultSet.getDouble(5),resultSet.getString(6));
 			}
 		} catch (SQLException e) {
 			throw new ApplicationException(e.getMessage());
 		}
 		LOG.info("returning manViewRequest");
-			return reimbursementPojo;
+			return reimbRequestPojo;
 	}
 
 }

@@ -1,6 +1,7 @@
 package dao;
 import java.util.List;
 import exception.ApplicationException;
+import model.ReimbRequestPojo;
 import model.ReimbursementPojo;
 
 public interface ReimbursementDao {
@@ -27,6 +28,6 @@ public interface ReimbursementDao {
 	List<ReimbursementPojo> manViewAllResolved() throws ApplicationException;
 	
 	//Method for manager to view reimbursement request of a specific employee
-	ReimbursementPojo manViewRequest(int requesterId) throws ApplicationException;
+	ReimbRequestPojo manViewRequest(int requesterId) throws ApplicationException;
 
 }
