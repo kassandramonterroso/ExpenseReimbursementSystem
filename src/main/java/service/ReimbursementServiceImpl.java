@@ -15,7 +15,7 @@ public class ReimbursementServiceImpl implements ReimbursementService{
 	final Logger LOG = LogManager.getLogger(ReimbursementServiceImpl.class);
 	
 	//Creating an ReimbursementDaoImpl to call dao layer from the service layer
-		ReimbursementDao reimbursementDao;
+		ReimbursementDaoImpl reimbursementDao;
 		
 		public ReimbursementServiceImpl() {
 			reimbursementDao = new ReimbursementDaoImpl();
@@ -38,8 +38,6 @@ public class ReimbursementServiceImpl implements ReimbursementService{
 
 	@Override
 
-	public List<ReimbursementPojo> empViewPending(int empId) throws ApplicationException{
-
 	public ReimbursementPojo manDenyRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException{
 		LOG.info("Hit manUpdateRequest() in RiembursementServiceImpl");
 		LOG.info("returning manUpdateRequest() in RiembursementServiceImpl");
@@ -48,7 +46,7 @@ public class ReimbursementServiceImpl implements ReimbursementService{
 	}
 	
 	@Override
-	public ReimbursementPojo empViewPending(int empId) throws ApplicationException{
+	public List<ReimbursementPojo> empViewPending(int empId) throws ApplicationException{
 
 		LOG.info("Hit empViewPending() in RiembursementServiceImpl");
 		
@@ -70,9 +68,9 @@ public class ReimbursementServiceImpl implements ReimbursementService{
 
 	@Override
 	public
-	List<ReimbursementPojo> manViewAllPending() throws ApplicationException{
+	List<ReimbRequestPojo> manViewAllPending() throws ApplicationException{
 		LOG.info("Hit manViewAllPending() in RiembursementServiceImpl");
-		List<ReimbursementPojo> allPending = reimbursementDao.manViewAllPending();
+		List<ReimbRequestPojo> allPending = reimbursementDao.manViewAllPending();
 		LOG.info("returning manViewAllPending() in RiembursementServiceImpl");
 		
 		return allPending;

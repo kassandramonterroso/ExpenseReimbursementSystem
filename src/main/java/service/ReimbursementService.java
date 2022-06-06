@@ -25,7 +25,7 @@ public interface ReimbursementService {
 	List<ReimbRequestPojo> empViewResolved(int empId) throws ApplicationException;
 	
 	//Method for manager to view all pending request of all employees
-	List<ReimbursementPojo> manViewAllPending() throws ApplicationException;
+	List<ReimbRequestPojo> manViewAllPending() throws ApplicationException;
 	
 	//Method for manager to view all resolved request of all employees
 	List<ReimbursementPojo> manViewAllResolved() throws ApplicationException;

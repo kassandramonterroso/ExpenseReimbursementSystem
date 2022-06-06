@@ -142,7 +142,7 @@ public class ExpenseCrud {
 	app.get("/empPendings",(ctx)->{
 		LOG.info("starting get route /employees");	
         	System.out.println("View all pending requests");
-        	List<ReimbursementPojo> allPendingRequests = reimbursementService.manViewAllPending(); 
+        	List<ReimbRequestPojo> allPendingRequests = reimbursementService.manViewAllPending(); 
         	LOG.info("returning from /employees");
         	ctx.json(allPendingRequests);
         });   	
