@@ -8,14 +8,13 @@ import org.apache.logging.log4j.Logger;
 import dao.ReimbursementDao;
 import dao.ReimbursementDaoImpl;
 import exception.ApplicationException;
-
 import model.ReimbursementPojo;
 
 public class ReimbursementServiceImpl implements ReimbursementService{
 	final Logger LOG = LogManager.getLogger(ReimbursementServiceImpl.class);
 	
 	//Creating an ReimbursementDaoImpl to call dao layer from the service layer
-		ReimbursementDao reimbursementDao;
+		ReimbursementDaoImpl reimbursementDao;
 		
 		public ReimbursementServiceImpl() {
 			reimbursementDao = new ReimbursementDaoImpl();
@@ -29,28 +28,50 @@ public class ReimbursementServiceImpl implements ReimbursementService{
 	}
 
 	@Override
+
 	public ReimbursementPojo manUpdateRequest(ReimbursementPojo reimbursementPojo, int reimbId) throws ApplicationException{
 		LOG.info("Hit manUpdateRequest() in RiembursementServiceImpl");
 		LOG.info("returning manUpdateRequest() in RiembursementServiceImpl");
 		
 		return reimbursementDao.manUpdateRequest(reimbursementPojo, reimbId);
+
+	public ReimbursementPojo manApproveRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException{
+		LOG.info("Hit manUpdateRequest() in RiembursementServiceImpl");
+		LOG.info("returning manUpdateRequest() in RiembursementServiceImpl");
+		
+		return reimbursementDao.manApproveRequest(reimbursementPojo);
+
 	}
 
 	@Override
-	public ReimbursementPojo empViewPending(int empId) throws ApplicationException{
+
+	public ReimbursementPojo manDenyRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException{
+		LOG.info("Hit manUpdateRequest() in RiembursementServiceImpl");
+		LOG.info("returning manUpdateRequest() in RiembursementServiceImpl");
+		
+		return reimbursementDao.manDenyRequest(reimbursementPojo);
+	}
+	
+	@Override
+	public List<ReimbursementPojo> empViewPending(int empId) throws ApplicationException{
+
 		LOG.info("Hit empViewPending() in RiembursementServiceImpl");
 		
-		ReimbursementPojo reimbursementPojo = this.reimbursementDao.empViewPending(empId);
+		List<ReimbursementPojo> reimbursementPojo = this.reimbursementDao.empViewPending(empId);
 		LOG.info("returning empViewPending() in RiembursementServiceImpl");
 		
 		return reimbursementPojo;
 	}
 
 	@Override
-	public ReimbursementPojo empViewResolved(int empId) throws ApplicationException{
+	public List<ReimbursementPojo> empViewResolved(int empId) throws ApplicationException{
 		LOG.info("Hit empViewResolved() in RiembursementServiceImpl");
 		
-		ReimbursementPojo reimbursementPojo = this.reimbursementDao.empViewResolved(empId);
+
+		List<ReimbursementPojo> reimbRequestPojo = reimbursementDao.empViewResolved(empId);
+
+		List<ReimbursementPojo> reimbursementPojo = reimbursementDao.empViewResolved(empId);
+
 		LOG.info("returning empViewResolved() in RiembursementServiceImpl");
 		
 		return reimbursementPojo;
@@ -58,12 +79,12 @@ public class ReimbursementServiceImpl implements ReimbursementService{
 
 	@Override
 	public
-	List<ReimbursementPojo> manViewAllPending() throws ApplicationException{
+	List<ReimbRequestPojo> manViewAllPending() throws ApplicationException{
 		LOG.info("Hit manViewAllPending() in RiembursementServiceImpl");
-		ReimbursementPojo allPending = this.reimbursementDao.manViewAllPending();
+		List<ReimbRequestPojo> allPending = reimbursementDao.manViewAllPending();
 		LOG.info("returning manViewAllPending() in RiembursementServiceImpl");
 		
-		return (List<ReimbursementPojo>) allPending;
+		return allPending;
 	}
 
 	@Override
@@ -71,16 +92,16 @@ public class ReimbursementServiceImpl implements ReimbursementService{
 	List<ReimbursementPojo> manViewAllResolved() throws ApplicationException{
 		LOG.info("Hit manViewAllResolved() in RiembursementServiceImpl");
 		
-		ReimbursementPojo allResolved = this.reimbursementDao.manViewAllResolved();
+		List<ReimbursementPojo> allResolved = reimbursementDao.manViewAllResolved();
 		LOG.info("returning manViewAllResolved() in RiembursementServiceImpl");
 		
-		return (List<ReimbursementPojo>) allResolved;
+		return allResolved;
 	}
 
 	@Override
 	public ReimbursementPojo manViewRequest(int requesterId) throws ApplicationException{
 		LOG.info("Entered manViewRequest() in service.");
-		ReimbursementPojo returnReimbursementPojo = this.reimbursementDao.manViewRequest(requesterId);
+		ReimbursementPojo returnReimbursementPojo = reimbursementDao.manViewRequest(requesterId);
 		LOG.info("Exited manViewRequest() in service.");
 		return returnReimbursementPojo;
 	}

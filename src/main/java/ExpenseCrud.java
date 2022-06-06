@@ -1,9 +1,6 @@
-
 import java.util.List;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import io.javalin.Javalin;
 import service.EmployeeService;
 import model.EmployeePojo;
@@ -83,6 +80,7 @@ public class ExpenseCrud {
         	System.out.println("All Employees details");
         	
         	List<EmployeePojo> allEmployees = employeeService.manViewAll(); 
+        	System.out.println("All Employees array from ExpenseCud.java file :"+allEmployees);
         	LOG.info("returning from /employees");
         	ctx.json(allEmployees);
         });  
@@ -152,21 +150,25 @@ public class ExpenseCrud {
 	app.get("/empPendings",(ctx)->{
 		LOG.info("starting get route /employees");	
         	System.out.println("View all pending requests");
-        	List<ReimbursementPojo> allPendingRequests = reimbursementService.manViewAllPending(); 
+        	List<ReimbRequestPojo> allPendingRequests = reimbursementService.manViewAllPending(); 
         	LOG.info("returning from /employees");
         	ctx.json(allPendingRequests);
         });   	
 		
 	//endpoint employee can view all resolved requests
-	app.get("/empAllRequests/{eid}",(ctx)->{
+/*	app.get("/empAllRequests/{eid}",(ctx)->{
 		LOG.info("starting get route /employees");	
         	System.out.println("View all resolved request");
         	String empId = ctx.pathParam("eid");
         	int empIdInteger = Integer.parseInt(empId);
-        	ReimbursementPojo employeeResolved = reimbursementService.empViewResolved(empIdInteger); 
+
+        //	List<ReimbursementPojo> employeeResolved = reimbursementService.empViewResolved(empIdInteger); 
+
+        	List<ReimbursementPojo> employeeResolved = reimbursementService.empViewResolved(empIdInteger); 
+
         	LOG.info("returning from /employees");
         	ctx.json(employeeResolved);
-        });   	
+        });   	*/
 	//gets employees information
 	app.get("/empRoleId/{id}", (ctx)->{
 		LOG.info("starting get route /empRoleId/{id}");	

@@ -42,6 +42,7 @@ function changePassword(){
 }
 
 
+
 //json data here to send document.getElementById().value
      //JSON.stringify(jsontexthere);
 function login(){
@@ -55,9 +56,13 @@ if(responseJson.localizedMessage === "invalid username or password"){
 }else{
     sessionStorage.setItem("currUser", JSON.stringify(responseJson));
     //todo make this content pretty or change it to what it needs to be
-    content = `<div><p>Welcome ${responseJson.empUserName}</p></div>`
+    content = `<div>
+    <a href="EmployeeHome.html"></a>
+    <p>Welcome ${responseJson.empUserName}</p>
+    </div>`
 }
  
     document.getElementById("content").innerHTML = content;
  }).catch(error => console.log(error)); 
 }
+

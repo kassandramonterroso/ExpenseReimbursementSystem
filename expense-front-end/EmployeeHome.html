@@ -21,8 +21,13 @@
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" >EMPLOYEE</a>
                     <ul class="dropdown-menu">
+
+                        <li><a class="dropdown-item" href="#" id= "eid" onclick="viewMyEmpDetails(eid)">View My Details</a></li>
+                        <li><a class="dropdown-item" href="#" onclick = "updateEmployee()">Update Details</a></li>
+
                         <li><a class="dropdown-item" href="#"onclick = "viewInfo()">View My Details</a></li>
                         <li><a class="dropdown-item" href="#" onclick = "updateEmployeePage()">Update Details</a></li>
+
                         <li><a class="dropdown-item" href="#" onclick = "displayRequest()">Submit Reimbursement Request</a>
                         <li><a class="dropdown-item" href="#" onclick="loginEmp()">Login</a></li>
                         </li>
@@ -31,16 +36,18 @@
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">REIMBURSEMENT REQUESTS</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">View Pending Reimbursement Requests</a></li>
-                        <li><a class="dropdown-item" href="#">View Resolved Reimbursement Requests</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="manViewAllPending()">View Pending Reimbursement Requests</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="manViewAllResolved()">View Resolved Reimbursement Requests</a></li>
+                        <li><a class="dropdown-item" href="#" onclick = "viewPending()">View Pending Reimbursement Requests</a></li>
+                        <li><a class="dropdown-item" href="#"onclick = "viewResolved()>View Resolved Reimbursement Requests</a></li>
                       </ul>
                   </li>
-                  <li class="nav-item ">
-                    <a class="nav-link" href="#" role="button">Change Password</a>
-                  </li>
-                  <li class="nav-item ">
-                    <a class="nav-link" href="#" role="button">LOGOUT</a>
-                  </li>
+                    <li class="nav-item ">
+                      <a class="nav-link" href="#" role="button" onclick="changePassword()">CHANGE PASSWORD</a>
+                    </li>
+                    <li class="nav-item ">
+                      <a class="nav-link" href="#" role="button" onclick="logoutEmp()">LOGOUT</a>
+                    </li>
                 </ul>
               </div>
             </div>
