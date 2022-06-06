@@ -67,7 +67,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 	@Override
 	public List<EmployeePojo> manViewAll() throws ApplicationException{
 		LOG.info("Entered manViewAll() in service.");
-		EmployeePojo allEmployees = this.employeeDao.manViewAll();
+		List<EmployeePojo> allEmployees = this.employeeDao.manViewAll();
 		LOG.info("Exited manViewAll() in service.");
 		List<EmployeePojo> allEmployees2 = (List<EmployeePojo>) allEmployees;
 		return allEmployees2;
