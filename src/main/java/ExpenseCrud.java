@@ -1,12 +1,9 @@
 import java.util.List;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import io.javalin.Javalin;
 import service.EmployeeService;
 import model.EmployeePojo;
-import model.ReimbRequestPojo;
 import model.ReimbursementPojo;
 import model.RolesPojo;
 import exception.ApplicationException;
@@ -34,6 +31,8 @@ public class ExpenseCrud {
         //lets create other endpoints
         //CRUD 
         // login
+		
+		
         app.post("/login/{username}/{password}", (ctx)->{
         	LOG.info("starting post rout /login/{username}/{password}");
         	System.out.println("post rout");
@@ -109,6 +108,15 @@ public class ExpenseCrud {
         	ctx.json(returnEmpPojo);
         });  
         
+        // end point to approver/deny
+		app.put("/reimbursements/{reimbid}", (ctx) -> {
+			LOG.info("starting put route /reimbursements/{reimbid}");
+			int reimbIdInteger = Integer.parseInt(ctx.pathParam("reimbid"));
+			ReimbursementPojo newReimbursementPojo = ctx.bodyAsClass(ReimbursementPojo.class);
+			ReimbursementPojo returnReimbursementPojo = reimbursementService.manUpdateRequest(newReimbursementPojo, reimbIdInteger);
+			ctx.json(returnReimbursementPojo);
+		});
+        
 	//endpoint manager can view all resolved requests ---start
 	app.get("/empResolved",(ctx)->{
 		LOG.info("starting get route /employees");	
@@ -128,15 +136,19 @@ public class ExpenseCrud {
         });   	
 		
 	//endpoint employee can view all resolved requests
-	app.get("/empAllRequests/{eid}",(ctx)->{
+/*	app.get("/empAllRequests/{eid}",(ctx)->{
 		LOG.info("starting get route /employees");	
         	System.out.println("View all resolved request");
         	String empId = ctx.pathParam("eid");
         	int empIdInteger = Integer.parseInt(empId);
+
+        //	List<ReimbursementPojo> employeeResolved = reimbursementService.empViewResolved(empIdInteger); 
+
         	List<ReimbursementPojo> employeeResolved = reimbursementService.empViewResolved(empIdInteger); 
+
         	LOG.info("returning from /employees");
         	ctx.json(employeeResolved);
-        });   	
+        });   	*/
 	//gets employees information
 	app.get("/empRoleId/{id}", (ctx)->{
 		LOG.info("starting get route /empRoleId/{id}");	
