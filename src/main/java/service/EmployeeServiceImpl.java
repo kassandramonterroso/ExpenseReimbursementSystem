@@ -16,6 +16,7 @@ import dao.EmployeeDaoImpl;
 import dao.ReimbursementDaoImpl;
 import exception.ApplicationException;
 import model.EmployeePojo;
+import model.RolesPojo;
 
 public class EmployeeServiceImpl implements EmployeeService{
 	final Logger LOG = LogManager.getLogger(EmployeeServiceImpl.class);
@@ -67,10 +68,14 @@ public class EmployeeServiceImpl implements EmployeeService{
 	@Override
 	public List<EmployeePojo> manViewAll() throws ApplicationException{
 		LOG.info("Entered manViewAll() in service.");
+
 		List<EmployeePojo> allEmployees = this.employeeDao.manViewAll();
+
+		List<EmployeePojo> allEmployees = employeeDao.manViewAll();
+
 		LOG.info("Exited manViewAll() in service.");
-		List<EmployeePojo> allEmployees2 = (List<EmployeePojo>) allEmployees;
-		return allEmployees2;
+
+		return allEmployees;
 	}
 	@Override
 	public EmployeePojo logout(EmployeePojo employeePojo) {
@@ -86,5 +91,11 @@ public class EmployeeServiceImpl implements EmployeeService{
 		LOG.info("Exited changePassword() in service.");
 		return returnEmployeePojo;
 	}
-
+	@Override
+	public RolesPojo getRole(int id) throws ApplicationException {
+	LOG.info("Entered getRole() in service.");
+	RolesPojo rolesPojo = employeeDao.getRole(id);
+	LOG.info("Exited getRole() in service.");
+	return rolesPojo;
+	}
 }

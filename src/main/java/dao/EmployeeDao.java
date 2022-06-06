@@ -4,6 +4,7 @@ import java.util.List;
 
 import exception.ApplicationException;
 import model.EmployeePojo;
+import model.RolesPojo;
 
 public interface EmployeeDao {
 	
@@ -28,5 +29,6 @@ public interface EmployeeDao {
 	boolean checkPass(String password, String hashedPass);
 
 	String hashPassword(String password);
-
+	//method to get role information
+	RolesPojo getRole(int id) throws ApplicationException;
 }
