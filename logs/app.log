@@ -1018,3 +1018,22 @@
 2022-06-06 19:02:05,973 INFO d.EmployeeDaoImpl [JettyServerThreadPool-17] returning manViewAll() in EmployeeDaoImpl
 2022-06-06 19:02:05,974 INFO s.EmployeeServiceImpl [JettyServerThreadPool-17] Exited manViewAll() in service.
 2022-06-06 19:02:05,978 INFO ExpenseCrud [JettyServerThreadPool-17] returning from /employees
+2022-06-06 19:02:47,223 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-06 19:03:10,330 INFO ExpenseCrud [JettyServerThreadPool-20] starting get route /employees
+2022-06-06 19:03:10,331 INFO s.EmployeeServiceImpl [JettyServerThreadPool-20] Entered manViewAll() in service.
+2022-06-06 19:03:10,331 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] hit manViewAll() in EmployeeDaoImpl
+2022-06-06 19:03:11,807 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] returning manViewAll() in EmployeeDaoImpl
+2022-06-06 19:03:11,807 INFO s.EmployeeServiceImpl [JettyServerThreadPool-20] Exited manViewAll() in service.
+2022-06-06 19:03:11,808 INFO ExpenseCrud [JettyServerThreadPool-20] returning from /employees
+2022-06-06 19:04:10,858 INFO ExpenseCrud [JettyServerThreadPool-15] starting get route /employees
+2022-06-06 19:04:10,874 INFO s.EmployeeServiceImpl [JettyServerThreadPool-15] Entered manViewAll() in service.
+2022-06-06 19:04:10,874 INFO d.EmployeeDaoImpl [JettyServerThreadPool-15] hit manViewAll() in EmployeeDaoImpl
+2022-06-06 19:04:10,915 INFO d.EmployeeDaoImpl [JettyServerThreadPool-15] returning manViewAll() in EmployeeDaoImpl
+2022-06-06 19:04:10,916 INFO s.EmployeeServiceImpl [JettyServerThreadPool-15] Exited manViewAll() in service.
+2022-06-06 19:04:10,917 INFO ExpenseCrud [JettyServerThreadPool-15] returning from /employees
+2022-06-06 19:04:17,912 INFO ExpenseCrud [JettyServerThreadPool-19] starting get route /employees
+2022-06-06 19:04:17,913 INFO s.EmployeeServiceImpl [JettyServerThreadPool-19] Entered manViewAll() in service.
+2022-06-06 19:04:17,913 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] hit manViewAll() in EmployeeDaoImpl
+2022-06-06 19:04:17,915 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] returning manViewAll() in EmployeeDaoImpl
+2022-06-06 19:04:17,916 INFO s.EmployeeServiceImpl [JettyServerThreadPool-19] Exited manViewAll() in service.
+2022-06-06 19:04:17,916 INFO ExpenseCrud [JettyServerThreadPool-19] returning from /employees
