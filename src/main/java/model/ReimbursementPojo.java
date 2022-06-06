@@ -8,9 +8,7 @@ public class ReimbursementPojo {
 	private int requesterId;
 	private int approverId;
 
-	public ReimbursementPojo() {
-
-	}
+	
 
 	public ReimbursementPojo(int reimbId, double reimbAmt, int reimbStatusId, int requesterId, int approverId) {
 		super();
