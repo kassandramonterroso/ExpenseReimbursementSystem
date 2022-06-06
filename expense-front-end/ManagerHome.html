@@ -19,30 +19,30 @@
               <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">MANAGER</a>
-                    <ul class="dropdown-menu">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">MANAGER</a>
+                      <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#" onclick="getAllEmployees()">View All Employees</a></li>
                       </ul>
                     </li>
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">REIMBURSEMENT REQUESTS</a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">View Pending Reimbursement Requests</a></li>
-                        <li><a class="dropdown-item" href="#">View Resolved Reimbursement Requests</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="manViewAllPending()">View Pending Reimbursement Requests</a></li>
+                        <li><a class="dropdown-item" href="#" onclick="manViewAllResolved()">View Resolved Reimbursement Requests</a></li>
                       </ul>
                   </li>
                     <li class="nav-item ">
-                      <a class="nav-link" href="#" role="button">Change Password</a>
+                      <a class="nav-link" href="#" role="button" onclick="changePassword()">CHANGE PASSWORD</a>
                     </li>
                     <li class="nav-item ">
-                      <a class="nav-link" href="#" role="button">LOGOUT</a>
+                      <a class="nav-link" href="#" role="button" onclick="logoutEmp()">LOGOUT</a>
                     </li>
                 </ul>
               </div>
             </div>
           </nav>
           <div id="content">
-            <h1> WELCOME TO EXPENSE REIMBURSEMENT SYSTEM</h1>
+            <h1 class="text"> WELCOME TO EXPENSE REIMBURSEMENT SYSTEM</h1>
             <img class="img-fluid" src="\expense-reimbursement-pic.jpg" alt="EXPENSES REIMBURSEMENT" width="1520" height="200">
           </div>
     </body>
