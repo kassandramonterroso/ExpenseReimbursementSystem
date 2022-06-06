@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -13,7 +14,6 @@ import org.apache.logging.log4j.Logger;
 
 import exception.ApplicationException;
 import model.EmployeePojo;
-import model.ReimbRequestPojo;
 import model.ReimbursementPojo;
 import model.StatusPojo;
 
@@ -101,13 +101,21 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 	public List<ReimbursementPojo> empViewResolved(int empId) throws ApplicationException{
 		LOG.info("hit empViewResolved");
 		Connection connect;
+
+		List<ReimbursementPojo> reimbRequestPojo = new ArrayList<ReimbursementPojo>();
+
 		List<ReimbursementPojo> reimbursementPojo = new ArrayList<ReimbursementPojo>();
+
 		try {
 			connect = DBUtil.dbConnection();
 			Statement stmt = connect.createStatement();
 			String query = "SELECT e.emp_id,  e.first_name, e.last_name, r.reimb_id , s.status FROM employees e JOIN reimbursements r ON e.emp_id = r.requester_id JOIN status s ON r.reimb_status_id = s.status_id WHERE e. emp_id ="+empId+" AND status_id = 2 OR status_id = 3;";                                                     
 			ResultSet resultSet = stmt.executeQuery(query);
 			while(resultSet.next()) {
+
+				System.out.println(resultSet.getInt(1));
+				reimbRequestPojo.add(new ReimbursementPojo(resultSet.getInt(1), resultSet.getString(2),resultSet.getString(3),resultSet.getInt(4),resultSet.getString(5)));
+
 				Collection<ReimbursmentPojo> empInfo = new ArrayList();
 				empInfo.add(resultSet.getInt(1));
 				empInfo.add(resultSet.getString(2));
@@ -115,6 +123,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 				empInfo.add(resultSet.getInt(4));
 				empInfo.add(resultSet.getString(5));
 				reimbursementPojo.add(empInfo);
+
 			}
 			} catch (SQLException e) {
 			throw new ApplicationException(e.getMessage());

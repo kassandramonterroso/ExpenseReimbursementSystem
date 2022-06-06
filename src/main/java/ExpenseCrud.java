@@ -1,12 +1,9 @@
 import java.util.List;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import io.javalin.Javalin;
 import service.EmployeeService;
 import model.EmployeePojo;
-import model.ReimbRequestPojo;
 import model.ReimbursementPojo;
 import model.RolesPojo;
 import exception.ApplicationException;
@@ -148,15 +145,19 @@ public class ExpenseCrud {
         });   	
 		
 	//endpoint employee can view all resolved requests
-	app.get("/empAllRequests/{eid}",(ctx)->{
+/*	app.get("/empAllRequests/{eid}",(ctx)->{
 		LOG.info("starting get route /employees");	
         	System.out.println("View all resolved request");
         	String empId = ctx.pathParam("eid");
         	int empIdInteger = Integer.parseInt(empId);
+
+        //	List<ReimbursementPojo> employeeResolved = reimbursementService.empViewResolved(empIdInteger); 
+
         	List<ReimbursementPojo> employeeResolved = reimbursementService.empViewResolved(empIdInteger); 
+
         	LOG.info("returning from /employees");
         	ctx.json(employeeResolved);
-        });   	
+        });   	*/
 	//gets employees information
 	app.get("/empRoleId/{id}", (ctx)->{
 		LOG.info("starting get route /empRoleId/{id}");	
