@@ -402,11 +402,11 @@ function changePassword(){
 //json data here to send document.getElementById().value
      //JSON.stringify(jsontexthere);
 function login(){
-    let username= document.getElementById("user").value;
-    let password=  document.getElementById("pass").value;
+    let username= document.getElementById("username").value;
+    let password=  document.getElementById("password").value;
     let content = '';
  fetch(`http://localhost:8082/login/${username}/${password}`, {method:"post"}).then( response=>response.json()).then(responseJson=>{
-     console.log(responseJson.localizedMessage);
+    
 if(responseJson.localizedMessage === "invalid username or password"){
     content = `<div><p>${responseJson.localizedMessage}</p></div>`
 }else{
@@ -418,6 +418,8 @@ if(responseJson.localizedMessage === "invalid username or password"){
     document.getElementById("content").innerHTML = content;
  }).catch(error => console.log(error)); 
 }
+
+
 function updateEmployeePage(){
     let user = JSON.parse(sessionStorage.getItem('currUser'));
     console.log(user);
