@@ -92,7 +92,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 		try {
 			connect = DBUtil.dbConnection();
 			Statement stmt = connect.createStatement();
-			String query = "SELECT status, status_id FROM status JOIN reimbursements ON status.status_id = reimbursements.reimb_status_id WHERE status ='pending', requester_id="+empId;                                                    
+			String query = "SELECT status, status_id FROM status JOIN reimbursements ON status.status_id = reimbursements.reimb_status_id WHERE status ='pending' AND requester_id="+empId;                                                    
 			ResultSet resultSet = stmt.executeQuery(query);
 			while(resultSet.next()) {
 				reimbursementPojo.add(new ReimbursementPojo(resultSet.getInt(1), resultSet.getInt(2),resultSet.getInt(3),resultSet.getInt(4),resultSet.getInt(5)));
@@ -203,6 +203,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 			ResultSet resultSet = stmt.executeQuery(query);
 			while(resultSet.next()) {
 				reimbursementPojo.add(new ReimbursementPojo(resultSet.getInt(1), resultSet.getInt(2),resultSet.getInt(3),resultSet.getInt(4),resultSet.getInt(5)));
+				
 			}
 		} catch (SQLException e) {
 			throw new ApplicationException(e.getMessage());

@@ -50,10 +50,12 @@ public class EmployeeServiceImpl implements EmployeeService{
 	}
 
 	@Override
-	public EmployeePojo empUpdateInfo(EmployeePojo employeePojo, String currPassword) throws ApplicationException{
+	public EmployeePojo empUpdateInfo(EmployeePojo employeePojo, String currPassword, String newPass) throws ApplicationException{
 		LOG.info("Entered empUpdateInfo() in service.");
 		Boolean checkPassword = employeeDao.checkPass(currPassword, employeePojo.getEmpPassword());
 		if (checkPassword == true) {
+			String newHashedPass = employeeDao.hashPassword(newPass);
+			employeePojo.setEmpPassword(newHashedPass);
 			EmployeePojo returnEmployeePojo = this.employeeDao.empUpdateInfo(employeePojo);
 			LOG.info("Exited empUpdateInfo() in service.");
 			return returnEmployeePojo;
@@ -90,13 +92,6 @@ public class EmployeeServiceImpl implements EmployeeService{
 		LOG.info("Entered logout() in service.");
 		LOG.info("Returning logout() in service.");
 		return null;
-	}
-	@Override
-	public EmployeePojo changePassword(int empId) throws ApplicationException {
-		LOG.info("Entered changePassword() in service.");
-		EmployeePojo returnEmployeePojo = this.employeeDao.changePassword(empId);
-		LOG.info("Exited changePassword() in service.");
-		return returnEmployeePojo;
 	}
 	@Override
 	public RolesPojo getRole(int id) throws ApplicationException {
