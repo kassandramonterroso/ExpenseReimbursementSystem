@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -97,27 +98,57 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 	}
 
 	@Override
-	public List<ReimbRequestPojo> empViewResolved(int empId) throws ApplicationException{
+	public List<ReimbursementPojo> empViewResolved(int empId) throws ApplicationException{
 		LOG.info("hit empViewResolved");
 		Connection connect;
-		List<ReimbRequestPojo> reimbRequestPojo = new ArrayList<ReimbRequestPojo>();
+		List<ReimbursementPojo> reimbursementPojo = new ArrayList<ReimbursementPojo>();
 		try {
 			connect = DBUtil.dbConnection();
 			Statement stmt = connect.createStatement();
 			String query = "SELECT e.emp_id,  e.first_name, e.last_name, r.reimb_id , s.status FROM employees e JOIN reimbursements r ON e.emp_id = r.requester_id JOIN status s ON r.reimb_status_id = s.status_id WHERE e. emp_id ="+empId+" AND status_id = 2 OR status_id = 3;";                                                     
 			ResultSet resultSet = stmt.executeQuery(query);
 			while(resultSet.next()) {
-				System.out.println(resultSet.getInt(1));
-				reimbRequestPojo.add(new ReimbRequestPojo(resultSet.getInt(1), resultSet.getString(2),resultSet.getString(3),resultSet.getInt(4),resultSet.getString(5)));
+				Collection<ReimbursmentPojo> empInfo = new ArrayList();
+				empInfo.add(resultSet.getInt(1));
+				empInfo.add(resultSet.getString(2));
+				empInfo.add(resultSet.getString(3));
+				empInfo.add(resultSet.getInt(4));
+				empInfo.add(resultSet.getString(5));
+				reimbursementPojo.add(empInfo);
 			}
 			} catch (SQLException e) {
 			throw new ApplicationException(e.getMessage());
 		}
-		System.out.println(reimbRequestPojo);
+		System.out.println(reimbursementPojo);
 		LOG.info("returning empViewResolved");
-		return reimbRequestPojo;
+		return reimbursementPojo;
 	}
 
+	/*public List<Object> empViewResolved(int empId) throws ApplicationException{
+		LOG.info("hit empViewResolved");
+		Connection connect;
+		List<Object> reimbursementPojo = new ArrayList<Object>();
+		try {
+			connect = DBUtil.dbConnection();
+			Statement stmt = connect.createStatement();
+			String query = "SELECT e.emp_id,  e.first_name, e.last_name, r.reimb_id , s.status FROM employees e JOIN reimbursements r ON e.emp_id = r.requester_id JOIN status s ON r.reimb_status_id = s.status_id WHERE e. emp_id ="+empId+" AND status_id = 2 OR status_id = 3;";                                                     
+			ResultSet resultSet = stmt.executeQuery(query);
+			while(resultSet.next()) {
+				Collection<Object> empInfo = new ArrayList();
+				empInfo.add(resultSet.getInt(1));
+				empInfo.add(resultSet.getString(2));
+				empInfo.add(resultSet.getString(3));
+				empInfo.add(resultSet.getInt(4));
+				empInfo.add(resultSet.getString(5));
+				reimbursementPojo.add(empInfo);
+			}
+			} catch (SQLException e) {
+			throw new ApplicationException(e.getMessage());
+		}
+		System.out.println(reimbursementPojo);
+		LOG.info("returning empViewResolved");
+		return reimbursementPojo;*/
+	
 	@Override
 	public List<ReimbRequestPojo> manViewAllPending() throws ApplicationException{
 		LOG.info("hit manViewAllPending");

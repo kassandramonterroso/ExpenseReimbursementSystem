@@ -153,7 +153,7 @@ public class ExpenseCrud {
         	System.out.println("View all resolved request");
         	String empId = ctx.pathParam("eid");
         	int empIdInteger = Integer.parseInt(empId);
-        	List<ReimbRequestPojo> employeeResolved = reimbursementService.empViewResolved(empIdInteger); 
+        	List<ReimbursementPojo> employeeResolved = reimbursementService.empViewResolved(empIdInteger); 
         	LOG.info("returning from /employees");
         	ctx.json(employeeResolved);
         });   	
