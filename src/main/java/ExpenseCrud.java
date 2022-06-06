@@ -4,6 +4,7 @@ import org.apache.logging.log4j.Logger;
 import io.javalin.Javalin;
 import service.EmployeeService;
 import model.EmployeePojo;
+import model.ReimbRequestPojo;
 import model.ReimbursementPojo;
 import model.RolesPojo;
 import exception.ApplicationException;
@@ -65,14 +66,14 @@ public class ExpenseCrud {
         });  
         
         //endpoint manager can view specific employee manViewRequest
-        app.get("/empSpecific/{eid}",(ctx)->{
+        app.get("/emps/{eid}",(ctx)->{
         	LOG.info("starting get route /emps");
         	System.out.println("Specific Employees details");
         	// here we retrieve the eId from the path/url
         	String empId = ctx.pathParam("eid");
         	// convert String to int
         	int empIdInteger = Integer.parseInt(empId);
-        	ReimbursementPojo specificEmployee = reimbursementService.manViewRequest(empIdInteger); 
+        	ReimbRequestPojo specificEmployee = reimbursementService.manViewRequest(empIdInteger); 
         	LOG.info("returning from /employees");
         	ctx.json(specificEmployee);
         });   

@@ -6,7 +6,6 @@ function getAllEmployees(){ //manViewAll method
      .then(responseJson => {
          console.log(responseJson)
          let employeeTableData = ` <div class="loginbox">
-                                    <img class="img-fluid" src="\ERS-Logo.jpg" alt="EXPENSES LOGO" width="50" height="50">
                                     <table>
                                     <thead>
                                     <tr>
@@ -19,12 +18,12 @@ function getAllEmployees(){ //manViewAll method
             for(let e of responseJson){
                 employeeTableData += `<tr>
                                         <td>
-                                            <a href="#" onclick="viewSpecificEmployeeRequest()">
+                                            <a href="#" onclick="viewSpecificEmployeeRequest( )>
                                                 ${e.empId}
                                             </a>
                                         </td>
                                         <td>
-                                            <a href="#" onclick="viewSpecificEmployeeRequest()">
+                                            <a href="#" onclick="viewSpecificEmployeeRequest( )>
                                                 ${e.empFirstName}
                                             </a>                                            
                                         </td>
@@ -60,6 +59,38 @@ function getAllEmployees(){ //manViewAll method
      .catch(error => console.log(error));
  }
 
+
+ function viewSpecificEmployeeRequest(eid){ //manViewRequest method
+    fetch("http://localhost:8082/emps/"+eid)
+    .then(response => response.json())
+    .then(responseJson => {
+        console.log(responseJson)
+        let employeeData = `<div class="row">
+                                <div class="col-xs-1 center-block">
+                                    <p class = "solid">
+                                        <h4>Employee Details</h4>
+                                        <p> Employee Id : ${empId} </p><br>
+                                        <p>Employee First Name : ${empFirstName}</p>
+                                        <br>
+                                        <p>Employee Last Name : ${empLastName}</p>
+                                        <br>
+                                        <p>Employee Reimubursement Request Id : {reimbId}</p>
+                                        <br>
+                                        <p>Reimbursement Request Amount : ${reimbAmt}</p>
+                                        <br>
+                                        <p> Request Status : ${status}</p>
+                                        <br>
+                                        <div>
+                                            <button type="button" class="btn btn-primary" onclick="submitRequest()">Approve</button>
+                                            <button type="button" class="btn btn-danger" onclick="cancelRequest()">Reject</button>
+                                        </div>
+                                    </p>
+                                </div>
+                            </div>`
+        document.getElementById("content").innerHTML = employeeData;
+    }).catch(error => console.log(error));
+}
+
  function approveRequest(reimbId){
     let newApproveRequest = {
         reimbId: 0,
@@ -93,6 +124,7 @@ function getAllEmployees(){ //manViewAll method
  }
 
  
+
 
  function displayRequest(){
 
@@ -129,33 +161,6 @@ function submitRequest(){
     .then(response => getAllEmployees());
 }
 
-function viewSpecificEmployeeRequest(eid){ //manViewRequest method
-    fetch("http://localhost:8082/emps/"+eid)
-    .then(response => response.json())
-    .then(responseJson => {
-        console.log(responseJson)
-        let employeeData = `<div class="loginbox">
-                                <img class="img-fluid" src="\ERS-Logo.jpg" alt="EXPENSES LOGO" width="50" height="50">
-                                <h4>Employee Details</h4>
-                                <p> Employee Id : ${empId} </p><br>
-                                <p>Employee First Name : ${empFirstName}</p>
-                                <br>
-                                <p>Employee Last Name : ${empLastName}</p>
-                                <br>
-                                <p>Employee Reimubursement Request Id : {reimbId}</p>
-                                <br>
-                                <p>Reimbursement Request Amount : ${reimbAmt}</p>
-                                <br>
-                                <p> Request Status : ${status}</p>
-                                <br>
-                                <div>
-                                    <button type="button" class="btn btn-primary" onclick="submitRequest()">Approve</button>
-                                    <button type="button" class="btn btn-danger" onclick="cancelRequest()">Reject</button>
-                                </div>
-                            </div>`
-        document.getElementById("content").innerHTML = employeeData;
-    }).catch(error => console.log(error));
-}
 
 function empViewPending(empId){ //call empViewPending method
     console.log(status);
@@ -451,6 +456,7 @@ if(responseJson.localizedMessage === "invalid username or password"){
     content = `<div><p>${responseJson.localizedMessage}</p></div>`
 }else{
     sessionStorage.setItem("currUser", JSON.stringify(responseJson));
+    window.location.replace("EmployeeHome.html/"+$responseJson.empRoleId+"/"+$responseJson.empId);
     //todo make this content pretty or change it to what it needs to be
     content = `<div><p>Welcome ${responseJson.empUserName}</p></div>`
 }

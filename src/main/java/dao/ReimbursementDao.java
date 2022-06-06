@@ -33,6 +33,6 @@ public interface ReimbursementDao {
 	List<ReimbursementPojo> manViewAllResolved() throws ApplicationException;
 	
 	//Method for manager to view reimbursement request of a specific employee
-	ReimbursementPojo manViewRequest(int requesterId) throws ApplicationException;
+	ReimbRequestPojo manViewRequest(int requesterId) throws ApplicationException;
 
 }

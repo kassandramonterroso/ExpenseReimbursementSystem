@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 import dao.ReimbursementDao;
 import dao.ReimbursementDaoImpl;
 import exception.ApplicationException;
+import model.ReimbRequestPojo;
 import model.ReimbursementPojo;
 
 public class ReimbursementServiceImpl implements ReimbursementService{
@@ -99,9 +100,9 @@ public class ReimbursementServiceImpl implements ReimbursementService{
 	}
 
 	@Override
-	public ReimbursementPojo manViewRequest(int requesterId) throws ApplicationException{
+	public ReimbRequestPojo manViewRequest(int requesterId) throws ApplicationException{
 		LOG.info("Entered manViewRequest() in service.");
-		ReimbursementPojo returnReimbursementPojo = reimbursementDao.manViewRequest(requesterId);
+		ReimbRequestPojo returnReimbursementPojo = reimbursementDao.manViewRequest(requesterId);
 		LOG.info("Exited manViewRequest() in service.");
 		return returnReimbursementPojo;
 	}
