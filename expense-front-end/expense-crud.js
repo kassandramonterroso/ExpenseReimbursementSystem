@@ -77,23 +77,26 @@ function viewSpecificEmployeeRequest(eid){ //manViewRequest method
     .then(response => response.json())
     .then(responseJson => {
         console.log(responseJson)
-        let employeeData = `<div class="loginbox">
-                                <img class="img-fluid" src="\ERS-Logo.jpg" alt="EXPENSES LOGO" width="50" height="50">
-                                <h4>Employee Details</h4>
-                                <p> Employee Id : ${empId} </p><br>
-                                <p>Employee First Name : ${empFirstName}</p>
-                                <br>
-                                <p>Employee Last Name : ${empLastName}</p>
-                                <br>
-                                <p>Employee Reimubursement Request Id : {reimbId}</p>
-                                <br>
-                                <p>Reimbursement Request Amount : ${reimbAmt}</p>
-                                <br>
-                                <p> Request Status : ${status}</p>
-                                <br>
-                                <div>
-                                    <button type="button" class="btn btn-primary" onclick="submitRequest()">Approve</button>
-                                    <button type="button" class="btn btn-danger" onclick="cancelRequest()">Reject</button>
+        let employeeData = `<div class="row">
+                                <div class="col-xs-1 center-block">
+                                    <p class = "solid">
+                                        <h4>Employee Details</h4>
+                                        <p> Employee Id : ${empId} </p><br>
+                                        <p>Employee First Name : ${empFirstName}</p>
+                                        <br>
+                                        <p>Employee Last Name : ${empLastName}</p>
+                                        <br>
+                                        <p>Employee Reimubursement Request Id : {reimbId}</p>
+                                        <br>
+                                        <p>Reimbursement Request Amount : ${reimbAmt}</p>
+                                        <br>
+                                        <p> Request Status : ${status}</p>
+                                        <br>
+                                        <div>
+                                            <button type="button" class="btn btn-primary" onclick="submitRequest()">Approve</button>
+                                            <button type="button" class="btn btn-danger" onclick="cancelRequest()">Reject</button>
+                                        </div>
+                                    </p>
                                 </div>
                             </div>`
         document.getElementById("content").innerHTML = employeeData;
