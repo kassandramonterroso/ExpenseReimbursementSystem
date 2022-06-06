@@ -42,6 +42,9 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 	}
 
 	@Override
+
+	public ReimbursementPojo manUpdateRequest(ReimbursementPojo reimbursementPojo, int reimbId) throws ApplicationException {
+
 	public ReimbursementPojo manApproveRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException {
 		LOG.info("hit manUpdateRequest");
 		try {
@@ -58,11 +61,16 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 	
 	@Override
 	public ReimbursementPojo manDenyRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException {
+
 		LOG.info("hit manUpdateRequest");
 		try {
 			Connection conn = DBUtil.dbConnection();
 			Statement stmt = conn.createStatement();
+
+			String query = "update reimbursement set reimb_status_id='"+reimbursementPojo.getReimbStatusId()+"' where reimbId='"+reimbId+"'";
+
 			String query = "UPDATE status SET status='denied' WHERE status_id ="+reimbursementPojo.getReimbId();
+
 			int rowsAffected = stmt.executeUpdate(query);
 		} catch (SQLException e) {
 			throw new ApplicationException(e.getMessage());
