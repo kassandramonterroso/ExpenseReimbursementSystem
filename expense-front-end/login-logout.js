@@ -42,6 +42,7 @@ function changePassword(){
 }
 
 
+
 //json data here to send document.getElementById().value
      //JSON.stringify(jsontexthere);
 function login(){
@@ -64,3 +65,4 @@ if(responseJson.localizedMessage === "invalid username or password"){
     document.getElementById("content").innerHTML = content;
  }).catch(error => console.log(error)); 
 }
+
