@@ -1,10 +1,7 @@
 
 function getAllEmployees(){ //manViewAll method
-    // document.write("Data printed on the document");
-    document.getElementById("content").innerHTML = "Data printed on the document";
-     console.log("Data written on console");
-     //use fetch api to consume end points java
-     fetch("http://localhost:8082/requests")
+    //use fetch api to consume end points java
+     fetch("http://localhost:8082/emps")
      .then(response => response.json())
      .then(responseJson => {
          console.log(responseJson)
@@ -21,34 +18,34 @@ function getAllEmployees(){ //manViewAll method
                             </tr>
                             </thead>
                             <tbody>`;
-            for(let emp of responseJson){
+            for(let e of responseJson){
                 employeeTableData += `<tr>
                                         <td>
                                             <a href="#" onclick="viewSpecificEmployeeRequest()">
-                                                ${emp.empId}
+                                                ${e.empId}
                                             </a>
                                         </td>
                                         <td>
                                             <a href="#" onclick="viewSpecificEmployeeRequest()">
-                                                ${emp.firstName}
+                                                ${e.empFirstName}
                                             </a>                                            
                                         </td>
-                                        <td>${emp.lastName}</td>
-                                        <td>${emp.reimbId}</td>
-                                        <td>${emp.reimbAmt}</td>
-                                        <td>${emp.status}</td>`
-                                        if(emp.empRoleId == 2){
+                                        <td>${e.empLastName}</td>
+                                        <td>${e.reimbId}</td>
+                                        <td>${e.reimbAmt}</td>
+                                        <td>${e.status}</td>`
+                                        if(e.empRoleId == 1){
                                             employeeTableData += `
                                            <td>
                                             <button 
                                                 type="button" 
                                                 class="btn btn-primary"
-                                                onclick="ApproveRequest(${emp.reimbId})"> Approve 
+                                                onclick="ApproveRequest(${e.reimbId})"> Approve 
                                             </button>
                                             <button 
                                                 type="button" 
                                                 class="btn btn-danger"
-                                                onclick="RejectRequest(${emp.reimbId})"> Reject 
+                                                onclick="RejectRequest(${e.reimbId})"> Reject 
                                             </button>
                                             </td>`
                                         }
@@ -226,7 +223,7 @@ function empViewResolved(empId){ //call empViewResolved method
  }
 
 function manViewAllResolved(){ 
-    fetch("http://localhost:9494/employees")
+    fetch("http://localhost:8082/employees")
     .then(response => response.json())
     .then(responseJson => {
         console.log(responseJson);
@@ -259,7 +256,7 @@ function manViewAllResolved(){
  }
 
  function manViewAllPending(){ 
-    fetch("http://localhost:9494/employees")
+    fetch("http://localhost:8082/employees")
     .then(response => response.json())
     .then(responseJson => {
         console.log(responseJson);
@@ -291,7 +288,7 @@ function manViewAllResolved(){
      .catch(error => console.log(error));
 
 function empViewInfo() {
-    fetch("http://localhost:9494/employees")
+    fetch("http://localhost:8082/employees")
     .then(response => response.json())
     .then(responseJson => {
         console.log(responseJson);
@@ -319,6 +316,39 @@ function empViewInfo() {
      .catch(error => console.log(error));
      }
  }
+
+ 
+ function viewMyEmpDetails(empId,empRoleId){
+    fetch("http://localhost:8082/emps/"+empId)
+    .then(response => response.json())
+    .then(responseJson => {
+        console.log(responseJson)
+        let employeeData1 = `<table class="table table-striped">
+                           <thead>
+                           <tr>
+                               <th>Employee ID</th>
+                               <th>First Name</th>
+                               <th>Last Name</th>
+                               <th>Reimbursement Request Id</th>
+                               <th>Reimbursement Request Amount</th>
+                               <th>Reimbursement Request Status</th>`
+                           `</tr>
+                           </thead>
+                           <tbody>`;
+            employeeData1 += `<tr>
+                            <td>${emp.empId}</td>
+                            <td>${emp.empFirstName}</td>
+                            <td>${emp.empastName}</td>
+                            <td>${emp.reimbId}</td>
+                            <td>${emp.reimbAmt}</td>
+                            <td>${emp.status}</td>
+                            </tr>`;
+            employeeData1 += `</tbody></table>`;
+           document.getElementById("content").innerHTML = employeeData1;
+       })
+    .catch(error => console.log(error));
+}
+
 
 
          
@@ -450,3 +480,4 @@ function updateEmployee(){
 
     }).catch(error => console.log(error));
 }
+

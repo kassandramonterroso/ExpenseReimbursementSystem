@@ -1,4 +1,3 @@
-
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -82,6 +81,7 @@ public class ExpenseCrud {
         	System.out.println("All Employees details");
         	
         	List<EmployeePojo> allEmployees = employeeService.manViewAll(); 
+        	System.out.println("All Employees array from ExpenseCud.java file :"+allEmployees);
         	LOG.info("returning from /employees");
         	ctx.json(allEmployees);
         });  

@@ -1,11 +1,16 @@
 package dao;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
+import java.util.Collection;
+
+
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -14,10 +19,19 @@ import org.mindrot.jbcrypt.BCrypt;
 
 import exception.ApplicationException;
 import model.EmployeePojo;
+
+import model.ReimbursementPojo;
+import model.StatusPojo;
+
 import model.RolesPojo;
+
 
 public class EmployeeDaoImpl implements EmployeeDao {
 	final Logger LOG = LogManager.getLogger(EmployeeDaoImpl.class);
+	List<EmployeePojo> allEmployees1;
+	public EmployeeDaoImpl() {
+		this.allEmployees1 = new ArrayList<EmployeePojo>();
+	}
 	@Override
 	public String hashPassword(String password) {
 		LOG.info("hit hashPassword() in EmployeeDaoImpl");
@@ -60,8 +74,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
 					// if correct password returns the user and their information
 					employeePojo = new EmployeePojo(result.getInt(1), result.getString(2), result.getString(3),
 							result.getString(4), result.getString(5), result.getInt(6));
-					
-					
 				} else {
 					throw new ApplicationException("invalid username or password");
 				}
@@ -76,11 +88,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			LOG.info("returning login ApplicationException");
 			throw new ApplicationException(e.getLocalizedMessage());
 		}
-		
-		
-		
-		
-		
 	}
 
 	@Override
@@ -155,7 +162,61 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	public List<EmployeePojo> manViewAll() throws ApplicationException{
 		//LOG.info("Entered manViewAll() in Dao...");
 		LOG.info("hit manViewAll() in EmployeeDaoImpl");
+		//Collection<EmployeePojo> allEmployees1 = new ArrayList<EmployeePojo>();
+		//Collection<ReimbursementPojo> allRequests1 = new ArrayList<ReimbursementPojo>();
+		//Collection<StatusPojo> allStatus1 = new ArrayList<StatusPojo>();
+		List<EmployeePojo> allEmployees1 = new ArrayList<EmployeePojo>();
+
 				Connection connect = null;
+
+				EmployeePojo employeePojo = null;
+				ReimbursementPojo reimbursementPojo = null;
+				StatusPojo statusPojo = null;
+				// ArrayList<String[]> list = new ArrayList<String[]>();
+				 
+				try {
+					connect = DBUtil.dbConnection();
+					Statement stmt = connect.createStatement();
+				//	String query = "SELECT e.emp_id,  e.first_name, e.last_name, r.reimb_id ,r.reimb_amt, "
+				//			+ "s.status FROM employees e JOIN reimbursements r ON e.emp_id = r.requester_id JOIN status s "
+				//			+ "ON r.reimb_status_id = s.status_id";
+					String query = "SELECT * FROM employees WHERE emp_role_id = 1";
+					ResultSet resultSet = stmt.executeQuery(query);
+					while(resultSet.next()) {
+						
+						/*String emId = resultSet.getString("empId");
+						String emFirstName = resultSet.getString("empFirstName");
+						String emLastName = resultSet.getString("empLastName");
+						String emReimbAmt = resultSet.getString("reimbAmt");
+						String emReimbStatus = resultSet.getString("status");
+						*/
+						
+						
+						employeePojo = new EmployeePojo(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), 
+								resultSet.getString(4), resultSet.getString(5), resultSet.getInt(6));
+						//employeePojo = new EmployeePojo(resultSet.getInt(1),resultSet.getString(2),resultSet.getString(3),"","","");
+					//	int employeeTempId = resultSet.getInt(1);
+					//	String employeeTempFirstName = resultSet.getString(2);
+					//	String employeeTempLastName = resultSet.getString(3);
+					//	employeePojo = new EmployeePojo(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3),
+					//			resultSet.getString(4), resultSet.getString(5), resultSet.getInt(6));
+					//	reimbursementPojo = new ReimbursementPojo(resultSet.getInt(1), resultSet.getDouble(2), resultSet.getInt(3),
+					//			resultSet.getInt(4), resultSet.getInt(5));
+					//	statusPojo = new StatusPojo(resultSet.getInt(1),resultSet.getString(2));
+					//	System.out.println("EmployeePojo is "+employeePojo);
+					//	System.out.println("ReimbursementPojo  is "+reimbursementPojo);
+					//	System.out.println("StatusPojo  is "+statusPojo);
+					//	allRequests1.add(reimbursementPojo);
+					//	allStatus1.add(statusPojo);
+					//	list.addAll(allEmployees1);
+					//	list.addAll(allRequests1);
+					//	list.add(allStatus1);
+					//(employeePojo.getEmpId(),employeePojo.getEmpFirstName(),employeePojo.getEmpLastName(),reimbursementPojo.getReimbAmt(),statusPojo.getStatus());
+					//	System.out.println("Employees array list : " +allEmployees1);
+					allEmployees1.add(employeePojo);
+
+					}
+
 				List<EmployeePojo> employeePojo = new ArrayList<EmployeePojo>();
 				try {
 					connect = DBUtil.dbConnection();
@@ -172,12 +233,13 @@ public class EmployeeDaoImpl implements EmployeeDao {
 						}
 						
 					
+
 				} catch (SQLException e) {
 					throw new ApplicationException(e.getMessage());
 				}
 						//LOG.info("Exited manViewAll() in Dao...");
 				LOG.info("returning manViewAll() in EmployeeDaoImpl");
-				return employeePojo;
+				return allEmployees1;
 			}
 	@Override
 	public EmployeePojo changePassword(int empId) throws ApplicationException {
