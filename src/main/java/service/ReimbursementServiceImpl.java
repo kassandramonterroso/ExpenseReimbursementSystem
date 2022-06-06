@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 import dao.ReimbursementDao;
 import dao.ReimbursementDaoImpl;
 import exception.ApplicationException;
+import model.ReimbRequestPojo;
 import model.ReimbursementPojo;
 
 public class ReimbursementServiceImpl implements ReimbursementService{
