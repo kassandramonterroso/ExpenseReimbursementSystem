@@ -454,8 +454,14 @@ if(responseJson.localizedMessage === "invalid username or password"){
     //todo make this content pretty or change it to what it needs to be
     content = `<div><p>Welcome ${responseJson.empUserName}</p></div>`
 }
- 
-    document.getElementById("content").innerHTML = content;
+let user = JSON.parse(sessionStorage.getItem('currUser'));
+console.log(user.role)
+if (user.empRoleId === 1){
+    window.location.replace("ManagerHome.html")
+}else{
+    window.location.replace("EmployeeHome.html")
+}
+
  }).catch(error => console.log(error)); 
 }
 
