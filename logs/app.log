@@ -561,3 +561,29 @@
 2022-06-04 01:22:00,988 INFO d.EmployeeDaoImpl [JettyServerThreadPool-24] returning login() in EmployeeDaoImpl
 2022-06-04 01:22:00,988 INFO s.EmployeeServiceImpl [JettyServerThreadPool-24] returning login() in service.
 2022-06-04 01:22:00,988 INFO ExpenseCrud [JettyServerThreadPool-24] returning from /login/{username}/{password}
+2022-06-05 17:06:55,894 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-05 17:17:37,823 INFO ExpenseCrud [JettyServerThreadPool-19] starting post rout /login/{username}/{password}
+2022-06-05 17:17:37,824 INFO s.EmployeeServiceImpl [JettyServerThreadPool-19] hit login() in service.
+2022-06-05 17:17:37,824 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] hit login() in EmployeeDaoImpl
+2022-06-05 17:17:38,076 INFO ExpenseCrud [JettyServerThreadPool-19] returning from /login/{username}/{password} with error
+2022-06-05 17:34:26,691 INFO ExpenseCrud [JettyServerThreadPool-19] starting post rout /login/{username}/{password}
+2022-06-05 17:34:26,691 INFO s.EmployeeServiceImpl [JettyServerThreadPool-19] hit login() in service.
+2022-06-05 17:34:26,692 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] hit login() in EmployeeDaoImpl
+2022-06-05 17:34:26,764 INFO ExpenseCrud [JettyServerThreadPool-19] returning from /login/{username}/{password} with error
+2022-06-05 17:50:02,724 INFO ExpenseCrud [JettyServerThreadPool-20] starting post rout /login/{username}/{password}
+2022-06-05 17:50:02,724 INFO s.EmployeeServiceImpl [JettyServerThreadPool-20] hit login() in service.
+2022-06-05 17:50:02,724 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] hit login() in EmployeeDaoImpl
+2022-06-05 17:50:02,782 INFO ExpenseCrud [JettyServerThreadPool-20] returning from /login/{username}/{password} with error
+2022-06-05 17:54:57,469 INFO ExpenseCrud [JettyServerThreadPool-20] starting post rout /login/{username}/{password}
+2022-06-05 17:54:57,469 INFO s.EmployeeServiceImpl [JettyServerThreadPool-20] hit login() in service.
+2022-06-05 17:54:57,469 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] hit login() in EmployeeDaoImpl
+2022-06-05 17:54:57,523 INFO ExpenseCrud [JettyServerThreadPool-20] returning from /login/{username}/{password} with error
+2022-06-05 18:27:25,532 INFO ExpenseCrud [JettyServerThreadPool-22] starting post rout /login/{username}/{password}
+2022-06-05 18:27:25,532 INFO s.EmployeeServiceImpl [JettyServerThreadPool-22] hit login() in service.
+2022-06-05 18:27:25,532 INFO d.EmployeeDaoImpl [JettyServerThreadPool-22] hit login() in EmployeeDaoImpl
+2022-06-05 18:27:25,599 INFO ExpenseCrud [JettyServerThreadPool-22] returning from /login/{username}/{password} with error
+2022-06-06 15:34:38,707 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-06 15:45:48,368 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-06 15:53:36,892 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-06 16:05:34,562 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-06 16:10:21,657 INFO ExpenseCrud [main] Starting server on port 8082

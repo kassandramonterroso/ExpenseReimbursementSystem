@@ -37,12 +37,12 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 	}
 
 	@Override
-	public ReimbursementPojo manUpdateRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException {
+	public ReimbursementPojo manUpdateRequest(ReimbursementPojo reimbursementPojo, int reimbId) throws ApplicationException {
 		LOG.info("hit manUpdateRequest");
 		try {
 			Connection conn = DBUtil.dbConnection();
 			Statement stmt = conn.createStatement();
-			String query = "update reimbursement set reimb_status_id='"+reimbursementPojo.getReimbStatusId()+"' where reimbId='"+reimbursementPojo.getReimbId()+"'";
+			String query = "update reimbursement set reimb_status_id='"+reimbursementPojo.getReimbStatusId()+"' where reimbId='"+reimbId+"'";
 			int rowsAffected = stmt.executeUpdate(query);
 		} catch (SQLException e) {
 			throw new ApplicationException(e.getMessage());

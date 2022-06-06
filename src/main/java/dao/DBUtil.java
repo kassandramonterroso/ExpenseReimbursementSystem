@@ -20,9 +20,9 @@ public class DBUtil {
 	
 	public static Connection dbConnection() throws SQLException {
 		//Create a single connection to the database
-		String ConnectionUrl = "jdbc:postgresql://localhost:5432/bankmanagementdb";
+		String ConnectionUrl = "jdbc:postgresql://localhost:5432/ers";
 		String userName = "postgres";
-		String passWord = "Postgresql1";
+		String passWord = "";
 		
 		if(connect == null){
 			connect = DriverManager.getConnection(ConnectionUrl, userName, passWord);

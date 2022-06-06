@@ -34,6 +34,8 @@ public class ExpenseCrud {
         //lets create other endpoints
         //CRUD 
         // login
+		
+		
         app.post("/login/{username}/{password}", (ctx)->{
         	LOG.info("starting post rout /login/{username}/{password}");
         	System.out.println("post rout");
@@ -127,6 +129,15 @@ public class ExpenseCrud {
         	LOG.info("returning from /employees");
         	ctx.json(returnEmpPojo);
         });  
+        
+        // end point to approver/deny
+		app.put("/reimbursements/{reimbid}", (ctx) -> {
+			LOG.info("starting put route /reimbursements/{reimbid}");
+			int reimbIdInteger = Integer.parseInt(ctx.pathParam("reimbid"));
+			ReimbursementPojo newReimbursementPojo = ctx.bodyAsClass(ReimbursementPojo.class);
+			ReimbursementPojo returnReimbursementPojo = reimbursementService.manUpdateRequest(newReimbursementPojo, reimbIdInteger);
+			ctx.json(returnReimbursementPojo);
+		});
         
 	//endpoint manager can view all resolved requests ---start
 	app.get("/empResolved",(ctx)->{

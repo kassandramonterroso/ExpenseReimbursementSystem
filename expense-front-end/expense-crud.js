@@ -43,12 +43,12 @@ function getAllEmployees(){ //manViewAll method
                                             <button 
                                                 type="button" 
                                                 class="btn btn-primary"
-                                                onclick="ApproveRequest(${emp.reimbId})"> Approve 
+                                                onclick="approveRequest(${emp.reimbId})"> Approve 
                                             </button>
                                             <button 
                                                 type="button" 
                                                 class="btn btn-danger"
-                                                onclick="RejectRequest(${emp.reimbId})"> Reject 
+                                                onclick="rejectRequest(${emp.reimbId})"> Reject 
                                             </button>
                                             </td>`
                                         }
@@ -59,6 +59,40 @@ function getAllEmployees(){ //manViewAll method
         })
      .catch(error => console.log(error));
  }
+
+ function approveRequest(reimbId){
+    let newApproveRequest = {
+        reimbId: 0,
+        reimbAmt: 0,
+        reimbStatusId: 2,
+        requesterId: 0,
+        approverId: 0,
+    }
+
+    fetch("http://localhost:8082/reimbursements"+reimbId, {
+        method: 'put',
+        body: JSON.stringify(newApproveRequest)
+    })
+    .then(response => getAllEmployees())
+ }
+
+ function rejectRequest(reimbId){
+    let newRejectRequest = {
+        reimbId: 0,
+        reimbAmt: 0,
+        reimbStatusId: 3,
+        requesterId: 0,
+        approverId: 0,
+    }
+
+    fetch("http://localhost:8082/reimbursements"+reimbId, {
+        method: 'put',
+        body: JSON.stringify(newRejectRequest)
+    })
+    .then(response => getAllEmployees())
+ }
+
+ 
 
  function displayRequest(){
 
