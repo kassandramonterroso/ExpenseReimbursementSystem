@@ -4,6 +4,7 @@ import java.util.List;
 
 import exception.ApplicationException;
 import model.EmployeePojo;
+import model.ReimbRequestPojo;
 import model.ReimbursementPojo;
 
 public interface ReimbursementService {
@@ -18,10 +19,10 @@ public interface ReimbursementService {
 	ReimbursementPojo manDenyRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException;
 	
 	//Method for employee to view their pending reimbursement requests
-	ReimbursementPojo empViewPending(int empId) throws ApplicationException;
+	List<ReimbursementPojo> empViewPending(int empId) throws ApplicationException;
 	
 	//Method for employee to view their resolved reimbursement requests
-	ReimbursementPojo empViewResolved(int empId) throws ApplicationException;
+	List<ReimbRequestPojo> empViewResolved(int empId) throws ApplicationException;
 	
 	//Method for manager to view all pending request of all employees
 	List<ReimbursementPojo> manViewAllPending() throws ApplicationException;

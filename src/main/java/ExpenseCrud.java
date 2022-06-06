@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import io.javalin.Javalin;
 import service.EmployeeService;
 import model.EmployeePojo;
+import model.ReimbRequestPojo;
 import model.ReimbursementPojo;
 import model.RolesPojo;
 import exception.ApplicationException;
@@ -152,7 +153,7 @@ public class ExpenseCrud {
         	System.out.println("View all resolved request");
         	String empId = ctx.pathParam("eid");
         	int empIdInteger = Integer.parseInt(empId);
-        	ReimbursementPojo employeeResolved = reimbursementService.empViewResolved(empIdInteger); 
+        	List<ReimbRequestPojo> employeeResolved = reimbursementService.empViewResolved(empIdInteger); 
         	LOG.info("returning from /employees");
         	ctx.json(employeeResolved);
         });   	
