@@ -164,58 +164,25 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		// LOG.info("Entered manViewAll() in Dao...");
 		LOG.info("hit manViewAll() in EmployeeDaoImpl");
 
-		List<EmployeePojo> allEmployees1 = new ArrayList<EmployeePojo>();
+		List<EmployeePojo> allEmployees = new ArrayList<EmployeePojo>();
 		Connection connect = null;
 		EmployeePojo employeePojo = null;
-		//		ReimbursementPojo reimbursementPojo = null;
-		//		StatusPojo statusPojo = null;
+
 		try {
 			connect = DBUtil.dbConnection();
 			Statement stmt = connect.createStatement();
-			//	String query = "SELECT e.emp_id,  e.first_name, e.last_name, r.reimb_id ,r.reimb_amt, "
-			//			+ "s.status FROM employees e JOIN reimbursements r ON e.emp_id = r.requester_id JOIN status s "
-			//			+ "ON r.reimb_status_id = s.status_id";
-			String query = "SELECT * FROM employees WHERE emp_role_id = 1";
+			String query = "SELECT * FROM employees WHERE emp_role_id = 1;";
 			ResultSet resultSet = stmt.executeQuery(query);
 			while(resultSet.next()) {
-				employeePojo = new EmployeePojo(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), 
-						resultSet.getString(4), resultSet.getString(5), resultSet.getInt(6));
-						
-			//	reimbursementPojo = new ReimbursementPojo(resultSet.getInt(1), resultSet.getDouble(2), resultSet.getInt(3),
-			//			resultSet.getInt(4), resultSet.getInt(5));
-			//	statusPojo = new StatusPojo(resultSet.getInt(1),resultSet.getString(2));
-				allEmployees1.add(employeePojo);
-			}
-		} catch (SQLException e) {
-			throw new ApplicationException(e.getMessage());
-		}
-		LOG.info("returning manViewAll() in EmployeeDaoImpl");
-		return allEmployees1;
-	}
-
-
-		Connection connect = null;
-
-		List<EmployeePojo> employeePojo = new ArrayList<EmployeePojo>();
-		try {
-			connect = DBUtil.dbConnection();
-			Statement stmt = connect.createStatement();
-//			String query = "SELECT e.emp_id,  e.first_name, e.last_name, r.reimb_id ,r.reimb_amt, s.status FROM employees e JOIN reimbursements r ON e.emp_id = r.requester_id JOIN status s ON r.reimb_status_id = s.status_id";
-////					String query = "SELECT * FROM employees where emp_role_id = 2;";
-			String query = "SELECT * FROM employees";
-			ResultSet resultSet = stmt.executeQuery(query);
-
-			while (resultSet.next()) {
-				employeePojo.add(new EmployeePojo(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3),
+				
+				allEmployees.add(new EmployeePojo(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), 
 						resultSet.getString(4), resultSet.getString(5), resultSet.getInt(6)));
 			}
-
 		} catch (SQLException e) {
 			throw new ApplicationException(e.getMessage());
 		}
-		// LOG.info("Exited manViewAll() in Dao...");
 		LOG.info("returning manViewAll() in EmployeeDaoImpl");
-		return employeePojo;
+		return allEmployees;
 	}
 
 

@@ -18,38 +18,34 @@ function getAllEmployees(){ //manViewAll method
             for(let e of responseJson){
                 employeeTableData += `<tr>
                                         <td>
-                                            <a href="#" onclick="viewSpecificEmployeeRequest( )>
-                                                ${e.empId}
+                                            <a href="#" onclick="viewSpecificEmployeeRequest( ${e.empId} )">
+                                            ${e.empId}
                                             </a>
                                         </td>
                                         <td>
-                                            <a href="#" onclick="viewSpecificEmployeeRequest( )>
-                                                ${e.empFirstName}
+                                            <a href="#" onclick="viewSpecificEmployeeRequest(${e.empFirstName} ")>
+                                            ${e.empFirstName}
                                             </a>                                            
                                         </td>
 
-                                        <td>${emp.lastName}</td>
-                                        <td>${emp.reimbId}</td>
-                                        <td>${emp.reimbAmt}</td>
-                                        <td>${emp.status}</td>`
-                                        if(emp.empRoleId == 2){
+                                        <td>${e.empLastName}</td>
+                                    `
+                                        if(e.empRoleId == 2){
                                             employeeTableData += `
                                            <td>
                                             <button 
                                                 type="button" 
                                                 class="btn btn-primary"
-                                                onclick="approveRequest(${emp.reimbId})"> Approve 
+                                                onclick="approveRequest(${e.reimbId})"> Approve 
                                             </button>
                                             <button 
                                                 type="button" 
                                                 class="btn btn-danger"
-                                                onclick="rejectRequest(${emp.reimbId})"> Reject 
+                                                onclick="rejectRequest(${e.reimbId})"> Reject 
                                             </button>
                                             </td>`
                                         }
                                         employeeTableData += `</tr>`;
-
-                                        <td>${e.empLastName}</td>`
                 employeeTableData += `</tr>`;
 
             }
@@ -295,7 +291,7 @@ function manViewAllResolved(){
  }
 
  function manViewAllPending(){ 
-    fetch("http://localhost:8082/employees")
+    fetch("http://localhost:8082/empPendings")
     .then(response => response.json())
     .then(responseJson => {
         console.log(responseJson);
@@ -425,52 +421,9 @@ function empViewInfo() {
     document.getElementById("content").innerHTML = loginForm;
 }
 
-function logoutEmp(){
-    sessionStorage.setItem("currUser", null);
-
-//todo make this content pretty or change it to what it needs to be
-let content = `<div><p>logged out</p></div>`
-document.getElementById("content").innerHTML = content;
-
-}
-
-function changePassword(){
-    let newPassword=  document.getElementById("pass").value;
-    fetch(`http://localhost:8082/changePass/${newPassword}`, {method:"post", body: JSON.stringify(session["currUser"])})
-    .then( response=>response.json()).then(responseJson=>{
 
 
-    }).catch(error => console.log(error));; 
-}
-
-
-//json data here to send document.getElementById().value
-     //JSON.stringify(jsontexthere);
-function login(){
-    let username= document.getElementById("username").value;
-    let password=  document.getElementById("password").value;
-    let content = '';
- fetch(`http://localhost:8082/login/${username}/${password}`, {method:"post"}).then( response=>response.json()).then(responseJson=>{
-    
-if(responseJson.localizedMessage === "invalid username or password"){
-    content = `<div><p>${responseJson.localizedMessage}</p></div>`
-}else{
-    sessionStorage.setItem("currUser", JSON.stringify(responseJson));
-    window.location.replace("EmployeeHome.html/"+$responseJson.empRoleId+"/"+$responseJson.empId);
-    //todo make this content pretty or change it to what it needs to be
-    content = `<div><p>Welcome ${responseJson.empUserName}</p></div>`
-}
-let user = JSON.parse(sessionStorage.getItem('currUser'));
-console.log(user.role)
-if (user.empRoleId === 1){
-    window.location.replace("ManagerHome.html")
-}else{
-    window.location.replace("EmployeeHome.html")
-}
-
- }).catch(error => console.log(error)); 
-}
-
+ }
 
 function updateEmployeePage(){
     let user = JSON.parse(sessionStorage.getItem('currUser'));
@@ -510,6 +463,12 @@ function updateEmployeePage(){
     }
 
 }
+function logoutEmp(){
+    sessionStorage.setItem("currUser", null);
+
+    window.location.replace("Login.html")
+
+}
 function updateEmployee(){
     let user = JSON.parse(sessionStorage.getItem('currUser'));
     let username= document.getElementById("empUserNameUpdate").value;
@@ -534,4 +493,24 @@ function updateEmployee(){
 
     }).catch(error => console.log(error));
 }
+function login(){
+    let username= document.getElementById("username").value;
+    let password=  document.getElementById("password").value;
+    
+ fetch(`http://localhost:8082/login/${username}/${password}`, {method:"post"}).then( response=>response.json()).then(responseJson=>{
+    
+if(responseJson.localizedMessage === "invalid username or password"){
+    content = `<div><p>${responseJson.localizedMessage}</p></div>`
+}else{
+    sessionStorage.setItem("currUser", JSON.stringify(responseJson));
+}
+let user = JSON.parse(sessionStorage.getItem('currUser'));
+console.log(user.role)
+if (user.empRoleId === 1){
+    window.location.replace("ManagerHome.html")
+}else{
+    window.location.replace("EmployeeHome.html")
+}
 
+ }).catch(error => console.log(error)); 
+}

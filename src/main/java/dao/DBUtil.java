@@ -24,23 +24,18 @@ public class DBUtil {
 		String ConnectionUrl = "jdbc:postgresql://localhost:5432/ers";
 
 
-
-		String ConnectionUrl = "jdbc:postgresql://localhost:5432/ers";
 		String userName = "postgres";
 		String passWord = "";
 
-		String ConnectionUrl = "jdbc:postgresql://localhost:5432/bankmanagementdb";
-//		String ConnectionUrl = "jdbc:postgresql://localhost:5432/ers"; //navdeep postgres
 
-
-		String userName = "postgres";
-		 String passWord = "Postgresql1";
+		String userName1 = "postgres";
+		 String passWord1 = "Postgresql1";
 //		String passWord = "navdeep@2808"; // navdeep postgres
 
 
 		
 		if(connect == null){
-			connect = DriverManager.getConnection(ConnectionUrl, userName, passWord);
+			connect = DriverManager.getConnection(ConnectionUrl, userName1, passWord1);
 		} return connect;
 	}
 	
