@@ -1995,3 +1995,10 @@
 2022-06-06 21:42:17,131 INFO ExpenseCrud [main] Starting server on port 8082
 2022-06-06 21:44:45,410 INFO ExpenseCrud [main] Starting server on port 8082
 2022-06-06 21:45:37,483 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-06 21:46:47,775 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-06 21:46:51,527 INFO ExpenseCrud [JettyServerThreadPool-23] starting get route /empRoleId/{id}
+2022-06-06 21:46:51,527 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-23] Hit submitRequest() in RiembursementServiceImpl
+2022-06-06 21:46:51,527 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-23] hit submitRequest
+2022-06-06 21:46:51,815 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-23] returning submitRequest
+2022-06-06 21:46:51,815 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-23] returning submitRequest() in RiembursementServiceImpl
+2022-06-06 21:46:52,053 INFO ExpenseCrud [JettyServerThreadPool-23] returning get route /empRoleId/{id}
