@@ -8,7 +8,7 @@ import model.ReimbursementPojo;
 public interface ReimbursementService {
 		
 	//Method for employee to submit a reimbursement request
-	ReimbursementPojo submitRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException;
+	ReimbursementPojo submitRequest(int empId,int amt) throws ApplicationException;
 	
 
 	//Method for manager to approve/deny pending reimbursement requests
@@ -32,7 +32,7 @@ public interface ReimbursementService {
 	
 	//Method for manager to view all resolved request of all employees
 	List<ReimbRequestPojo> manViewAllResolved() throws ApplicationException;
-	
+
 	//Method for manager to view reimbursement request of a specific employee
 	ReimbRequestPojo manViewRequest(int requesterId) throws ApplicationException;
 	

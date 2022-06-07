@@ -254,7 +254,7 @@ function empViewResolved(empId){ //call empViewResolved method
  }
 
 function manViewAllResolved(){ 
-    fetch("http://localhost:8082/employees")
+    fetch("http://localhost:8082/empResolved")
     .then(response => response.json())
     .then(responseJson => {
         console.log(responseJson);
@@ -273,14 +273,14 @@ function manViewAllResolved(){
             for(let emp of responseJson){
                 employeeResolved += `<tr>
                                         <td>${emp.empId}</td>
-                                        <td>${emp.empFirstName}</td>
-                                        <td>${emp.empastName}</td>
+                                        <td>${emp.firstName}</td>
+                                        <td>${emp.lastName}</td>
                                         <td>${emp.reimbId}</td>
                                         <td>${emp.reimbAmt}</td>
                                         <td>${emp.status}</td>
                                     </tr>`;
             }
-            employeeTableData += `</tbody></table>`;
+            employeeResolved += `</tbody></table>`;
             document.getElementById("content").innerHTML = employeeResolved;
         })
      .catch(error => console.log(error));
@@ -306,8 +306,8 @@ function manViewAllResolved(){
             for(let emp of responseJson){
                 employeeResolved += `<tr>
                                         <td>${emp.empId}</td>
-                                        <td>${emp.empFirstName}</td>
-                                        <td>${emp.empastName}</td>
+                                        <td>${emp.firstName}</td>
+                                        <td>${emp.lastName}</td>
                                         <td>${emp.reimbId}</td>
                                         <td>${emp.reimbAmt}</td>
                                         <td>${emp.status}</td>
