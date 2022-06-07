@@ -37,21 +37,21 @@ public class ReimbursementServiceImpl implements ReimbursementService{
 		return reimbursementDao.manUpdateRequest(reimbursementPojo, reimbId);
 	}
 
-	public ReimbursementPojo manApproveRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException{
+	public ReimbursementPojo manApproveRequest(ReimbursementPojo reimbursementPojo, int reimbInt) throws ApplicationException{
 		LOG.info("Hit manUpdateRequest() in RiembursementServiceImpl");
 		LOG.info("returning manUpdateRequest() in RiembursementServiceImpl");
 		
-		return reimbursementDao.manApproveRequest(reimbursementPojo);
+		return reimbursementDao.manApproveRequest(reimbursementPojo, reimbInt);
 
 	}
 
 	@Override
 
-	public ReimbursementPojo manDenyRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException{
+	public ReimbursementPojo manDenyRequest(ReimbursementPojo reimbursementPojo, int reimbInt) throws ApplicationException{
 		LOG.info("Hit manUpdateRequest() in RiembursementServiceImpl");
 		LOG.info("returning manUpdateRequest() in RiembursementServiceImpl");
 		
-		return reimbursementDao.manDenyRequest(reimbursementPojo);
+		return reimbursementDao.manDenyRequest(reimbursementPojo, reimbInt);
 	}
 	
 	@Override

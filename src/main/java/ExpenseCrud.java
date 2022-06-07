@@ -109,17 +109,27 @@ public class ExpenseCrud {
         	ctx.json(returnEmpPojo);
         });  
         
-        // end point to approver/deny
+        // end point to approver
 		app.put("/reimbursements/{reimbid}", (ctx) -> {
 			LOG.info("starting put route /reimbursements/{reimbid}");
 			int reimbIdInteger = Integer.parseInt(ctx.pathParam("reimbid"));
 			ReimbursementPojo newReimbursementPojo = ctx.bodyAsClass(ReimbursementPojo.class);
-			ReimbursementPojo returnReimbursementPojo = reimbursementService.manUpdateRequest(newReimbursementPojo, reimbIdInteger);
+			ReimbursementPojo returnReimbursementPojo = reimbursementService.manApproveRequest(newReimbursementPojo, reimbIdInteger);
 			ctx.json(returnReimbursementPojo);
 		});
+		
+		//endpoint to deny request
+		app.put("/reimbursements/{reimbid}", (ctx) -> {
+			LOG.info("starting put route /reimbursements/{reimbid}");
+			int reimbIdInteger = Integer.parseInt(ctx.pathParam("reimbid"));
+			ReimbursementPojo newReimbursementPojo = ctx.bodyAsClass(ReimbursementPojo.class);
+			ReimbursementPojo returnReimbursementPojo = reimbursementService.manDenyRequest(newReimbursementPojo, reimbIdInteger);
+			ctx.json(returnReimbursementPojo);
+		});
+		
         
-	//endpoint manager can view all resolved requests ---start
-	app.get("/empResolved",(ctx)->{
+		//endpoint manager can view all resolved requests ---start
+		app.get("/empResolved",(ctx)->{
 		LOG.info("starting get route /employees");	
 		System.out.println("View all resolved requests");
         	List<ReimbursementPojo> allResolvedRequests = reimbursementService.manViewAllResolved(); 
@@ -127,8 +137,8 @@ public class ExpenseCrud {
         	ctx.json(allResolvedRequests);
         });   
 		
-	//endpoint manager can view all pending requests
-	app.get("/empPendings",(ctx)->{
+		//endpoint manager can view all pending requests
+		app.get("/empPendings",(ctx)->{
 		LOG.info("starting get route /employees");	
         	System.out.println("View all pending requests");
         	List<ReimbRequestPojo> allPendingRequests = reimbursementService.manViewAllPending(); 
@@ -150,8 +160,8 @@ public class ExpenseCrud {
         	LOG.info("returning from /employees");
         	ctx.json(employeeResolved);
         });   	*/
-	//gets employees information
-	app.get("/empRoleId/{id}", (ctx)->{
+		//gets employees information
+		app.get("/empRoleId/{id}", (ctx)->{
 		LOG.info("starting get route /empRoleId/{id}");	
 		
 		String roleEmpId = ctx.pathParam("id");
