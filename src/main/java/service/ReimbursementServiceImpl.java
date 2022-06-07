@@ -35,6 +35,7 @@ public class ReimbursementServiceImpl implements ReimbursementService{
 		LOG.info("returning manUpdateRequest() in RiembursementServiceImpl");
 		
 		return reimbursementDao.manUpdateRequest(reimbursementPojo, reimbId);
+	}
 
 	public ReimbursementPojo manApproveRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException{
 		LOG.info("Hit manUpdateRequest() in RiembursementServiceImpl");
