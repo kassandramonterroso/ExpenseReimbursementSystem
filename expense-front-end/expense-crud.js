@@ -141,13 +141,10 @@ function submitRequest(){
 
     // construct a java script object whose properties match the bookpojo object's properties
         // of the back end application
-    let newRequest = {
-        reimbId: 0,
-        reimbAmt: document.getElementById("eId").value,
-    }
-    fetch("http://localhost:8082/requests", {
-        method: 'post',
-        body: JSON.stringify(newRequest) // converts JS object to JSON 
+       let empId= document.getElementById("eId").value
+       let amt =  document.getElementById("rAmount").value
+    fetch(`http://localhost:8082/request/${empId}/${amt}`, {
+        method: 'post' 
     })
     .then(response => getAllEmployees());
 }

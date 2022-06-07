@@ -25,17 +25,17 @@ public class DBUtil {
 
 
 		String userName = "postgres";
-		String passWord = "";
+		String passWord = "Postgresql1";
 
 
-		String userName1 = "postgres";
-		 String passWord1 = "Postgresql1";
+//		String userName1 = "postgres";
+//		 String passWord1 = "Postgresql1";
 //		String passWord = "navdeep@2808"; // navdeep postgres
 
 
 		
 		if(connect == null){
-			connect = DriverManager.getConnection(ConnectionUrl, userName1, passWord1);
+			connect = DriverManager.getConnection(ConnectionUrl, userName, passWord);
 		} return connect;
 	}
 	
