@@ -17,13 +17,9 @@ function getAllEmployees(){ //manViewAll method
                                     <tbody>`;
             for(let e of responseJson){
                 employeeTableData += `<tr>
+                                        <td>${e.empId}</td>
                                         <td>
-                                            <a href="#" onclick="viewSpecificEmployeeRequest( ${e.empId} )">
-                                            ${e.empId}
-                                            </a>
-                                        </td>
-                                        <td>
-                                            <a href="#" onclick="viewSpecificEmployeeRequest(${e.empFirstName} ")>
+                                            <a href="#" onclick="viewSpecificEmployeeRequest(${e.empFirstName})">
                                             ${e.empFirstName}
                                             </a>                                            
                                         </td>
@@ -56,8 +52,8 @@ function getAllEmployees(){ //manViewAll method
  }
 
 
- function viewSpecificEmployeeRequest(eid){ //manViewRequest method
-    fetch("http://localhost:8082/emps/"+eid)
+ function viewSpecificEmployeeRequest(reimbId){ //manViewRequest method
+    fetch("http://localhost:8082/emps/"+reimbId)
     .then(response => response.json())
     .then(responseJson => {
         console.log(responseJson)
@@ -70,15 +66,15 @@ function getAllEmployees(){ //manViewAll method
                                         <br>
                                         <p>Employee Last Name : ${empLastName}</p>
                                         <br>
-                                        <p>Employee Reimubursement Request Id : {reimbId}</p>
+                                        <p>Employee Reimubursement Request Id : ${reimbId}</p>
                                         <br>
                                         <p>Reimbursement Request Amount : ${reimbAmt}</p>
                                         <br>
                                         <p> Request Status : ${status}</p>
                                         <br>
                                         <div>
-                                            <button type="button" class="btn btn-primary" onclick="submitRequest()">Approve</button>
-                                            <button type="button" class="btn btn-danger" onclick="cancelRequest()">Reject</button>
+                                            <button type="button" class="btn btn-primary" onclick="approveRequest(${reimbId})">Approve</button>
+                                            <button type="button" class="btn btn-danger" onclick="rejectRequest(${reimbId})">Reject</button>
                                         </div>
                                     </p>
                                 </div>
