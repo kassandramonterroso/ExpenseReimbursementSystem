@@ -26,7 +26,7 @@ public class ExpenseCrud {
 		EmployeeServiceImpl service = new EmployeeServiceImpl(); 
 		Javalin app = Javalin.create((config) -> config.enableCorsForAllOrigins());
 		LOG.info("Starting server on port 8082");
-		app.start(8082);
+		app.start(8081);
        
         //can access this endpoint through postman
         //lets create other endpoints
@@ -118,14 +118,6 @@ public class ExpenseCrud {
 			ctx.json(returnReimbursementPojo);
 		});
 		
-		//endpoint to deny request
-		app.put("/reimbursements/{reimbid}", (ctx) -> {
-			LOG.info("starting put route /reimbursements/{reimbid}");
-			int reimbIdInteger = Integer.parseInt(ctx.pathParam("reimbid"));
-			ReimbursementPojo newReimbursementPojo = ctx.bodyAsClass(ReimbursementPojo.class);
-			ReimbursementPojo returnReimbursementPojo = reimbursementService.manDenyRequest(newReimbursementPojo, reimbIdInteger);
-			ctx.json(returnReimbursementPojo);
-		});
 		
         
 		//endpoint manager can view all resolved requests ---start
@@ -169,5 +161,17 @@ public class ExpenseCrud {
 		ctx.json(rolesPojo);
 		LOG.info("returning get route /empRoleId/{id}");	
 	});
+		app.post("/request/{empId}/{amt}", (ctx)->{
+			LOG.info("starting get route /empRoleId/{id}");	
+			
+			String currId = ctx.pathParam("empId");
+			int empId = Integer.parseInt(currId);
+			String currAmt = ctx.pathParam("amt");
+			int amt = Integer.parseInt(currAmt);
+			ReimbursementPojo result = reimbursementService.submitRequest(empId, amt);
+			
+			ctx.json(result);
+			LOG.info("returning get route /empRoleId/{id}");	
+		});
 	}
 }
