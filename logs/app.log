@@ -1753,6 +1753,13 @@
 2022-06-06 20:47:36,546 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-29] returning manViewRequest
 2022-06-06 20:47:36,546 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-29] Exited manViewRequest() in service.
 2022-06-06 20:47:36,547 INFO ExpenseCrud [JettyServerThreadPool-29] returning from /employees
+
+2022-06-06 21:43:02,195 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-06 21:43:18,386 INFO ExpenseCrud [JettyServerThreadPool-22] starting post rout /login/{username}/{password}
+2022-06-06 21:43:18,387 INFO s.EmployeeServiceImpl [JettyServerThreadPool-22] hit login() in service.
+2022-06-06 21:43:18,387 INFO d.EmployeeDaoImpl [JettyServerThreadPool-22] hit login() in EmployeeDaoImpl
+2022-06-06 21:43:18,543 INFO ExpenseCrud [JettyServerThreadPool-22] returning from /login/{username}/{password} with error
+
 2022-06-06 20:49:06,045 INFO ExpenseCrud [main] Starting server on port 8082
 2022-06-06 20:49:53,024 INFO ExpenseCrud [JettyServerThreadPool-29] starting get route /employees
 2022-06-06 20:49:53,024 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-29] Hit manViewAllResolved() in RiembursementServiceImpl
@@ -1995,6 +2002,7 @@
 2022-06-06 21:42:17,131 INFO ExpenseCrud [main] Starting server on port 8082
 2022-06-06 21:44:45,410 INFO ExpenseCrud [main] Starting server on port 8082
 2022-06-06 21:45:37,483 INFO ExpenseCrud [main] Starting server on port 8082
+
 2022-06-06 21:46:47,775 INFO ExpenseCrud [main] Starting server on port 8082
 2022-06-06 21:46:51,527 INFO ExpenseCrud [JettyServerThreadPool-23] starting get route /empRoleId/{id}
 2022-06-06 21:46:51,527 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-23] Hit submitRequest() in RiembursementServiceImpl
@@ -2002,3 +2010,4 @@
 2022-06-06 21:46:51,815 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-23] returning submitRequest
 2022-06-06 21:46:51,815 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-23] returning submitRequest() in RiembursementServiceImpl
 2022-06-06 21:46:52,053 INFO ExpenseCrud [JettyServerThreadPool-23] returning get route /empRoleId/{id}
+
