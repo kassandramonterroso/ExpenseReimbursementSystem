@@ -1753,3 +1753,8 @@
 2022-06-06 20:47:36,546 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-29] returning manViewRequest
 2022-06-06 20:47:36,546 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-29] Exited manViewRequest() in service.
 2022-06-06 20:47:36,547 INFO ExpenseCrud [JettyServerThreadPool-29] returning from /employees
+2022-06-06 21:43:02,195 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-06 21:43:18,386 INFO ExpenseCrud [JettyServerThreadPool-22] starting post rout /login/{username}/{password}
+2022-06-06 21:43:18,387 INFO s.EmployeeServiceImpl [JettyServerThreadPool-22] hit login() in service.
+2022-06-06 21:43:18,387 INFO d.EmployeeDaoImpl [JettyServerThreadPool-22] hit login() in EmployeeDaoImpl
+2022-06-06 21:43:18,543 INFO ExpenseCrud [JettyServerThreadPool-22] returning from /login/{username}/{password} with error
