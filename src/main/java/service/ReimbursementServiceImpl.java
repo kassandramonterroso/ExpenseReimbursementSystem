@@ -22,10 +22,12 @@ public class ReimbursementServiceImpl implements ReimbursementService{
 		}
 
 	@Override
-	public ReimbursementPojo submitRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException{
+	public ReimbursementPojo submitRequest(int empId, int amt) throws ApplicationException{
 		LOG.info("Hit submitRequest() in RiembursementServiceImpl");
+		ReimbursementPojo currRequest = new ReimbursementPojo(0, amt, 1, empId, 2);
+		ReimbursementPojo reimbursementPojo = reimbursementDao.submitRequest(currRequest);
 		LOG.info("returning submitRequest() in RiembursementServiceImpl");
-		return reimbursementDao.submitRequest(reimbursementPojo);
+		return reimbursementPojo;
 	}
 
 	@Override
@@ -106,5 +108,7 @@ public class ReimbursementServiceImpl implements ReimbursementService{
 		LOG.info("Exited manViewRequest() in service.");
 		return returnReimbursementPojo;
 	}
+
+	
 
 }
