@@ -55,7 +55,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 	
 	
 
-	public ReimbursementPojo manApproveRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException {
+	public ReimbursementPojo manApproveRequest(ReimbursementPojo reimbursementPojo, int reimbId) throws ApplicationException {
 		LOG.info("hit manUpdateRequest");
 		try {
 			Connection conn = DBUtil.dbConnection();
@@ -70,7 +70,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 	}
 	
 	@Override
-	public ReimbursementPojo manDenyRequest(ReimbursementPojo reimbursementPojo) throws ApplicationException {
+	public ReimbursementPojo manDenyRequest(ReimbursementPojo reimbursementPojo, int reimbId) throws ApplicationException {
 
 		LOG.info("hit manUpdateRequest");
 		try {
