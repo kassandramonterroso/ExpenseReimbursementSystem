@@ -317,7 +317,7 @@ function manViewAllResolved(){
                                         <td>${emp.status}</td>
                                     </tr>`;
             }
-            employeeTableData += `</tbody></table>`;
+            employeeResolved += `</tbody></table>`;
             document.getElementById("content").innerHTML = employeeResolved;
         })
      .catch(error => console.log(error));
