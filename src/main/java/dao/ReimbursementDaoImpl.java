@@ -119,34 +119,20 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 	public List<ReimbursementPojo> empViewResolved(int empId) throws ApplicationException{
 		LOG.info("hit empViewResolved");
 		Connection connect;
-
-		List<ReimbursementPojo> reimbRequestPojo = new ArrayList<ReimbursementPojo>();
-
 		List<ReimbursementPojo> reimbursementPojo = new ArrayList<ReimbursementPojo>();
 
 		try {
 			connect = DBUtil.dbConnection();
 			Statement stmt = connect.createStatement();
-			String query = "SELECT e.emp_id,  e.first_name, e.last_name, r.reimb_id , s.status FROM employees e JOIN reimbursements r ON e.emp_id = r.requester_id JOIN status s ON r.reimb_status_id = s.status_id WHERE e. emp_id ="+empId+" AND status_id = 2 OR status_id = 3;";                                                     
+			String query = "SELECT status, status_id FROM status JOIN reimbursements ON status.status_id = reimbursements.reimb_status_id WHERE status ='resolved' AND requester_id="+empId;                                                    
 			ResultSet resultSet = stmt.executeQuery(query);
 			while(resultSet.next()) {
-
-				System.out.println(resultSet.getInt(1));
-				reimbRequestPojo.add(new ReimbursementPojo(resultSet.getInt(1), resultSet.getString(2),resultSet.getString(3),resultSet.getInt(4),resultSet.getString(5)));
-
-				Collection<ReimbursmentPojo> empInfo = new ArrayList();
-				empInfo.add(resultSet.getInt(1));
-				empInfo.add(resultSet.getString(2));
-				empInfo.add(resultSet.getString(3));
-				empInfo.add(resultSet.getInt(4));
-				empInfo.add(resultSet.getString(5));
-				reimbursementPojo.add(empInfo);
-
+				reimbursementPojo.add(new ReimbursementPojo(resultSet.getInt(1), resultSet.getInt(2),resultSet.getInt(3),resultSet.getInt(4),resultSet.getInt(5)));
 			}
-			} catch (SQLException e) {
+			
+		} catch (SQLException e) {
 			throw new ApplicationException(e.getMessage());
 		}
-		System.out.println(reimbursementPojo);
 		LOG.info("returning empViewResolved");
 		return reimbursementPojo;
 	}
