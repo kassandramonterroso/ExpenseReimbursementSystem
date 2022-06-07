@@ -66,7 +66,7 @@ public class ExpenseCrud {
         });  
         
         //endpoint manager can view specific employee manViewRequest
-        app.get("/emps/{eid}",(ctx)->{
+        app.get("/request/{eid}",(ctx)->{
         	LOG.info("starting get route /emps");
         	System.out.println("Specific Employees details");
         	// here we retrieve the eId from the path/url
@@ -122,7 +122,7 @@ public class ExpenseCrud {
 	app.get("/empResolved",(ctx)->{
 		LOG.info("starting get route /employees");	
 		System.out.println("View all resolved requests");
-        	List<ReimbursementPojo> allResolvedRequests = reimbursementService.manViewAllResolved(); 
+		List<ReimbRequestPojo> allResolvedRequests = reimbursementService.manViewAllResolved(); 
         	LOG.info("returning from /employees");
         	ctx.json(allResolvedRequests);
         });   

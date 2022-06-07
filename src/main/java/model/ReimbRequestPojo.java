@@ -17,6 +17,14 @@ public class ReimbRequestPojo {
 		this.reimbAmt = reimbAmt;
 		this.status = status;
 	}
+	public ReimbRequestPojo(int empId, String firstName, String lastName, double reimbAmt, String status) {
+		super();
+		this.empId = empId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.reimbAmt = reimbAmt;
+		this.status = status;
+	}
 	public int getEmpId() {
 		return empId;
 	}

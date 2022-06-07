@@ -90,11 +90,10 @@ public class ReimbursementServiceImpl implements ReimbursementService{
 	}
 
 	@Override
-	public
-	List<ReimbursementPojo> manViewAllResolved() throws ApplicationException{
+	public List<ReimbRequestPojo> manViewAllResolved() throws ApplicationException{
 		LOG.info("Hit manViewAllResolved() in RiembursementServiceImpl");
 		
-		List<ReimbursementPojo> allResolved = reimbursementDao.manViewAllResolved();
+		List<ReimbRequestPojo> allResolved = reimbursementDao.manViewAllResolved();
 		LOG.info("returning manViewAllResolved() in RiembursementServiceImpl");
 		
 		return allResolved;
