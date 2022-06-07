@@ -30,8 +30,7 @@ public class ReimbursementDaoImpl implements ReimbursementDao {
 		try {
 			Connection conn = DBUtil.dbConnection();
 			Statement stmt = conn.createStatement();
-			String query = "insert into reimbursements(reimb_amt, requester_id)" 
-					+ "values('"+reimbursementPojo.getReimbAmt()+"','"+reimbursementPojo.getRequesterId()+"') returning reimb_id";
+			String query = "INSERT INTO reimbursements(reimb_amt) VALUES='("+reimbursementPojo.getReimbAmt()+")' JOIN employees ON reimbursements.requester_id=employees.emp_Id WHERE empId ='"+ reimbursementPojo.getRequesterId()+";";
 			ResultSet rs = stmt.executeQuery(query);
 			rs.next();
 			reimbursementPojo.setReimbId(rs.getInt(1));

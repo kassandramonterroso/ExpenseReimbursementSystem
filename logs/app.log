@@ -2011,3 +2011,201 @@
 2022-06-06 21:46:51,815 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-23] returning submitRequest() in RiembursementServiceImpl
 2022-06-06 21:46:52,053 INFO ExpenseCrud [JettyServerThreadPool-23] returning get route /empRoleId/{id}
 
+2022-06-06 21:58:18,709 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-06 21:59:32,758 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-06 21:59:42,040 INFO ExpenseCrud [JettyServerThreadPool-24] starting post rout /login/{username}/{password}
+2022-06-06 21:59:42,041 INFO s.EmployeeServiceImpl [JettyServerThreadPool-24] hit login() in service.
+2022-06-06 21:59:42,041 INFO d.EmployeeDaoImpl [JettyServerThreadPool-24] hit login() in EmployeeDaoImpl
+2022-06-06 21:59:42,240 INFO d.EmployeeDaoImpl [JettyServerThreadPool-24] hit checkPass() in EmployeeDaoImpl
+2022-06-06 21:59:42,240 INFO d.EmployeeDaoImpl [JettyServerThreadPool-24] returning checkPass() in EmployeeDaoImpl
+2022-06-06 21:59:42,336 INFO d.EmployeeDaoImpl [JettyServerThreadPool-24] returning login() in EmployeeDaoImpl
+2022-06-06 21:59:42,336 INFO s.EmployeeServiceImpl [JettyServerThreadPool-24] returning login() in service.
+2022-06-06 21:59:42,336 INFO ExpenseCrud [JettyServerThreadPool-24] returning from /login/{username}/{password}
+2022-06-06 21:59:49,915 INFO ExpenseCrud [JettyServerThreadPool-20] starting get route /employees
+2022-06-06 21:59:49,916 INFO s.EmployeeServiceImpl [JettyServerThreadPool-20] Entered manViewAll() in service.
+2022-06-06 21:59:49,916 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] hit manViewAll() in EmployeeDaoImpl
+2022-06-06 21:59:49,919 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] returning manViewAll() in EmployeeDaoImpl
+2022-06-06 21:59:49,920 INFO s.EmployeeServiceImpl [JettyServerThreadPool-20] Exited manViewAll() in service.
+2022-06-06 21:59:49,921 INFO ExpenseCrud [JettyServerThreadPool-20] returning from /employees
+2022-06-06 22:00:08,095 INFO ExpenseCrud [JettyServerThreadPool-23] starting get route /empRoleId/{id}
+2022-06-06 22:00:08,095 INFO s.EmployeeServiceImpl [JettyServerThreadPool-23] Entered getRole() in service.
+2022-06-06 22:00:08,095 INFO d.EmployeeDaoImpl [JettyServerThreadPool-23] hit getRole() in EmployeeDaoImpl
+2022-06-06 22:00:08,100 INFO d.EmployeeDaoImpl [JettyServerThreadPool-23] returning getRole() in EmployeeDaoImpl
+2022-06-06 22:00:08,100 INFO s.EmployeeServiceImpl [JettyServerThreadPool-23] Exited getRole() in service.
+2022-06-06 22:00:08,103 INFO ExpenseCrud [JettyServerThreadPool-23] returning get route /empRoleId/{id}
+2022-06-06 22:00:10,392 INFO ExpenseCrud [JettyServerThreadPool-19] starting get route /employees
+2022-06-06 22:00:10,393 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-19] Hit manViewAllPending() in RiembursementServiceImpl
+2022-06-06 22:00:10,393 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-19] hit manViewAllPending
+2022-06-06 22:00:10,409 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-19] returning manViewAllPending
+2022-06-06 22:00:10,409 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-19] returning manViewAllPending() in RiembursementServiceImpl
+2022-06-06 22:00:10,410 INFO ExpenseCrud [JettyServerThreadPool-19] returning from /employees
+2022-06-06 22:00:12,120 INFO ExpenseCrud [JettyServerThreadPool-23] starting get route /employees
+2022-06-06 22:00:12,121 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-23] Hit manViewAllResolved() in RiembursementServiceImpl
+2022-06-06 22:00:12,122 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-23] hit manViewAllResolved
+2022-06-06 22:00:12,126 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-23] returning manViewAllResolved
+2022-06-06 22:00:12,127 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-23] returning manViewAllResolved() in RiembursementServiceImpl
+2022-06-06 22:00:12,127 INFO ExpenseCrud [JettyServerThreadPool-23] returning from /employees
+2022-06-06 22:00:13,752 INFO ExpenseCrud [JettyServerThreadPool-19] starting get route /employees
+2022-06-06 22:00:13,752 INFO s.EmployeeServiceImpl [JettyServerThreadPool-19] Entered manViewAll() in service.
+2022-06-06 22:00:13,752 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] hit manViewAll() in EmployeeDaoImpl
+2022-06-06 22:00:13,754 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] returning manViewAll() in EmployeeDaoImpl
+2022-06-06 22:00:13,755 INFO s.EmployeeServiceImpl [JettyServerThreadPool-19] Exited manViewAll() in service.
+2022-06-06 22:00:13,756 INFO ExpenseCrud [JettyServerThreadPool-19] returning from /employees
+2022-06-06 22:04:26,345 INFO ExpenseCrud [JettyServerThreadPool-20] starting post rout /login/{username}/{password}
+2022-06-06 22:04:26,346 INFO s.EmployeeServiceImpl [JettyServerThreadPool-20] hit login() in service.
+2022-06-06 22:04:26,346 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] hit login() in EmployeeDaoImpl
+2022-06-06 22:04:26,350 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] hit checkPass() in EmployeeDaoImpl
+2022-06-06 22:04:26,350 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] returning checkPass() in EmployeeDaoImpl
+2022-06-06 22:04:26,493 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] returning login() in EmployeeDaoImpl
+2022-06-06 22:04:26,493 INFO s.EmployeeServiceImpl [JettyServerThreadPool-20] returning login() in service.
+2022-06-06 22:04:26,493 INFO ExpenseCrud [JettyServerThreadPool-20] returning from /login/{username}/{password}
+2022-06-06 22:04:38,323 INFO ExpenseCrud [JettyServerThreadPool-19] starting get route /employees
+2022-06-06 22:04:38,323 INFO s.EmployeeServiceImpl [JettyServerThreadPool-19] Entered manViewAll() in service.
+2022-06-06 22:04:38,324 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] hit manViewAll() in EmployeeDaoImpl
+2022-06-06 22:04:38,326 INFO d.EmployeeDaoImpl [JettyServerThreadPool-19] returning manViewAll() in EmployeeDaoImpl
+2022-06-06 22:04:38,327 INFO s.EmployeeServiceImpl [JettyServerThreadPool-19] Exited manViewAll() in service.
+2022-06-06 22:04:38,327 INFO ExpenseCrud [JettyServerThreadPool-19] returning from /employees
+2022-06-06 22:04:43,991 INFO ExpenseCrud [JettyServerThreadPool-24] starting get route /employees
+2022-06-06 22:04:43,991 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-24] Hit manViewAllPending() in RiembursementServiceImpl
+2022-06-06 22:04:43,992 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-24] hit manViewAllPending
+2022-06-06 22:04:43,997 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-24] returning manViewAllPending
+2022-06-06 22:04:43,998 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-24] returning manViewAllPending() in RiembursementServiceImpl
+2022-06-06 22:04:43,998 INFO ExpenseCrud [JettyServerThreadPool-24] returning from /employees
+2022-06-06 22:04:46,287 INFO ExpenseCrud [JettyServerThreadPool-19] starting get route /employees
+2022-06-06 22:04:46,288 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-19] Hit manViewAllResolved() in RiembursementServiceImpl
+2022-06-06 22:04:46,288 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-19] hit manViewAllResolved
+2022-06-06 22:04:46,293 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-19] returning manViewAllResolved
+2022-06-06 22:04:46,294 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-19] returning manViewAllResolved() in RiembursementServiceImpl
+2022-06-06 22:04:46,294 INFO ExpenseCrud [JettyServerThreadPool-19] returning from /employees
+2022-06-06 22:04:50,165 INFO ExpenseCrud [JettyServerThreadPool-24] starting get route /empRoleId/{id}
+2022-06-06 22:04:50,166 INFO s.EmployeeServiceImpl [JettyServerThreadPool-24] Entered getRole() in service.
+2022-06-06 22:04:50,166 INFO d.EmployeeDaoImpl [JettyServerThreadPool-24] hit getRole() in EmployeeDaoImpl
+2022-06-06 22:04:50,168 INFO d.EmployeeDaoImpl [JettyServerThreadPool-24] returning getRole() in EmployeeDaoImpl
+2022-06-06 22:04:50,168 INFO s.EmployeeServiceImpl [JettyServerThreadPool-24] Exited getRole() in service.
+2022-06-06 22:04:50,169 INFO ExpenseCrud [JettyServerThreadPool-24] returning get route /empRoleId/{id}
+2022-06-06 22:04:58,974 INFO ExpenseCrud [JettyServerThreadPool-19] starting get route /employees
+2022-06-06 22:04:58,975 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-19] Hit manViewAllResolved() in RiembursementServiceImpl
+2022-06-06 22:04:58,975 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-19] hit manViewAllResolved
+2022-06-06 22:04:58,982 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-19] returning manViewAllResolved
+2022-06-06 22:04:58,982 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-19] returning manViewAllResolved() in RiembursementServiceImpl
+2022-06-06 22:04:58,982 INFO ExpenseCrud [JettyServerThreadPool-19] returning from /employees
+2022-06-06 22:05:02,191 INFO ExpenseCrud [JettyServerThreadPool-24] starting get route /employees
+2022-06-06 22:05:02,192 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-24] Hit manViewAllPending() in RiembursementServiceImpl
+2022-06-06 22:05:02,192 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-24] hit manViewAllPending
+2022-06-06 22:05:02,196 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-24] returning manViewAllPending
+2022-06-06 22:05:02,196 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-24] returning manViewAllPending() in RiembursementServiceImpl
+2022-06-06 22:05:02,196 INFO ExpenseCrud [JettyServerThreadPool-24] returning from /employees
+2022-06-06 22:05:30,034 INFO ExpenseCrud [JettyServerThreadPool-24] starting get route /employees
+2022-06-06 22:05:30,035 INFO s.EmployeeServiceImpl [JettyServerThreadPool-24] Entered manViewAll() in service.
+2022-06-06 22:05:30,035 INFO d.EmployeeDaoImpl [JettyServerThreadPool-24] hit manViewAll() in EmployeeDaoImpl
+2022-06-06 22:05:30,036 INFO d.EmployeeDaoImpl [JettyServerThreadPool-24] returning manViewAll() in EmployeeDaoImpl
+2022-06-06 22:05:30,036 INFO s.EmployeeServiceImpl [JettyServerThreadPool-24] Exited manViewAll() in service.
+2022-06-06 22:05:30,036 INFO ExpenseCrud [JettyServerThreadPool-24] returning from /employees
+2022-06-06 22:08:21,025 INFO ExpenseCrud [JettyServerThreadPool-18] starting get route /employees
+2022-06-06 22:08:21,026 INFO s.EmployeeServiceImpl [JettyServerThreadPool-18] Entered manViewAll() in service.
+2022-06-06 22:08:21,026 INFO d.EmployeeDaoImpl [JettyServerThreadPool-18] hit manViewAll() in EmployeeDaoImpl
+2022-06-06 22:08:21,029 INFO d.EmployeeDaoImpl [JettyServerThreadPool-18] returning manViewAll() in EmployeeDaoImpl
+2022-06-06 22:08:21,030 INFO s.EmployeeServiceImpl [JettyServerThreadPool-18] Exited manViewAll() in service.
+2022-06-06 22:08:21,030 INFO ExpenseCrud [JettyServerThreadPool-18] returning from /employees
+2022-06-06 22:08:23,013 INFO ExpenseCrud [JettyServerThreadPool-21] starting get route /employees
+2022-06-06 22:08:23,013 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-21] Hit manViewAllPending() in RiembursementServiceImpl
+2022-06-06 22:08:23,014 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-21] hit manViewAllPending
+2022-06-06 22:08:23,017 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-21] returning manViewAllPending
+2022-06-06 22:08:23,018 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-21] returning manViewAllPending() in RiembursementServiceImpl
+2022-06-06 22:08:23,019 INFO ExpenseCrud [JettyServerThreadPool-21] returning from /employees
+2022-06-06 22:08:54,496 INFO ExpenseCrud [JettyServerThreadPool-17] starting get route /empRoleId/{id}
+2022-06-06 22:08:54,497 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-17] Hit submitRequest() in RiembursementServiceImpl
+2022-06-06 22:08:54,500 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-17] hit submitRequest
+2022-06-06 22:08:54,515 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-17] returning submitRequest
+2022-06-06 22:08:54,516 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-17] returning submitRequest() in RiembursementServiceImpl
+2022-06-06 22:08:54,522 INFO ExpenseCrud [JettyServerThreadPool-17] returning get route /empRoleId/{id}
+2022-06-06 22:08:54,535 INFO ExpenseCrud [JettyServerThreadPool-24] starting get route /employees
+2022-06-06 22:08:54,535 INFO s.EmployeeServiceImpl [JettyServerThreadPool-24] Entered manViewAll() in service.
+2022-06-06 22:08:54,536 INFO d.EmployeeDaoImpl [JettyServerThreadPool-24] hit manViewAll() in EmployeeDaoImpl
+2022-06-06 22:08:54,537 INFO d.EmployeeDaoImpl [JettyServerThreadPool-24] returning manViewAll() in EmployeeDaoImpl
+2022-06-06 22:08:54,538 INFO s.EmployeeServiceImpl [JettyServerThreadPool-24] Exited manViewAll() in service.
+2022-06-06 22:08:54,538 INFO ExpenseCrud [JettyServerThreadPool-24] returning from /employees
+2022-06-06 22:08:56,730 INFO ExpenseCrud [JettyServerThreadPool-20] starting get route /employees
+2022-06-06 22:08:56,731 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-20] Hit manViewAllPending() in RiembursementServiceImpl
+2022-06-06 22:08:56,731 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-20] hit manViewAllPending
+2022-06-06 22:08:56,733 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-20] returning manViewAllPending
+2022-06-06 22:08:56,733 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-20] returning manViewAllPending() in RiembursementServiceImpl
+2022-06-06 22:08:56,733 INFO ExpenseCrud [JettyServerThreadPool-20] returning from /employees
+2022-06-06 22:09:06,862 INFO ExpenseCrud [JettyServerThreadPool-24] starting get route /employees
+2022-06-06 22:09:06,862 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-24] Hit manViewAllResolved() in RiembursementServiceImpl
+2022-06-06 22:09:06,863 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-24] hit manViewAllResolved
+2022-06-06 22:09:06,864 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-24] returning manViewAllResolved
+2022-06-06 22:09:06,865 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-24] returning manViewAllResolved() in RiembursementServiceImpl
+2022-06-06 22:09:06,865 INFO ExpenseCrud [JettyServerThreadPool-24] returning from /employees
+2022-06-06 22:09:09,086 INFO ExpenseCrud [JettyServerThreadPool-20] starting get route /employees
+2022-06-06 22:09:09,086 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-20] Hit manViewAllPending() in RiembursementServiceImpl
+2022-06-06 22:09:09,086 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-20] hit manViewAllPending
+2022-06-06 22:09:09,087 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-20] returning manViewAllPending
+2022-06-06 22:09:09,088 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-20] returning manViewAllPending() in RiembursementServiceImpl
+2022-06-06 22:09:09,088 INFO ExpenseCrud [JettyServerThreadPool-20] returning from /employees
+2022-06-06 22:09:18,259 INFO ExpenseCrud [JettyServerThreadPool-24] starting post rout /login/{username}/{password}
+2022-06-06 22:09:18,259 INFO s.EmployeeServiceImpl [JettyServerThreadPool-24] hit login() in service.
+2022-06-06 22:09:18,260 INFO d.EmployeeDaoImpl [JettyServerThreadPool-24] hit login() in EmployeeDaoImpl
+2022-06-06 22:09:18,262 INFO d.EmployeeDaoImpl [JettyServerThreadPool-24] hit checkPass() in EmployeeDaoImpl
+2022-06-06 22:09:18,263 INFO d.EmployeeDaoImpl [JettyServerThreadPool-24] returning checkPass() in EmployeeDaoImpl
+2022-06-06 22:09:18,471 INFO d.EmployeeDaoImpl [JettyServerThreadPool-24] returning login() in EmployeeDaoImpl
+2022-06-06 22:09:18,471 INFO s.EmployeeServiceImpl [JettyServerThreadPool-24] returning login() in service.
+2022-06-06 22:09:18,471 INFO ExpenseCrud [JettyServerThreadPool-24] returning from /login/{username}/{password}
+2022-06-06 22:09:21,080 INFO ExpenseCrud [JettyServerThreadPool-20] starting get route /employees
+2022-06-06 22:09:21,080 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-20] Hit manViewAllPending() in RiembursementServiceImpl
+2022-06-06 22:09:21,080 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-20] hit manViewAllPending
+2022-06-06 22:09:21,084 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-20] returning manViewAllPending
+2022-06-06 22:09:21,085 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-20] returning manViewAllPending() in RiembursementServiceImpl
+2022-06-06 22:09:21,085 INFO ExpenseCrud [JettyServerThreadPool-20] returning from /employees
+2022-06-06 22:09:30,758 INFO ExpenseCrud [JettyServerThreadPool-24] starting get route /empRoleId/{id}
+2022-06-06 22:09:30,758 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-24] Hit submitRequest() in RiembursementServiceImpl
+2022-06-06 22:09:30,759 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-24] hit submitRequest
+2022-06-06 22:09:30,772 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-24] returning submitRequest
+2022-06-06 22:09:30,772 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-24] returning submitRequest() in RiembursementServiceImpl
+2022-06-06 22:09:30,773 INFO ExpenseCrud [JettyServerThreadPool-24] returning get route /empRoleId/{id}
+2022-06-06 22:09:30,781 INFO ExpenseCrud [JettyServerThreadPool-20] starting get route /employees
+2022-06-06 22:09:30,781 INFO s.EmployeeServiceImpl [JettyServerThreadPool-20] Entered manViewAll() in service.
+2022-06-06 22:09:30,782 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] hit manViewAll() in EmployeeDaoImpl
+2022-06-06 22:09:30,783 INFO d.EmployeeDaoImpl [JettyServerThreadPool-20] returning manViewAll() in EmployeeDaoImpl
+2022-06-06 22:09:30,783 INFO s.EmployeeServiceImpl [JettyServerThreadPool-20] Exited manViewAll() in service.
+2022-06-06 22:09:30,783 INFO ExpenseCrud [JettyServerThreadPool-20] returning from /employees
+2022-06-06 22:15:51,920 INFO ExpenseCrud [JettyServerThreadPool-17] starting get route /empRoleId/{id}
+2022-06-06 22:15:51,921 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-17] Hit submitRequest() in RiembursementServiceImpl
+2022-06-06 22:15:51,921 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-17] hit submitRequest
+2022-06-06 22:15:51,936 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-17] returning submitRequest
+2022-06-06 22:15:51,936 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-17] returning submitRequest() in RiembursementServiceImpl
+2022-06-06 22:15:51,937 INFO ExpenseCrud [JettyServerThreadPool-17] returning get route /empRoleId/{id}
+2022-06-06 22:15:51,950 INFO ExpenseCrud [JettyServerThreadPool-23] starting get route /employees
+2022-06-06 22:15:51,950 INFO s.EmployeeServiceImpl [JettyServerThreadPool-23] Entered manViewAll() in service.
+2022-06-06 22:15:51,950 INFO d.EmployeeDaoImpl [JettyServerThreadPool-23] hit manViewAll() in EmployeeDaoImpl
+2022-06-06 22:15:51,953 INFO d.EmployeeDaoImpl [JettyServerThreadPool-23] returning manViewAll() in EmployeeDaoImpl
+2022-06-06 22:15:51,953 INFO s.EmployeeServiceImpl [JettyServerThreadPool-23] Exited manViewAll() in service.
+2022-06-06 22:15:51,954 INFO ExpenseCrud [JettyServerThreadPool-23] returning from /employees
+2022-06-06 22:36:34,597 INFO ExpenseCrud [main] Starting server on port 8082
+2022-06-06 22:36:51,365 INFO ExpenseCrud [JettyServerThreadPool-24] starting get route /empRoleId/{id}
+2022-06-06 22:36:51,365 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-24] Hit submitRequest() in RiembursementServiceImpl
+2022-06-06 22:36:51,366 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-24] hit submitRequest
+2022-06-06 22:36:51,622 INFO ExpenseCrud [JettyServerThreadPool-24] starting get route /employees
+2022-06-06 22:36:51,622 INFO s.EmployeeServiceImpl [JettyServerThreadPool-24] Entered manViewAll() in service.
+2022-06-06 22:36:51,622 INFO d.EmployeeDaoImpl [JettyServerThreadPool-24] hit manViewAll() in EmployeeDaoImpl
+2022-06-06 22:36:51,632 INFO d.EmployeeDaoImpl [JettyServerThreadPool-24] returning manViewAll() in EmployeeDaoImpl
+2022-06-06 22:36:51,632 INFO s.EmployeeServiceImpl [JettyServerThreadPool-24] Exited manViewAll() in service.
+2022-06-06 22:36:51,632 INFO ExpenseCrud [JettyServerThreadPool-24] returning from /employees
+2022-06-06 22:36:53,809 INFO ExpenseCrud [JettyServerThreadPool-18] starting get route /employees
+2022-06-06 22:36:53,809 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-18] Hit manViewAllPending() in RiembursementServiceImpl
+2022-06-06 22:36:53,809 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-18] hit manViewAllPending
+2022-06-06 22:36:53,814 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-18] returning manViewAllPending
+2022-06-06 22:36:53,814 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-18] returning manViewAllPending() in RiembursementServiceImpl
+2022-06-06 22:36:53,814 INFO ExpenseCrud [JettyServerThreadPool-18] returning from /employees
+2022-06-06 22:36:55,956 INFO ExpenseCrud [JettyServerThreadPool-23] starting get route /employees
+2022-06-06 22:36:55,956 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-23] Hit manViewAllResolved() in RiembursementServiceImpl
+2022-06-06 22:36:55,957 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-23] hit manViewAllResolved
+2022-06-06 22:36:55,959 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-23] returning manViewAllResolved
+2022-06-06 22:36:55,959 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-23] returning manViewAllResolved() in RiembursementServiceImpl
+2022-06-06 22:36:55,959 INFO ExpenseCrud [JettyServerThreadPool-23] returning from /employees
+2022-06-06 22:36:57,762 INFO ExpenseCrud [JettyServerThreadPool-19] starting get route /employees
+2022-06-06 22:36:57,763 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-19] Hit manViewAllPending() in RiembursementServiceImpl
+2022-06-06 22:36:57,764 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-19] hit manViewAllPending
+2022-06-06 22:36:57,767 INFO d.ReimbursementDaoImpl [JettyServerThreadPool-19] returning manViewAllPending
+2022-06-06 22:36:57,768 INFO s.ReimbursementServiceImpl [JettyServerThreadPool-19] returning manViewAllPending() in RiembursementServiceImpl
+2022-06-06 22:36:57,769 INFO ExpenseCrud [JettyServerThreadPool-19] returning from /employees
