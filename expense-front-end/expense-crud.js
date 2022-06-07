@@ -17,16 +17,15 @@ function getAllEmployees(){ //manViewAll method
                                     <tbody>`;
             for(let e of responseJson){
                 employeeTableData += `<tr>
-                                        <td>${e.empId}</td>
                                         <td>
-                                            <a href="#" onclick="viewSpecificEmployeeRequest(${e.empFirstName})">
-                                            ${e.empFirstName}
-                                            </a>                                            
+                                            <a href="#" onclick="viewSpecificEmployeeRequest(${e.empId})">
+                                            ${e.empId}                                          
                                         </td>
+                                        <td>${e.empFirstName}</td>
 
                                         <td>${e.empLastName}</td>
                                     `
-                                        if(e.empRoleId == 2){
+                                        /*if(e.empRoleId == 2){
                                             employeeTableData += `
                                            <td>
                                             <button 
@@ -40,7 +39,7 @@ function getAllEmployees(){ //manViewAll method
                                                 onclick="rejectRequest(${e.reimbId})"> Reject 
                                             </button>
                                             </td>`
-                                        }
+                                        }*/
                                         employeeTableData += `</tr>`;
                 employeeTableData += `</tr>`;
 
@@ -66,7 +65,7 @@ function getAllEmployees(){ //manViewAll method
                                         <br>
                                         <p>Employee Last Name : ${empLastName}</p>
                                         <br>
-                                        <p>Employee Reimubursement Request Id : ${reimbId}</p>
+                                        <p>Employee Reimbursement Request Id : ${reimbId}</p>
                                         <br>
                                         <p>Reimbursement Request Amount : ${reimbAmt}</p>
                                         <br>
